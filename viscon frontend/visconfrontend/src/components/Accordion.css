@@ -1,0 +1,54 @@
+.accordionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .accordion:hover {
+    background-color: #ccc; 
+  }
+  
+  .accordion:after {
+    content: "\203A";
+    font-size: 40px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.1s;
+  }
+  
+  .active:after {
+    content: "\203A";
+    transform: rotate(90deg);
+    font-size: 40px;
+  }
+  
+  .active {
+    background-color: gainsboro;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    width: 50%;
+    text-align: left;
+  }
