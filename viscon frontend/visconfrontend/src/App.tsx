@@ -1,13 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Machines from "./routes/Machines";
+import Checklist from "./routes/Checklist";
 import './App.css';
-import Accordion from './components/Accordion';
 
 function App() {
   return (
     <div className="App">
-      <header> Viscon </header>
-      <Accordion buttonText="Accordion 1" panelText="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/machines" element={ <Machines /> } />
+        <Route path="/checklist" element={ <Checklist /> } />
+      </Routes>
     </div>
   );
 }
