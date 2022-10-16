@@ -2,7 +2,7 @@ import React from 'react';
 
 function Machines() {
     return(
-        <div>
+        <div className="Machines">
             <h1> Machines </h1>
         </div>
     );
