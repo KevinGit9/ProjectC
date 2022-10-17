@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './textbox.css';
 
 function App() {
   return (
@@ -7,12 +8,23 @@ function App() {
           <header className="App-header">
               <h1>storing melden</h1>
               <p>omschrijf het probleem zo volledig mogelijk</p>
-              <input type="text" />
+              
+              < text className="textbox">
+                  <text>
 
-              <input type="file" /> 
-        
-        </header>
-    </div>
+                      sdnjsnfjksdnfjsdnfkjhbeskhfkjdsnfkjsdnjfnsdjfnkjdsnfkjsdfkjsdjlfnslkdfjlksnflnfljsnfljdslkfjsdlkfjsldjflsdfljsdfklsflskjdflksdjflsjflksjfljsf
+
+                      sdnfkjnsdljfns
+
+                      nsdjfnljsdnfkldsfjlk
+
+                  </text>
+                  <input type="text" />
+              </text>          
+              
+              <input type="file" />
+          </header>
+      </div>
   );
 }
 
