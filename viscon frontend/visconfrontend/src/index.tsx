@@ -12,13 +12,3 @@ root.render(
     <App />
   </BrowserRouter>,
 );
-
-const idGenerator = {
-  currentIdCount: 0,
-
-  Generate: function() {
-    let id = "id" + this.currentIdCount;
-    this.currentIdCount++;
-    return id;
-  }
-}
