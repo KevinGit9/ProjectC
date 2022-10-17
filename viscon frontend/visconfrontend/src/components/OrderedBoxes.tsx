@@ -11,15 +11,17 @@ interface IOrderedBoxes {
 
 
 function OrderedBoxes(acc: IOrderedBoxes) {
-    var className = "orderedBoxesPanel hideable";
+    var classNameButton = "orderedBoxesButton";
+    var classNamePanel = "orderedBoxesPanel hideable";
     if (acc.id === acc.currentBox) {
-        className = className.concat(" show");
+        classNameButton = classNameButton.concat(" open");
+        classNamePanel = classNamePanel.concat(" show");
     }
 
     return(
         <div className="orderedBoxes">
-            <div className="orderedBoxesButton"> {acc.buttonText} </div> 
-            <div className={className}>
+            <div className={classNameButton}> {acc.buttonText} </div> 
+            <div className={classNamePanel}>
                 <p> {acc.panelText} </p>
                 <button onClick={acc.navigateToPage}> Go to different page. </button>
                 <button onClick={acc.buttonFunction}> Next Step </button>
