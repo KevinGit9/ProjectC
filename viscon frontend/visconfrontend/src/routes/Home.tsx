@@ -9,6 +9,7 @@ function Home() {
             <img src="visconlogo.png" className="logo"></img>
             <Link to="machines"> Click to view machines page </Link>
             <Link to="checklist"> Click to view checklist page </Link>
+            <Link to="usermenu"> Click to view usermenu page </Link>
         </div>
     );
 }
