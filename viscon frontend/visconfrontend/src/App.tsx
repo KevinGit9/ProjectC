@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import Machines from "./routes/Machines";
 import Checklist from "./routes/Checklist";
 import './App.css';
+import UserMenu from './routes/UserMenu';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={ <Home /> } />
         <Route path="/machines" element={ <Machines /> } />
         <Route path="/checklist" element={ <Checklist /> } />
+        <Route path="/usermenu" element={ <UserMenu /> } />
       </Routes>
     </div>
   );
