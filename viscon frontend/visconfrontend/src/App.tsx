@@ -3,8 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Machines from "./routes/Machines";
 import Checklist from "./routes/Checklist";
-import './App.css';
 import UserMenu from './routes/UserMenu';
+import Problems from './routes/Problems';
+import './App.css';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/machines" element={ <Machines /> } />
         <Route path="/checklist" element={ <Checklist /> } />
         <Route path="/usermenu" element={ <UserMenu /> } />
+        <Route path="/problems" element={ <Problems /> } />
       </Routes>
     </div>
   );
