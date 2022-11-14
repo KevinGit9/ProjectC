@@ -7,6 +7,8 @@ interface IOrderedBoxes {
     currentBox: number;
     buttonFunction?: any;
     navigateToPage?: any;
+    navigateToButtonText: string;
+    nextStepButtonText: string;
 }
 
 
@@ -23,8 +25,8 @@ function OrderedBoxes(acc: IOrderedBoxes) {
             <div className={classNameButton}> {acc.buttonText} </div> 
             <div className={classNamePanel}>
                 <p> {acc.panelText} </p>
-                <button onClick={acc.navigateToPage}> Go to different page. </button>
-                <button onClick={acc.buttonFunction}> Next Step </button>
+                <button onClick={acc.navigateToPage}> {acc.navigateToButtonText} </button>
+                <button onClick={acc.buttonFunction}> {acc.nextStepButtonText} </button>
             </div>
         </div>
     );
