@@ -1,11 +1,12 @@
 .App {
     text-align: center;
-    /*input [type=text]{
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-    }*/
+}
+
+.button {
+    height: 100px;
+    width: 500px;
+    background-color: powderblue;
+    padding: 25px 50px;
 }
 
 .App-logo {
