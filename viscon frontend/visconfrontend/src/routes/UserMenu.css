@@ -67,17 +67,19 @@
     opacity: 1;
     z-index: -1;
 }
+/*
 .hero{
     width: 100%;
     min-height: 100vh;
     background: #4c80b8;
     color: #525252;
 }
+*/
 
 nav{
     background: #1a1a1a;
     width: 100%;
-    padding: 0px 10%;
+    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -85,6 +87,8 @@ nav{
 }
 .logo-nav{
     width: 120px;
+    margin-left: 20px;
+
 }
 
 .icon-profile{
@@ -92,5 +96,6 @@ nav{
     size: 30px;
     border-radius: 50%;
     cursor: pointer;
+    margin-right: 20px;
 
 }
