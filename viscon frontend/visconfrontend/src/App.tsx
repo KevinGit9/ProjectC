@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import NavigationBar from './components/NavigationBar';
 import Home from "./routes/Home";
 import Machines from "./routes/Machines";
 import Checklist from "./routes/Checklist";
@@ -12,15 +13,22 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/machines" element={ <Machines /> } />
-        <Route path="/checklist" element={ <Checklist /> } />
-        <Route path="/usermenu" element={ <UserMenu /> } />
-        <Route path="/problems" element={<Problems />} />
-        <Route path="/submitform" element={<Submitform />}/>
-        <Route path="/*" element /> {/* 404 error page toevoegen*/}
-      </Routes>
+      <div className="layout"> 
+        <div className="navBar">
+          <NavigationBar></NavigationBar>
+        </div>
+        <div className="routes">
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="/machines" element={ <Machines /> } />
+            <Route path="/checklist" element={ <Checklist /> } />
+            <Route path="/usermenu" element={ <UserMenu /> } />
+            <Route path="/problems" element={<Problems />} />
+            <Route path="/submitform" element={<Submitform />}/>
+            <Route path="/*" element /> {/* 404 error page toevoegen*/}
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

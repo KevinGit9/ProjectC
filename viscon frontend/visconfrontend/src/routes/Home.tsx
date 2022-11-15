@@ -1,12 +1,9 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import NavigationBar from '../components/NavigationBar';
 import './Home.css';
 
 function Home() {
     return(
         <div className="Home">
-            <NavigationBar></NavigationBar>
+            <h1> Home </h1>
         </div>
     );
 }

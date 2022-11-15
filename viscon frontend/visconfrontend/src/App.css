@@ -1,0 +1,27 @@
+#root {
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.App {
+    height: 100%;
+}
+
+.layout {
+    display: flex;
+    justify-content: stretch;
+    height: 100%;
+}
+
+.navBar {
+    width: 15%;
+}
+
+.routes {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+}
