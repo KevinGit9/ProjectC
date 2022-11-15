@@ -3,7 +3,6 @@ import './App.css';
 import './textbox.css';
 
 
-
 function App() {
     return (
 
@@ -16,7 +15,11 @@ function App() {
                     <input type="submit" ></input>
                 </label>
             </form>
+
+            <input type ='text'></input>
         </div>
+
+
     );
 }
 
