@@ -7,9 +7,9 @@ function UserMenu() {
     <div className="hero">
       <nav>
         <img src="/visconlogo.png" className ="logo-nav" />
-        <img src="/profile-icon.png" className ="icon-profile" onClick = "toggleMenu()"/>
+        <img src="/profile-icon.png" className ="icon-profile" onClick = {toggleMenu()}/>
 
-        <div className="sub-menu-wrap">
+        <div className="sub-menu-wrap" id = "subMenu">
             <div className="sub-menu">
                 <div className="user-info">
                   <img className = "icon-profile-sub" src = "/profile-icon.png"></img>
@@ -37,6 +37,15 @@ function UserMenu() {
       <button className="btn-1"> Melding Maken </button>
       <button className="btn-2"> Mijn Meldingen </button>
     </div>
+
+    <script>
+      let subMenu = document.getElementById("subMenu");
+
+      function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+       {'}'}
+    </script>
+
     </body>
   );
 }
