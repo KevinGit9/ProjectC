@@ -19,6 +19,7 @@ function App() {
         <Route path="/usermenu" element={ <UserMenu /> } />
         <Route path="/problems" element={<Problems />} />
         <Route path="/submitform" element={<Submitform />}/>
+        <Route path="/*" element /> {/* 404 error page toevoegen*/}
       </Routes>
     </div>
   );
