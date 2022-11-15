@@ -10,6 +10,7 @@ function NavigationBar() {
             <a href="/checklist"> Checklist </a>
             <a href="/usermenu"> Usermenu </a>
             <a href="/problems"> Problems </a>
+            <a href="/submitform"> Submit Form </a>
         </div>
     )
 }
