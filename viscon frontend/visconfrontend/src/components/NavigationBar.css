@@ -1,0 +1,32 @@
+.navigationBarPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 15%;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #01152C;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+.navigationBarPanel a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+}
+
+.navigationBarPanel a:hover {
+    background-color: #052D5C;
+    width: 100%;
+}
+
+.logo {
+    max-width: 60%;
+    max-height: auto;
+}
