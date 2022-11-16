@@ -5,6 +5,7 @@ function NavigationBar() {
         <div className="navigationBarPanel">
             <a href="/"><img src="visconlogo.png" className="logo"></img></a>
             <a href="/"> Home </a>
+            <a href="/machines"> Machines </a>
             <a href="/checklist"> Checklist </a>
             <a href="/usermenu"> Usermenu </a>
             <a href="/problems"> Problems </a>

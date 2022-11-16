@@ -14,6 +14,7 @@
     display: flex;
     justify-content: stretch;
     height: 100%;
+    /*background-color: color for background in whole application (Could use for dark-mode) */
 }
 
 .navBar {

@@ -5,10 +5,10 @@ interface IOrderedBoxes {
     panelText?: string;
     id: any;
     currentBox: number;
-    buttonFunction?: any;
-    navigateToPage?: any;
-    navigateToButtonText: string;
-    nextStepButtonText: string;
+    rightButtonText: string;
+    rightButtonFunction?: any;
+    leftButtonText: string;
+    leftButtonFunction?: any;
 }
 
 
@@ -25,8 +25,10 @@ function OrderedBoxes(acc: IOrderedBoxes) {
             <div className={classNameButton}> {acc.buttonText} </div> 
             <div className={classNamePanel}>
                 <p> {acc.panelText} </p>
-                <button onClick={acc.navigateToPage}> {acc.navigateToButtonText} </button>
-                <button onClick={acc.buttonFunction}> {acc.nextStepButtonText} </button>
+                <div className="orderedBoxesButtons">
+                    <button onClick={acc.leftButtonFunction}> {acc.leftButtonText} </button>
+                    <button onClick={acc.rightButtonFunction}> {acc.rightButtonText} </button>
+                </div>
             </div>
         </div>
     );
