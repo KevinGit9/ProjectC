@@ -12,6 +12,8 @@ function Home() {
             <Link to="usermenu"> Click to view usermenu page </Link>
             <Link to="problems"> Click to view problems page </Link>
             <Link to="submitform"> Click to view Submissionform page </Link>
+            <Link to="login">Click to view login page</Link>
+            <Link to="Admin">Click to go to adminpage</Link>
         </div>
     );
 }

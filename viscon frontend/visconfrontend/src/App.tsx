@@ -7,6 +7,8 @@ import UserMenu from './routes/UserMenu';
 import Problems from './routes/Problems';
 import Submitform from './routes/submitform'
 import './App.css';
+import Login from './routes/login';
+import Admin from './routes/admin'
 
 
 function App() {
@@ -18,7 +20,9 @@ function App() {
         <Route path="/checklist" element={ <Checklist /> } />
         <Route path="/usermenu" element={ <UserMenu /> } />
         <Route path="/problems" element={<Problems />} />
-        <Route path="/submitform" element={<Submitform />}/>
+        <Route path="/submitform" element={<Submitform />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={< Admin/>} />
       </Routes>
     </div>
   );
