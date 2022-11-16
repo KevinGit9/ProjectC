@@ -12,24 +12,13 @@
   padding: 5% 20%;
 }
 
-.backButton {
+.navButtons button {
   background-color: #eee;
   border: none;
   padding: 3% 8%;
   border-radius: 4px;
 }
 
-.backButton:hover {
-  background-color: #ccc;
-}
-
-.noSolutionButton {
-  background-color: #eee;
-  border: none;
-  padding: 3% 8%;
-  border-radius: 4px;
-}
-
-.noSolutionButton:hover {
+.navButtons button:hover {
   background-color: #ccc;
 }

@@ -13,7 +13,7 @@ interface IOrderedBoxes {
 }
 
 
-function OrderedBoxes(acc: IOrderedBoxes) {
+function InitialBox(acc: IOrderedBoxes) {
     var classNameButton = "orderedBoxesButton";
     var classNamePanel = "orderedBoxesPanel hideable";
     var previousCheckButtonPanel = "previousCheckButtonPanel hideable";
@@ -26,10 +26,7 @@ function OrderedBoxes(acc: IOrderedBoxes) {
 
     return(
         <div className="orderedBoxes">
-            <div className={classNameButton}> 
-                {acc.buttonText} 
-                <div className={previousCheckButtonPanel}> <button className="previousCheckButton" onClick={acc.backButtonFunction}> Back </button> </div>
-            </div> 
+            <div className={classNameButton}> {acc.buttonText} </div> 
             <div className={classNamePanel}>
                 <p> {acc.panelText} </p>
                 <div className="orderedBoxesButtons">
@@ -41,4 +38,4 @@ function OrderedBoxes(acc: IOrderedBoxes) {
     );
 }
 
-export default OrderedBoxes;
+export default InitialBox;
