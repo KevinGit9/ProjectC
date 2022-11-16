@@ -1,9 +1,20 @@
+
 .admin {
+    display: flex;
     text-align: center;
     background-color: ghostwhite;
-    justify-items: flex-start;
-    display: flex;
-    flex-direction: column;
+    flex-direction:column;
+}
+.buttons {
+    text-align: center;
+    background-color: ghostwhite;
+    margin: 20px;
+}
+.admin > div {
+    background-color: ghostwhite;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
 }
 
 .btn{
@@ -16,5 +27,10 @@
 
 .btn:hover{
     cursor: pointer;
+}
+
+.table1 {
+    margin-left:auto;
+    margin-right:auto;
 }
  

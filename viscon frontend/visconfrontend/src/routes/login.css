@@ -1,11 +1,20 @@
 .loginmenu {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
     min-height: 100vh;
 }
-
-.heading{
-    color:lightskyblue;
+.loginbutton{
+    text-align:left;
+    margin:6rem;
+    background-color:deepskyblue;
+}
+.hh{
+    text-align:center;
+}
+.Lbtn{
+    width:300px;
+}
+.heading {
+   
 }
