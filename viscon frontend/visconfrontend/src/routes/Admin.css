@@ -1,0 +1,36 @@
+
+.admin {
+    display: flex;
+    text-align: center;
+    background-color: ghostwhite;
+    flex-direction:column;
+}
+.buttons {
+    text-align: center;
+    background-color: ghostwhite;
+    margin: 20px;
+}
+.admin > div {
+    background-color: ghostwhite;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.btn{
+    width: 300px;
+    height: 300px;
+    border: none;
+    background-color: white;
+    font-size: 2rem;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.table1 {
+    margin-left:auto;
+    margin-right:auto;
+}
+ 
