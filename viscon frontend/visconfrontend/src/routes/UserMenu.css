@@ -106,8 +106,12 @@ nav{
     top: 100%;
     right: 5%;
     width: 320px;
-    max-height: 400px;
+    max-height: 0px;
     overflow: hidden;
+    transition: maxheight 0.5;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
 }
 .sub-menu{
     background: #ececec;
