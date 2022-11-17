@@ -6,16 +6,13 @@ function Login() {
     return (
         <div className="loginmenu">
 
-            <h1 className="heading"> Welcome to Viscon support</h1><br />
             <img className="logo-1" src="/small-viscon-logo.png" alt="image" />
-            
+            <h1 className="heading"> Welcome to Viscon support</h1>
             <div className='loginbutton'>
             <h4 className = 'hh'>Log in</h4>
-            
-                Username: <br />
-                <input className="Lbtn" type='text'></input><br />
-                Password:<br/>
-                <input className="Lbtn" type='password'></input> <br />
+           
+                <input placeholder='Username' className="Lbtn" type='text'></input><br />
+                <input placeholder= 'Password' className="Lbtn" type='password'></input> <br />
             
                 <Link to = '/usermenu'>
                     <input className="Lbtn" type='submit'></input> 
@@ -24,10 +21,8 @@ function Login() {
                 <Link to='/admin'>
                     <input className="Lbtn" type='submit'></input> <br />
                 </Link>
+                <a href = ''>wachtwoord vergeten?</a>
             </div>
-
-            wachtwoord vergeten?
-           
         </div>
     );
 }
