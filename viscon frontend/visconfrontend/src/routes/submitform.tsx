@@ -8,13 +8,18 @@ function Submitform() {
 
         <div className="submissionform">
             <h1>Problem submission form</h1>
-            <p>Beschrijf het probleem zo gedetailleerd mogelijk.</p>
             <form id="problemform">
-                <label> <br></br>
-                    <textarea className = "textbox"> </textarea> <br/>
-                    <input className="paperclip" type="file" multiple accept= "image/*, video/*" ></input>
-                    <input type="submit" ></input>
-                </label>
+
+                <p>Please describe the behaviour you're expecting.</p>
+                <textarea className = "textbox"> </textarea> <br/>
+
+                <p>Please describe the behaviour you're seeing.</p>
+                <textarea className="textbox"> </textarea> <br />
+
+                <p>Please enter any additional information.</p>
+                <textarea className="textbox"> </textarea> <br />
+                <input className="paperclip" type="file" multiple accept="image/*, video/*" ></input>
+                <input type="submit" ></input>
             </form>
 
         </div>
