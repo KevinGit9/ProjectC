@@ -5,11 +5,12 @@
     background-color: ghostwhite;
     flex-direction:column;
 }
+
 .buttons {
     text-align: center;
     background-color: ghostwhite;
-    margin: 20px;
 }
+
 .admin > div {
     background-color: ghostwhite;
     margin: 10px;
@@ -18,19 +19,22 @@
 }
 
 .btn{
-    width: 300px;
-    height: 300px;
-    border: none;
+    width: 20rem;
+    height: 20rem;
+    border: 1rem;
+    border-color: red;
+    border-width: 1rem;
+    padding: 2rem;
+    border:solid;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
     background-color: white;
     font-size: 2rem;
+    border-radius:2rem;
 }
 
 .btn:hover{
     cursor: pointer;
 }
 
-.table1 {
-    margin-left:auto;
-    margin-right:auto;
-}
  
