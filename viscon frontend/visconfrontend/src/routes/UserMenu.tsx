@@ -9,18 +9,19 @@ function UserMenu() {
 
   return (
     <body>
-      <TopBar/>
-    <div className="container-1">
-      <img className = "logo-1" src="/small-viscon-logo.png" alt="image"/>
-      <button className="btn-1" onClick={() => navigate("/machines")}> Melding Maken </button>
-      <button className="btn-2"> Mijn Meldingen </button>
-    </div>
-
-
+      <TopBar /> {/* van links naar rechts werken met div boxes*/}
+      <div className="circle"></div>
+        <div className="masterContainer">
+          <div className="mainButtonContainer">
+            <img className="logo-1" src="/small-viscon-logo.png" alt="image" />
+            <button className="btn-1" onClick={() => navigate("/machines")}> Create Ticket </button>
+            <button className="btn-2"> My Tickets </button>
+          </div>
+        </div>
     </body>
   );
 
 
 }
-  
+
 export default UserMenu;

@@ -6,13 +6,14 @@
 
 
 nav{
-    background: #1a1a1a;
+    background: #01152C;
     width: 100%;
     padding: 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    z-index: 2;
 }
 
 .logo-nav{
