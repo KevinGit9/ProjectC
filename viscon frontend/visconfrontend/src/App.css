@@ -28,7 +28,11 @@
     overflow-y: auto;
 }
 
+
+/* disables error popups */
+/*
 iframe
 {
     display: none;
 }
+*/
