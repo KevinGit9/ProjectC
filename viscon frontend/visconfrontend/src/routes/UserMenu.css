@@ -1,22 +1,22 @@
-/* .UserMenu{
+.UserMenu{
     letter-spacing: 4px;
     background-color: #fff;
-} */
+}
 
-.container {
+.container-1{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    min-height: 80vh;
+
 }
 
 .logo-1{
     max-width: 10%;
     height: auto;
     position: relative;
-    
 
 }
 
@@ -66,5 +66,107 @@
     opacity: 1;
     z-index: -1;
 }
+/*
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: #4c80b8;
+    color: #525252;
+}
+*/
+
+nav{
+    background: #1a1a1a;
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo-nav{
+    width: 120px;
+    margin-left: 20px;
+
+}
+
+.icon-profile{
+    width: 40px;
+    size: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 20px;
+
+}
 
 
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: maxheight 0.5;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background: #ececec;
+    padding: 20px;
+    margin: 10px;
+
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #1a1a1a;
+    margin: 15px 0px 10px;
+
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+
+.user-info img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+.sub-menu-link p{
+    width: 100%;
+}
+.sub-menu-link img{
+    width: 20px;
+    background-color: #d8d6d6;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
