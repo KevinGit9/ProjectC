@@ -10,6 +10,7 @@ import Submitform from './routes/submitform'
 import './App.css';
 import Login from './routes/login';
 import Admin from './routes/admin'
+import AdminRegistratie from './routes/AdminRegistratie';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
             <Route path="/submitform" element={<Submitform />} />
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={< Admin/>} />
+            <Route path="/registration" element={< AdminRegistratie/>} />
+
             <Route path="/*" element /> {/* 404 error page toevoegen*/}
           </Routes>
         </div>
