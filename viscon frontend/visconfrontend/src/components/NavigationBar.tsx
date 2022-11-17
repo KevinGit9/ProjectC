@@ -10,6 +10,8 @@ function NavigationBar() {
             <a href="/usermenu"> User Menu </a>
             <a href="/problems"> Problems </a>
             <a href="/submitform"> Submit Form </a>
+            <a href="/login"> loginscherm </a>
+            <a href="/admin"> adminmenu </a>
         </div>
     )
 }

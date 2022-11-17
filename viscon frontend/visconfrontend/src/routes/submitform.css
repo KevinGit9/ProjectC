@@ -28,3 +28,11 @@
 .paperclip:hover::before {
     border-color: black
 }
+.submissionform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
