@@ -16,6 +16,7 @@ na heel veel keer op de zoekbalk drukken en dan weg drukken laadt het component 
 import React, {useState, useEffect, useRef} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
+import { useNavigate } from 'react-router-dom';
 
 const SearchbarDropdown = (props: any) => {
   const { options, onInputChange } = props;
@@ -52,10 +53,11 @@ const SearchbarDropdown = (props: any) => {
        {option}
        </button>
       )}
-     
   
    </ul>
+   
    </div>
+   
   )
 }
 
@@ -72,12 +74,12 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 //App, later aanpassen
 
 function Machines() {
-
+  var navigate = useNavigate();
   const [options, setOptions] = useState([]);
   const onInputChange = (event) => {
   console.log(event.target.value);
   const new_options  : string[] = defaultOptions.filter(option => option.includes(event.target.value))
-  setOptions(new_options) // dit zou moeten werken (werkt op JS wel), maar kan een error geven
+  //setOptions(new_options) // dit zou moeten werken (werkt op JS wel), maar kan een error geven
   }
 
 
@@ -87,6 +89,7 @@ function Machines() {
       <SearchbarDropdown 
       options={options}
       onInputChange={onInputChange} />
+      <button onClick={() => navigate("/checklist")}> Continue </button>
     </div>
   )
 }

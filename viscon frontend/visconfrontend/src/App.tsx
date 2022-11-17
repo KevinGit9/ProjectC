@@ -6,11 +6,11 @@ import Machines from "./routes/Machines";
 import Checklist from "./routes/Checklist";
 import UserMenu from './routes/UserMenu';
 import Problems from './routes/Problems';
-import Submitform from './routes/submitform'
-import './App.css';
+import Submitform from './routes/submitform';
+import Admin from './routes/admin';
 import Login from './routes/login';
-import Admin from './routes/admin'
 import AdminRegistratie from './routes/AdminRegistratie';
+import './App.css';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <div className="layout"> 
         <div className="navBar">
-          <NavigationBar></NavigationBar>
+          <NavigationBar/>
         </div>
         <div className="routes">
           <Routes>
@@ -31,7 +31,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={< Admin/>} />
             <Route path="/registration" element={< AdminRegistratie/>} />
-
             <Route path="/*" element /> {/* 404 error page toevoegen*/}
           </Routes>
         </div>

@@ -12,6 +12,14 @@
 
 .navigationBarPanel a {
     padding: 6px 8px 6px 16px;
+}
+
+.navigationBarPanelButtons {
+    width: 100%;
+}
+
+.navigationBarPanelButtons a {
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: white;
@@ -19,7 +27,7 @@
     width: 100%;
 }
 
-.navigationBarPanel a:hover {
+.navigationBarPanelButtons a:hover {
     background-color: #052D5C;
     width: 100%;
 }
