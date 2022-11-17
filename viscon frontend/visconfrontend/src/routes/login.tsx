@@ -7,7 +7,7 @@ function Login() {
 
             <h1 className="heading"> Welcome to Viscon support</h1><br />
             <img className="logo-1" src="/viscon-logo.jpeg" alt="image" />
-            <br /><br />
+            
             <div className='loginbutton'>
             <h4 className = 'hh'>Log in</h4>
             
