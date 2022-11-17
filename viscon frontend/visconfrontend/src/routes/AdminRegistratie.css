@@ -1,0 +1,285 @@
+*{
+    background: linear-gradient(132deg, #abcce366, #0c4b82, #21243d);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    padding:0;
+    margin:0px;
+  }
+  
+  
+  .Titel{
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    height: 100px;
+    left: 0px;
+    color: rgb(250, 246, 246);
+    background: #3795cc;
+    border-radius: 3px;
+   
+    box-shadow: #fbfafa 8px 8px 0px 0px 
+    
+  }
+  
+  
+  .Name {
+    position: absolute;
+    top: 270px;
+    width: 300px;
+    height: 50px;
+    margin-left: 1000px;
+    border: 5px solid #3795cc;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: white;
+   }
+   
+   .Name:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+   }
+  
+  
+   .Last_Name {
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    height: 50px;
+    margin-left: 1000px;
+    border: 5px solid #3795cc;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: white;
+   }
+   
+   .Last_Name:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+   }
+  
+   .E-mail {
+    position: absolute;
+    top: 450px;
+    width: 300px;
+    height: 50px;
+    left: 1000px;
+    border: 5px solid #3795cc;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: white;
+   }
+   
+   .E-mail:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+  }
+  
+  
+  .Password {
+    position: absolute;
+    top: 540px;
+    width: 300px;
+    height: 50px;
+    left: 1000px;
+    border: 5px solid #3795cc;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: white;
+   }
+   
+   .Password:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+   }
+  
+  
+   .Confirm_Password {
+    position: absolute;
+    top: 630px;
+    width: 300px;
+    height: 50px;
+    left: 1000px;
+    border: 5px solid #3795cc;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: white;
+   }
+   
+   .Confirm_Password:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+   }
+  
+  .Continue{
+    position: absolute;
+    top: 770px;
+    width: 150px;
+    height: 50px;
+    left: 1080px;
+    border: 5px solid #37cc3a;
+    border-radius: 10px;
+    background-color: #0f0d0d;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-fill-color: #4bcc37;
+  }
+   
+  
+  .Continue:focus {
+    outline-color: white;
+    background-color: #37cc3a;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
+    -webkit-text-fill-color: #ecf1eb;
+   }
+  
+  
+  
+   .card {
+    top: 200px;
+    width: 450px;
+    height: 600px;
+    left: 900px;
+    border-radius: 20px;
+    background: #e8e8e8;
+    position: relative;
+    padding: 1.8rem;
+    border: 4px solid #3795cc;
+    transition: 0.5s ease-out;
+    overflow: visible;
+   }
+   
+   
+   
+   
+   
+   
+   /*Hover*/
+   .card:hover {
+    border-color: 3795cc;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+   }
+   
+   
+  
+  
+   .Back{
+    position: absolute;
+    top: 900px;
+    width: 210px;
+    height: 70px;
+    left: 90px;
+    border: unset;
+    border-radius: 15px;
+    color: #3795cc;
+    z-index: 1;
+    background: #e8e8e8;
+    
+    font-weight: 1000;
+    font-size: 23px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+  }
+  
+  .Back::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #3795cc;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+  }
+    
+  .Back:hover {
+    color: #e8e8e8;
+  }
+    
+  .Back:hover::before {
+    width: 100%;
+  }
+  
+  
+  
+  /* 
+  .Continue{
+    position: absolute;
+    top: 900px;
+    width: 210px;
+    height: 70px;
+    left: 1900px;
+    border: unset;
+    border-radius: 15px;
+    color: #3795cc;
+    z-index: 1;
+    background: #e8e8e8;
+    
+    font-weight: 1000;
+    font-size: 23px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+  }
+  
+  .Continue::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #3795cc;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+  }
+    
+  .Continue:hover {
+    color: #e8e8e8;
+  }
+    
+  .Continue:hover::before {
+    width: 100%;
+  } */
+ 
+  
