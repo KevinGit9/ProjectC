@@ -2,6 +2,16 @@
     letter-spacing: 4px;
     background-color: #fff;
 }
+/* circle pixels veranderen naar rem */
+.circle { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2F6690;
+    clip-path: circle(500px at right 800px);
+}
 
 .masterContainer {
     margin: 1rem;
@@ -13,84 +23,12 @@
     align-items: center;
 }
 
-.mainButtonContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: left;
-    text-align: center;
-
-
-}
-
-.mainButtonContainer button {
-    margin: 0 2rem;
-    background-color: #2A6F97;
-    width: 20%;
-    height: 3rem;
-    border: none;
-    color: #fff;
-    border-radius: 30px;
-    transition: ease-out 0.3s;
-    font-size: 20px;
-    font-family: 'Roboto Condensed', sans-serif;
-    outline: none;
-    /* border: 3px solid #4c80b8; */
-    position: relative;
-    z-index: 1;
-}
-.mainButtonContainer .btn-1{
-    background-color:#013A63;
-}
-
-.mainButtonContainer button:hover {
-    color: #fff;
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
-
-.mainButtonContainer button:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: "";
-    background-color: #01497C;
-    border-radius: 20px;
-}
-.mainButtonContainer button:before{
-    background-color: #012A4A;
-}
-
-
-.mainButtonContainer button:hover:before {
-    transition: 0.5s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    z-index: -1;
-}
-
-.circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #2F6690;
-    clip-path: circle(500px at right 800px);
-}
-
 .textBox {
     position: relative;
-    margin: 10rem 1rem 1rem 1rem;
+    margin-top: 12rem;
     width: 100%;
     font-weight: 500;
 }
-
 .motto{
     display: flex;
     flex-direction: row;
@@ -120,4 +58,62 @@
     margin-bottom: 10%;
     font-size: 160px;
     color: #2A6F97;
+}
+
+.mainButtonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    text-align: center;
+}
+
+.mainButtonContainer button {
+    margin: 0 2rem;
+    background-color: #2A6F97;
+    width: 20%;
+    height: 3rem;
+    border: none;
+    color: #fff;
+    border-radius: 2rem;
+    transition: ease-out 0.3s;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+.mainButtonContainer .btn-1{
+    background-color:#013A63;
+}
+
+.mainButtonContainer button:hover {
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+.mainButtonContainer button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: #01497C;
+    border-radius: 2rem;
+}
+.mainButtonContainer button:before{
+    background-color: #012A4A;
+}
+
+
+.mainButtonContainer button:hover:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
 }
