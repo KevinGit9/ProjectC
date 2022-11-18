@@ -1,42 +1,46 @@
-.UserMenu{
+.UserMenu {
     letter-spacing: 4px;
     background-color: #fff;
 }
-.masterContainer{
+
+.masterContainer {
     position: relative;
-    width: 100%;
+    height: 35rem;
+    width: 70%;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.mainButtonContainer{
+.mainButtonContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
     text-align: center;
-    min-height: 80vh;
-    
+
 
 }
-.mainButtonContainer button{
-    margin: 1rem 0;
+
+.mainButtonContainer button {
+    margin: 1rem;
     background-color: #16425B;
-    width: 300px;
-    height: 100px;
+    width: 70%;
+    height: 40px;
     border: none;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
     transition: ease-out 0.3s;
     font-size: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
     outline: none;
     /* border: 3px solid #4c80b8; */
     position: relative;
     z-index: 1;
 }
 
-.logo-1{
+.logo-1 {
     max-width: 10%;
     height: auto;
     position: relative;
@@ -60,10 +64,10 @@
     opacity: 0;
     content: "";
     background-color: #2F6690;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
-.mainButtonContainer button:hover:before{
+.mainButtonContainer button:hover:before {
     transition: 0.5s all ease;
     left: 0;
     right: 0;
@@ -71,56 +75,73 @@
     z-index: -1;
 }
 
-.circle{
+.circle {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:#2F6690;
-    clip-path: circle(600px at right 800px);
-}   
-.circle-2{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:#2F6690;
-    clip-path: circle(100px at 20% 40%)
-
+    background: #2F6690;
+    clip-path: circle(500px at right 800px);
 }
-.circle-3{
+
+/* .circle-2 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:#16425B;
+    background: #2F6690;
+    clip-path: circle(100px at 20% 40%)
+}
+
+.circle-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #16425B;
     clip-path: circle(130px at 30% 45%)
 }
-.circle-4{
+
+.circle-4 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:#014F86;
+    background: #014F86;
     clip-path: circle(150px at 25% 55%)
-}
+} */
+
 .textBox {
     position: relative;
+    width: 70%;
     font-weight: 900;
     max-width: 600px;
 
+
 }
-.textBox h2{
-    
-    color: #111;
+
+.textBox h2 {
     font-size: 4em;
     line-height: 1.5em;
     text-transform: uppercase;
     font-family: 'Roboto Condensed', sans-serif;
+    color: #16425B;
+}
 
+.textBox h2 span{
+    color: #111;
+    font-size: 2em;
+    font-weight: 1300px;
+    letter-spacing: 5px;
+}
+.textBox p {
+    font-weight: 500;
+}
+.textBox p span{
+    font-weight: 900;
 
 }

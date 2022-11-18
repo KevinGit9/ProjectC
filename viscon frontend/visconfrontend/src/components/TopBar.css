@@ -31,7 +31,6 @@ nav{
 
 }
 
-
 .sub-menu-wrap{
     position: absolute;
     top: 100%;
@@ -39,9 +38,10 @@ nav{
     width: 320px;
     max-height: 0px;
     overflow: hidden;
-    transition: maxheight 0.5;
+    transition: max-height 0.5;
 }
 .open-menu{
+    transition: max-height 0.5;
     max-height: 400px;
 }
 .sub-menu{
