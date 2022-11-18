@@ -17,7 +17,7 @@ function UserMenu() {
       </head>
       <body>
         <TopBar /> {/* van links naar rechts werken met div boxes*/}
-        <div className="circle" />
+        <div className="circle"/>
         <div className="masterContainer">
           <div className="textBox">
             <div className = "motto">

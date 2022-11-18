@@ -25,7 +25,8 @@
 
 .textBox {
     position: relative;
-    margin-top: 12rem;
+    margin-top: 16rem;
+    margin-left: 12rem;
     width: 100%;
     font-weight: 500;
 }
