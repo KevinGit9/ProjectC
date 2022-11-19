@@ -58,6 +58,10 @@
   border: gainsboro 5px solid;
 }
 
+.orderedBoxesPanel p {
+  margin-top: 1rem;
+}
+
 .open {
   background-color: gainsboro;
 }

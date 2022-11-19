@@ -1,0 +1,23 @@
+.layoutContainer {
+    height: 100%;
+}
+
+
+.navigationWrapper {
+    display: flex;
+    justify-content: stretch;
+    height: 91%;
+}
+
+.sideNav {
+    width: 0;
+}
+
+.sideNav.Open {
+    width: 15%;
+}
+
+.mainPage {
+    flex-grow: 1;
+    overflow-y: auto;
+}

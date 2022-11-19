@@ -10,17 +10,6 @@
     height: 100%;
 }
 
-.layout {
-    display: flex;
-    justify-content: stretch;
-    height: 100%;
-    /*background-color: color for background in whole application (Could use for dark-mode) */
-}
-
-.navBar {
-    width: 15%;
-}
-
 .routes {
     flex-grow: 1;
     height: 100%;

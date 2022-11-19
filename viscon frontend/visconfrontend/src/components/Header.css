@@ -1,24 +1,29 @@
 
 .hero button{
   border: none;
-  background-color: #1a1a1a;
+  background-color: #01152C;
 }
 
 
-nav{
-    background: #1a1a1a;
+nav {
+    background: #01152C;
     width: 100%;
     padding: 0px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     position: relative;
+}
+
+.headerImages {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .logo-nav{
     width: 120px;
+    padding-top: 8%;
     margin-left: 20px;
-
 }
 
 .icon-profile{
@@ -99,4 +104,31 @@ nav{
 
 .sub-menu-link:hover p{
     font-weight: 600;
+}
+
+
+.hamburgerIconContainer {
+    padding-left: 1%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+  
+.hamburgerIconContainer.change .bar1 {
+    transform: translate(0, 8px) rotate(-45deg);
+}
+
+.hamburgerIconContainer.change .bar2 {
+    opacity: 0;
+}
+
+.hamburgerIconContainer.change .bar3 {
+    transform: translate(0, -8px) rotate(45deg);
 }
