@@ -5,6 +5,8 @@ import Machines from "./routes/Machines";
 import Checklist from "./routes/Checklist";
 import UserMenu from './routes/UserMenu';
 import Problems from './routes/Problems';
+import ProfileMenu from "./components/ProfileMenu";
+
 import './App.css';
 
 
@@ -17,6 +19,7 @@ function App() {
         <Route path="/checklist" element={ <Checklist /> } />
         <Route path="/usermenu" element={ <UserMenu /> } />
         <Route path="/problems" element={ <Problems /> } />
+        <Route path="/ProfileMenu" element={ <ProfileMenu /> } />
       </Routes>
     </div>
   );

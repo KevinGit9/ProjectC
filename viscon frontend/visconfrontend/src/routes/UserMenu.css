@@ -10,13 +10,13 @@
     width: 100%;
     height: 100%;
     background: #2F6690;
-    clip-path: circle(500px at right 800px);
+    clip-path: circle(37rem at right 60rem);
 }
 
 .masterContainer {
-    margin: 1rem;
+    margin: 3rem;
     position: relative;
-    width: 65%;
+    /* width: 65%; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -25,9 +25,9 @@
 
 .textBox {
     position: relative;
-    margin-top: 16rem;
-    margin-left: 12rem;
-    width: 100%;
+    /* margin-top: 16rem; deze zijn uitgeschakeld van wegen responsiveness op de telefoon
+    margin-left: 12rem; */
+    /* width: 100%; */
     font-weight: 500;
 }
 .motto{
@@ -35,7 +35,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: left;
-    max-height: 10rem;
+    /* max-height: 10rem; */
 }
 .motto h2 {
     font-size: 4em;
@@ -118,3 +118,4 @@
     opacity: 1;
     z-index: -1;
 }
+

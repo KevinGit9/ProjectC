@@ -11,6 +11,8 @@ function Home() {
             <Link to="checklist"> Click to view checklist page </Link>
             <Link to="usermenu"> Click to view usermenu page </Link>
             <Link to="problems"> Click to view problems page </Link>
+            <Link to="profilemenu"> Click to view profilemenu page </Link>
+
         </div>
     );
 }
