@@ -6,9 +6,6 @@ interface IHeader {
 }
 
 function Header(header: IHeader) {
-    function openSideBar() {
-        setSideBarOpen(!isSideBarOpen);
-    }
     const [isSideBarOpen, setSideBarOpen] = useState(false);
     var hamburgerIconContainer = "hamburgerIconContainer";
     hamburgerIconContainer = isSideBarOpen ? "hamburgerIconContainer change" : "hamburgerIconContainer";
@@ -21,7 +18,7 @@ function Header(header: IHeader) {
     return (
         <div className="hero">
             <nav>
-                <div className={hamburgerIconContainer} onClick={header.sideBarButton}>
+                <div className={hamburgerIconContainer} onClick={e => {setSideBarOpen(!isSideBarOpen); header.sideBarButton(e)}}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>

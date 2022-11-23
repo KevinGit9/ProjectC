@@ -1,19 +1,24 @@
 .layoutContainer {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 
 .navigationWrapper {
     display: flex;
     justify-content: stretch;
-    height: 91%;
+    height: 100%;
+    overflow: auto;
 }
 
 .sideNav {
+    transition: 0.1s;
     width: 0;
 }
 
 .sideNav.Open {
+    transition: 0.1s;
     width: 15%;
 }
 
