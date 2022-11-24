@@ -1,4 +1,4 @@
-import { joinPaths } from '@remix-run/router';
+// import { joinPaths } from '@remix-run/router';
 import React, {useState, useEffect, useRef} from 'react';
 import { isPropertySignature } from 'typescript';
 import "./ProfileMenu.css";
@@ -7,28 +7,9 @@ function ProfileMenu() {
 
   const [open, setOpen] = useState(false);
 
-  let menuRef = useRef();
-
-  useEffect(() => {
-    let handler = (e:any)=>{
-      if(!menuRef.current.contains(e.target)){
-        setOpen(false);
-        console.log(menuRef.current);
-      }      
-    };
-
-    document.addEventListener("mousedown", handler);
-    
-
-    return() =>{
-      document.removeEventListener("mousedown", handler);
-    }
-
-  });
-
   return (
     <div className="profileMenu">
-      <div className='menu-container' ref={menuRef}>
+      <div className='menu-container'>
         <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
           <img src="profile-icon.png"></img>
         </div>
