@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\viscon backend",
+    "\\viscon frontend"
   ],
+  "SelectedNode": "\\viscon backend\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
