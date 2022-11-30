@@ -16,7 +16,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+      <div className="App">
+
+
+
+
         <div className="routes">
           <Routes>
             <Route path="/" element={<Layout> <Home /> </Layout>} />
@@ -25,7 +29,7 @@ function App() {
             <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
             <Route path="/problems" element={<Layout> <Problems /> </Layout>} />
             <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={< Login />} />
             <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
             <Route path="/*" element /> {/* 404 error page toevoegen*/}
