@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Header.css";
-
+import ProfileMenu from './ProfileMenu';
 interface IHeader {
     sideBarButton: any;
 }
@@ -10,10 +10,10 @@ function Header(header: IHeader) {
     var hamburgerIconContainer = "hamburgerIconContainer";
     hamburgerIconContainer = isSideBarOpen ? "hamburgerIconContainer change" : "hamburgerIconContainer";
 
-    var subMenuWrap = "sub-menu-wrap";
-    const [isOpen, setOpen] = useState(false);
-    if (isOpen) subMenuWrap = "sub-menu-wrap open-menu";
-    else subMenuWrap = "sub-menu-wrap";
+    // var subMenuWrap = "sub-menu-wrap";
+    // const [isOpen, setOpen] = useState(false);
+    // if (isOpen) subMenuWrap = "sub-menu-wrap open-menu";
+    // else subMenuWrap = "sub-menu-wrap";
 
     return (
         <div className="hero">
@@ -25,9 +25,10 @@ function Header(header: IHeader) {
                 </div>
                 <div className="headerImages">
                     <a href="/"><img src="visconlogo.png" className="logo-nav"></img></a>
-                    <button onClick={() => toggleMenu()}><img src="/profile-icon.png" className="icon-profile" /> </button>
+                    {/* <button onClick={() => toggleMenu()}><img src="/profile-icon.png" className="icon-profile" /> </button> */}
                 </div>
-                <div className={subMenuWrap}>
+                <ProfileMenu></ProfileMenu>
+                {/* <div className={subMenuWrap}>
                     <div className="sub-menu">
                         <div className="user-info">
                             <img className="icon-profile-sub" src="/profile-icon.png"></img>
@@ -46,14 +47,15 @@ function Header(header: IHeader) {
                             <span>{'>'}</span>
                         </a>
                     </div>
-                </div>
+                </div> */}
             </nav>
         </div>
     );
 
-    function toggleMenu() {
-        setOpen(!isOpen);
-    }
+    // function toggleMenu() {
+    //     setOpen(!isOpen);
+    // }
 }
+
 
 export default Header;
