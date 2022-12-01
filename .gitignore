@@ -237,4 +237,5 @@ _Pvt_Extensions
 *.vsidx
 *.editorconfig
 *.sqlite
-.vs\*
+.vs/*
+.vs/slnx.sqlite
