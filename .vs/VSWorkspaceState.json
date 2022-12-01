@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\viscon backend",
-    "\\viscon frontend"
+    "\\viscon backend\\Models"
   ],
-  "SelectedNode": "\\viscon backend\\Program.cs",
+  "SelectedNode": "\\viscon backend\\Models\\Machine.cs",
   "PreviewInSolutionExplorer": false
 }
