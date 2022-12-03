@@ -242,3 +242,4 @@ _Pvt_Extensions
 .vs/ProjectC/v17/.wsuo
 *.props
 .obj/*
+.vscode/*
