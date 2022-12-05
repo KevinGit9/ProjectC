@@ -240,3 +240,6 @@ _Pvt_Extensions
 .vs/*
 .vs/slnx.sqlite
 .vs/ProjectC/v17/.wsuo
+*.props
+.obj/*
+.vscode/*
