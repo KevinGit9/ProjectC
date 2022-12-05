@@ -1,3 +1,11 @@
+/*
+Add packages IF using Visual Studio Code:
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQ
+dotnet tool install --global dotnet-ef 
+*/
+
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.Models;
 
@@ -10,6 +18,7 @@ class MyContext : DbContext {
     public DbSet<Company> Companies { get; set; } = null!;
     public DbSet<Problems> Problems { get; set; } = null!;
     public DbSet<Ticket> Tickets { get; set; } = null!;
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         optionsBuilder.UseNpgsql("Host = localhost:5432; Username = postgres; Password = 666; Database = Viscon Support");
     }
@@ -37,5 +46,10 @@ class MyContext : DbContext {
             .HasMany(x => x.Problems)
             .WithOne(x => x.Machine)
             .HasForeignKey(x => x.MachineId);
+
+        modelBuilder.Entity<Company>()
+         .HasMany(x => x.Machines)
+         .WithOne(x => x.Company)
+         .HasForeignKey(x => x.CompanyId);
     }
 }

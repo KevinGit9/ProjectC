@@ -5,4 +5,6 @@ public class Machine {
     public string Name { get; set; }
     public List<Problems> Problems { get; set; }
     public List<Ticket> Tickets { get; set;}
+    public Company Company { get; set; }
+    public Guid CompanyId { get; set; }
 }
