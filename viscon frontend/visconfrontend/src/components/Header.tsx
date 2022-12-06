@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./Header.css";
+import "./ProfileMenu";
 import ProfileMenu from './ProfileMenu';
 interface IHeader {
     sideBarButton: any;
@@ -9,6 +10,7 @@ function Header(header: IHeader) {
     const [isSideBarOpen, setSideBarOpen] = useState(false);
     var hamburgerIconContainer = "hamburgerIconContainer";
     hamburgerIconContainer = isSideBarOpen ? "hamburgerIconContainer change" : "hamburgerIconContainer";
+    const [open, setOpen] = useState(false);
 
     // var subMenuWrap = "sub-menu-wrap";
     // const [isOpen, setOpen] = useState(false);
@@ -18,7 +20,7 @@ function Header(header: IHeader) {
     return (
         <div className="hero">
             <nav>
-                <div className={hamburgerIconContainer} onClick={e => {setSideBarOpen(!isSideBarOpen); header.sideBarButton(e)}}>
+                <div className={hamburgerIconContainer} onClick={e => { setSideBarOpen(!isSideBarOpen); header.sideBarButton(e) }}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>
@@ -27,7 +29,22 @@ function Header(header: IHeader) {
                     <a href="/"><img src="visconlogo.png" className="logo-nav"></img></a>
                     {/* <button onClick={() => toggleMenu()}><img src="/profile-icon.png" className="icon-profile" /> </button> */}
                 </div>
-                <ProfileMenu></ProfileMenu>
+                {/* <ProfileMenu></ProfileMenu> */}
+                <div className="profileMenu">
+                    <div className='menu-container'>
+                        <div className='menu-trigger' onClick={() => { setOpen(!open) }}>
+                            <img src="profile-icon.png"></img>
+                        </div>
+                        <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`} >
+                            <h3>Lorem Ipsum<br /><span>Bla bla bla</span></h3>
+                            <ul>
+                                <DropdownItem i={"person"} text={"My Profile"} />
+                                <DropdownItem i={"lotgout"} text={"Logout"} />
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 {/* <div className={subMenuWrap}>
                     <div className="sub-menu">
                         <div className="user-info">
@@ -57,5 +74,13 @@ function Header(header: IHeader) {
     // }
 }
 
+function DropdownItem(props:any){
+    return(
+      <li className = 'dropdownItem'>
+        <i>{props.icon}</i>
+        <a>{props.text} </a>
+      </li>
+    );
+  }
 
 export default Header;

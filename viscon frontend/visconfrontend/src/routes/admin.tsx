@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import './Admin.css'
+import CaseBox from '../components/CaseBox';
 
 function Admin() {
     return (
         <div className='admin'>
             <h1>Admin Name's Dashboard </h1>
+            <CaseBox></CaseBox>
             <div className='buttons'>
                 <button>current case</button>
                 <button>cases </button>

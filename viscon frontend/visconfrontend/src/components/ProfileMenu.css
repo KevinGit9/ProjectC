@@ -1,37 +1,14 @@
-:root {
-    --primary-bg: #242526;
-    --secondary-bg: #fff;
-    --primary-text-color: #555;
-    --secondary-text-color: #cecece;
-    --border-radius: 8px;
-    --speed: 500ms;
-}
 
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* background-color: var(--primary-bg); */
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
-}
-
-ul {
+.profileMenu ul {
     list-style: none;
 }
 
-a {
+.profileMenu a {
     text-decoration: none;
 }
 
 .menu-trigger img {
-    position: absolute;
+    position: relative;
     top: 20px;
     right: 20px;
     height: 60px;
@@ -47,7 +24,7 @@ a {
     top: 100px;
     right: 20px;
     background-color: #fff;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     padding: 10px 20px;
     width: 200px;
 }
@@ -59,22 +36,23 @@ a {
     right: 20px;
     height: 20px;
     width: 20px;
-    background: var(--secondary-bg);
+    background: #fff;
     transform: rotate(45deg);
 }
 
-.dropdown-menu.active {
+.dropdown-menu .active {
+    display: contents;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition: var(--speed) ease;
+    transition:500ms ease;
 }
 
-.dropdown-menu.inactive {
+.dropdown-menu .inactive {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
-    transition: var(--speed) ease;
+    transition: 500ms ease;
 }
 
 
@@ -85,13 +63,13 @@ h3 {
     padding: 20px 0;
     font-weight: 500;
     font-size: 18px;
-    color: var(--primary-text-color);
+    color: #555;
     line-height: 1.2rem;
 }
 
 h3 span {
     font-size: 14px;
-    color: var(--secondary-text-color);
+    color: #cecece;
     font-weight: 400;
 }
 
@@ -119,11 +97,11 @@ h3 span {
     max-width: 20px;
     margin-right: 10px;
     opacity: 0.5;
-    transition: var(--speed);
+    transition: 500ms ;
 }
 
 .dropdownItem a {
     max-width: 100px;
     margin-left: 10px;
-    transition: var(--speed);
+    transition: 500ms;
 }
