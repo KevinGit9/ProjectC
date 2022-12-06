@@ -11,7 +11,7 @@ using viscon_backend.Models;
 
 namespace viscon_backend;
 
-class Database : DbContext {
+public class Database : DbContext {
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Machine> Machines { get; set; } = null!;
     public DbSet<Company> Companies { get; set; } = null!;
