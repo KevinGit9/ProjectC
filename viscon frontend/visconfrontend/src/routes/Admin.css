@@ -2,43 +2,14 @@
 .admin {
     display: flex;
     text-align: center;
-    background-color: ghostwhite;
     flex-direction:column;
-}
-
-.admin > div {
-    background-color: ghostwhite;
     margin: 10px;
     padding: 20px;
     font-size: 30px;
 }
 
-.buttons {
-    text-align: center;
-    background-color: ghostwhite;
-}
-
-.buttons button{
-    width: 40%;
-    height: 60%;
-    border: 1rem;
-    border-color: red;
-    border-width: 1rem;
-    padding: 3%;
-    border:solid;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    background-color: white;
-    font-size: 16px;
-    border-radius:2rem;
-}
-
-.buttons button:hover{
-    cursor: pointer;
-}
-
 .cases{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: c;
 }
