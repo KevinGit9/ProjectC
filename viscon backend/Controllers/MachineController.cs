@@ -20,14 +20,14 @@ public class MachineController : ControllerBase {
     }
 
     [HttpPost]
-    public ActionResult AddMachines() {
+    public async Task<IActionResult> AddMachines() {
         for (int i = 0; i < 5; i++) {
             var machine = new Machine();
             machine.Id = Guid.NewGuid();
             machine.Name = Console.ReadLine();
-            _database.Machines.Add(machine);
+            await _database.Machines.AddAsync(machine);
         }
-        _database.SaveChanges();
+        await _database.SaveChangesAsync();
         return Ok();
     }
 }

@@ -47,8 +47,8 @@ public class Database : DbContext {
             .HasForeignKey(x => x.MachineId);
 
         modelBuilder.Entity<Company>()
-         .HasMany(x => x.Machines)
-         .WithOne(x => x.Company)
-         .HasForeignKey(x => x.CompanyId);
+            .HasMany(x => x.Machines)
+            .WithOne(x => x.Company)
+            .HasForeignKey(x => x.CompanyId);
     }
 }
