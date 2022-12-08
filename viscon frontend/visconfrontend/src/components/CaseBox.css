@@ -1,12 +1,28 @@
-
-.vertical-menu {
-    width: 250px;
-    height: 300px;
-    overflow-y: auto;
+.title-box {
     margin: 20px;
+    text-decoration: none;
+}
+.header-box {
+    background-color: #2A6F97;
+    color: white;
+    padding: 12px;
+    margin: 0px 20px;
+    text-decoration: none;
 }
 
-.vertical-menu a {
+.header-box .text {
+    text-decoration: none;
+    color: white;
+}
+
+.vertical-menu {
+    width: 400px;
+    height: 400px;
+    overflow-y: auto;
+    margin: 0px 20px;
+}
+
+.vertical-menu a{
     background-color: #eee;
     color: black;
     display: block;
@@ -17,14 +33,4 @@
 }
 .vertical-menu a:hover {
     background-color: #ccc;
-
-
 }
-
-.vertical-menu a.active{
-    position: sticky;
-    top: 0;
-    background-color: #2A6F97;
-    color: white;
-}
-
