@@ -1,4 +1,5 @@
 import React from 'react';
+import './AdminRegistratie.css';
 const RegistrationLayout = () => {
   return (
     <div className="registration-layout">
