@@ -75,11 +75,11 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 
 function Machines() {
   var navigate = useNavigate();
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState<string[]>([]);
   const onInputChange = (event) => {
   console.log(event.target.value);
-  const new_options  : string[] = defaultOptions.filter(option => option.includes(event.target.value))
-  //setOptions(new_options) // dit zou moeten werken (werkt op JS wel), maar kan een error geven
+  const new_options: string[] = defaultOptions.filter(option => option.includes(event.target.value))
+  setOptions(new_options)
   }
 
 

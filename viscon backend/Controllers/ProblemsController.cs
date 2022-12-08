@@ -27,13 +27,13 @@ public class ProblemsController : ControllerBase {
         return machine.Problems;
     }
 
-    [HttpGet ("{machineId, type}")]
+    /*[HttpGet ("{machineId, type}")]
     public ActionResult<List<Problem>> FilterProblemsByType(Guid machineId, string type) {   
         //if (machineId == null) return BadRequest("No machine Id recieved.");
         var machine = _database.Machines.Find(machineId);
         if (machine == null) return NotFound();
         return machine.Problems.Where(x => x.Type == type).ToList();
-    }
+    }*/
 
     [HttpPost]
     public async Task<IActionResult> AddProblem() {
@@ -44,6 +44,7 @@ public class ProblemsController : ControllerBase {
         if (problem == null) return BadRequest();
         await _database.Problems.AddAsync(problem);
         await _database.SaveChangesAsync();
+        
         return Ok(problem);
     }
 }
