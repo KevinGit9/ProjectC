@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Noure\\HR\\Year 2\\Project\\Project C\\ProjectC\\viscon backend\\viscon backend.csproj": {}
+    "C:\\Users\\Rayan\\Documents\\ProjectC1\\viscon backend\\viscon backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Noure\\HR\\Year 2\\Project\\Project C\\ProjectC\\viscon backend\\viscon backend.csproj": {
+    "C:\\Users\\Rayan\\Documents\\ProjectC1\\viscon backend\\viscon backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Noure\\HR\\Year 2\\Project\\Project C\\ProjectC\\viscon backend\\viscon backend.csproj",
+        "projectUniqueName": "C:\\Users\\Rayan\\Documents\\ProjectC1\\viscon backend\\viscon backend.csproj",
         "projectName": "viscon backend",
-        "projectPath": "C:\\Users\\Noure\\HR\\Year 2\\Project\\Project C\\ProjectC\\viscon backend\\viscon backend.csproj",
-        "packagesPath": "C:\\Users\\Noure\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Noure\\HR\\Year 2\\Project\\Project C\\ProjectC\\viscon backend\\obj\\",
+        "projectPath": "C:\\Users\\Rayan\\Documents\\ProjectC1\\viscon backend\\viscon backend.csproj",
+        "packagesPath": "C:\\Users\\Rayan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rayan\\Documents\\ProjectC1\\viscon backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Noure\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

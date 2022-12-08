@@ -1,27 +1,40 @@
 import React from 'react';
-import './AdminRegistratie.css';
-
-
-function AdminRegistratie() {
+import './App.css';
+const RegistrationLayout = () => {
   return (
-
-    <div className="AdminRegistratie">
-      <button className="Back">Back</button>
-      {/* <button className="Continue">Continue</button> */}
-      <div className="Titel"><h1>Admin: Registrer</h1></div>
-      <div className="card">
-        <input type="Name" name="text" className="Name" placeholder="Enter your name!"></input>
-        <input type="Last_Name" name="text" className="Last_Name" placeholder="Enter your last name!"></input>
-        <input type="E-mail" name="text" className="E-mail" placeholder="Enter your e-mail!"></input>
-        <input type="Password" name="text" className="Password" placeholder="Enter your password!"></input>
-        <input type="Password" name="text" className="Confirm_Password" placeholder="Confirm your password!"></input>
-        <input type="submit" className="Continue" value="Register!" />
+    <div className="registration-layout">
+      <div className="reg-title">
+        <h1>Create an Account</h1>
+      </div>
+      <div className="reg-form">
+        <form>
+          <label>
+            Name:
+            <input type="text" placeholder="Enter your name" />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" placeholder="Enter your last name" />
+          </label>
+          <label>
+            Email:
+            <input type="email" placeholder="Enter your email" />
+          </label>
+          <label>
+            Password:
+            <input type="password" placeholder="Enter password" />
+          </label>
+          <label>
+            Confirm Password:
+            <input type="password" placeholder="Confirm password" />
+          </label>
+          <button type="submit">Register</button>
+        </form>
       </div>
     </div>
   );
-
-}
-export default AdminRegistratie;
+};
+export default RegistrationLayout;
 
 
 
