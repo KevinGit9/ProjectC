@@ -5,11 +5,22 @@
     flex-direction:column;
     margin: 10px;
     padding: 20px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .cases{
     display: flex;
     justify-content: center;
     align-items: c;
+}
+
+.Manage {
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    
+}
+.ManageHeader {
+    color: #fff;
+    background-color: #2A6F97;
 }

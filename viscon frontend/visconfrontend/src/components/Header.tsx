@@ -29,21 +29,7 @@ function Header(header: IHeader) {
                     <a href="/"><img src="visconlogo.png" className="logo-nav"></img></a>
                     {/* <button onClick={() => toggleMenu()}><img src="/profile-icon.png" className="icon-profile" /> </button> */}
                 </div>
-                {/* <ProfileMenu></ProfileMenu> */}
-                <div className="profileMenu">
-                    <div className='menu-container'>
-                        <div className='menu-trigger' onClick={() => { setOpen(!open) }}>
-                            <img src="profile-icon.png"></img>
-                        </div>
-                        <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`} >
-                            <h3>Lorem Ipsum<br /><span>Bla bla bla</span></h3>
-                            <ul>
-                                <DropdownItem i={"person"} text={"My Profile"} />
-                                <DropdownItem i={"lotgout"} text={"Logout"} />
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <ProfileMenu></ProfileMenu>
 
                 {/* <div className={subMenuWrap}>
                     <div className="sub-menu">

@@ -11,7 +11,13 @@ function Admin() {
                 <CaseBox name='Closed Cases'></CaseBox>
                 <CaseBox name='Unclaimed Cases'></CaseBox>
             </div>
+            <div className="Manage">
+               <ul className = "ManageHeader"> Manage</ul>
+               <ul>Hello</ul>
+               <ul>Hello</ul>
+            </div>
         </div>
+
     );
 
 }
