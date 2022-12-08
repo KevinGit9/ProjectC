@@ -11,12 +11,11 @@ using viscon_backend.Models;
 
 namespace viscon_backend;
 
-class MyContext : DbContext {
-
+public class Database : DbContext {
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Machine> Machines { get; set; } = null!;
     public DbSet<Company> Companies { get; set; } = null!;
-    public DbSet<Problems> Problems { get; set; } = null!;
+    public DbSet<Problem> Problems { get; set; } = null!;
     public DbSet<Ticket> Tickets { get; set; } = null!;
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -48,8 +47,8 @@ class MyContext : DbContext {
             .HasForeignKey(x => x.MachineId);
 
         modelBuilder.Entity<Company>()
-         .HasMany(x => x.Machines)
-         .WithOne(x => x.Company)
-         .HasForeignKey(x => x.CompanyId);
+            .HasMany(x => x.Machines)
+            .WithOne(x => x.Company)
+            .HasForeignKey(x => x.CompanyId);
     }
 }
