@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
 using viscon_backend.Models;
 
@@ -28,8 +29,6 @@ public class MachineController : ControllerBase {
     [HttpPost]
     public async Task<IActionResult> AddMachines(MachineDTO machineRequest) {
         Machine machine = new Machine();
-
-        //machine.Id = Guid.NewGuid();
         machine.Name = machineRequest.Name;
         machine.Company = _database.Companies.FirstOrDefault(x => x.Name == machineRequest.CompanyName);
         if (machine.Company == null) return NotFound();
@@ -37,7 +36,6 @@ public class MachineController : ControllerBase {
 
         _database.Machines.Add(machine);
         await _database.SaveChangesAsync();
-
-        return Ok();
+        return Ok(await _database.Machines.ToListAsync());
     }
 }

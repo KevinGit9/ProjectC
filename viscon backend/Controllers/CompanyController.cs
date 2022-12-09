@@ -18,12 +18,13 @@ public class CompanyController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<Company>>> AddCompany(CompanyDTO company) {
-        Company comp = new Company();
-        comp.Id = Guid.NewGuid();
-        comp.Name = company.Name;
-        _database.Companies.Add(comp);
+    public async Task<ActionResult<List<Company>>> AddCompany(CompanyDTO companyRequest) {
+        Company company = new Company();
+        company.Name = companyRequest.Name;
+
+        _database.Companies.Add(company);
         await _database.SaveChangesAsync();
+        
         return Ok(await _database.Companies.ToListAsync());
     }
 }
