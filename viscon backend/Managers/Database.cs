@@ -28,6 +28,15 @@ public class Database : DbContext {
             .WithMany(x => x.Employees)
             .HasForeignKey(x => x.CompanyId);
 
+        modelBuilder.Entity<Machine>()
+            .HasMany(x => x.Problems)
+            .WithOne(x => x.Machine)
+            .HasForeignKey(x => x.MachineId);
+        modelBuilder.Entity<Machine>()
+            .HasOne(x => x.Company)
+            .WithMany(x => x.Machines)
+            .HasForeignKey(x => x.CompanyId);
+
         modelBuilder.Entity<Ticket>()
             .HasOne(x => x.User)
             .WithMany(x => x.Tickets)
@@ -40,15 +49,5 @@ public class Database : DbContext {
             .HasOne(x => x.ClaimedBy)
             .WithMany(x => x.ClaimedTickets)
             .HasForeignKey(x => x.AdminId);
-
-        modelBuilder.Entity<Machine>()
-            .HasMany(x => x.Problems)
-            .WithOne(x => x.Machine)
-            .HasForeignKey(x => x.MachineId);
-
-        modelBuilder.Entity<Company>()
-            .HasMany(x => x.Machines)
-            .WithOne(x => x.Company)
-            .HasForeignKey(x => x.CompanyId);
     }
 }

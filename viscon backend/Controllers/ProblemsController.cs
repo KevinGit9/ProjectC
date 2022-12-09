@@ -12,11 +12,7 @@ public class ProblemsController : ControllerBase {
 
     [HttpGet]
     public ActionResult<List<Problem>> Get() {
-        var problems = new List<Problem> 
-        {
-            new Problem {Description = "test", Type = "error message", Solutions = {"none", "hi", "test"}, Machine = new Machine(), MachineId = Guid.NewGuid()}
-        };
-        return problems;
+        return _database.Problems.ToList();
     }
 
     [HttpGet ("{machineId}")]
