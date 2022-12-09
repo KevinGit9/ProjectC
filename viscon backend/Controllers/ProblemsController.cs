@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using viscon_backend.DTOs;
 using viscon_backend.Models;
 
 namespace viscon_backend.Controllers;
@@ -32,11 +33,12 @@ public class ProblemsController : ControllerBase {
     }*/
 
     [HttpPost]
-    public async Task<IActionResult> AddProblem() {
-        var problem = new Problem {
-            Id = Guid.NewGuid(),
-            Description = Console.ReadLine()
-        };
+    public async Task<IActionResult> AddProblem(ProblemDTO problemRequest) {
+        Problem problem = new Problem();
+        problem.Description = problemRequest.Description;
+        problem.Type = problemRequest.Type;
+        problem.Solutions = problemRequest.Solutions;
+
         if (problem == null) return BadRequest();
         await _database.Problems.AddAsync(problem);
         await _database.SaveChangesAsync();

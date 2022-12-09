@@ -27,7 +27,7 @@ public class MachineController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddMachines(MachineDTO machineRequest) {
+    public async Task<ActionResult<List<Machine>>> AddMachines(MachineDTO machineRequest) {
         Machine machine = new Machine();
         machine.Name = machineRequest.Name;
         machine.Company = _database.Companies.FirstOrDefault(x => x.Name == machineRequest.CompanyName);
