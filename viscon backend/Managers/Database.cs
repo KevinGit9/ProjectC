@@ -33,6 +33,11 @@ public class Database : DbContext {
             .HasMany(x => x.Problems)
             .WithOne(x => x.Machine)
             .HasForeignKey(x => x.MachineId);
+        
+        modelBuilder.Entity<CompanyMachine>()
+            .HasOne(x => x.Machine)
+            .WithMany(x => x.CompanyMachines)
+            .HasForeignKey(x => x.MachineId);
         modelBuilder.Entity<CompanyMachine>()
             .HasOne(x => x.Company)
             .WithMany(x => x.CompanyMachines)

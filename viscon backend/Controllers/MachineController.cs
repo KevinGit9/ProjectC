@@ -18,7 +18,7 @@ public class MachineController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<Machine>>> AddMachines(MachineDTO machineRequest) {
+    public async Task<ActionResult<List<Machine>>> AddMachine(MachineDTO machineRequest) {
         Machine machine = new Machine();
         machine.Name = machineRequest.Name;
 
