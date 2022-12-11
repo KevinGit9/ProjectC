@@ -28,12 +28,13 @@ public class CompanyMachineController : ControllerBase {
 
     [HttpPost]
     public async Task<ActionResult<List<CompanyMachine>>> AddCompanyMachine(CompanyMachineDTO cMachineRequest) {
+        //Change Name to IDs
         CompanyMachine cMachine = new CompanyMachine();
         cMachine.Name = cMachineRequest.Name;
-        cMachine.Machine = _database.Machines.FirstOrDefault(x => x.Name == cMachineRequest.Name);
+        cMachine.Machine = _database.Machines.FirstOrDefault(x => x.Name == cMachineRequest.Name)!;
         if (cMachine.Machine == null) return NotFound();
         cMachine.MachineId = cMachine.Machine.Id;
-        cMachine.Company = _database.Companies.FirstOrDefault(x => x.Name == cMachineRequest.CompanyName);
+        cMachine.Company = _database.Companies.FirstOrDefault(x => x.Name == cMachineRequest.CompanyName)!;
         if (cMachine.Company == null) return NotFound();
         cMachine.CompanyId = cMachine.Company.Id;
 

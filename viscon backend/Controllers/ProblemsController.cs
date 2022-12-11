@@ -23,13 +23,13 @@ public class ProblemsController : ControllerBase {
         if (machine == null) return NotFound();
         return machine.Problems;
     }
-
-    /*[HttpGet ("{machineId, type}")]
+    /*
+    [HttpGet ("{machineId}/{type}")]
     public ActionResult<List<Problem>> FilterProblemsByType(Guid machineId, string type) {   
         //if (machineId == null) return BadRequest("No machine Id recieved.");
         var machine = _database.Machines.Find(machineId);
         if (machine == null) return NotFound();
-        return machine.Problems.Where(x => x.Type == type).ToList();
+        return machine.Problems!.Where(x => x.Type == type).ToList();
     }*/
 
     [HttpPost]

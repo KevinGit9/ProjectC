@@ -244,3 +244,4 @@ _Pvt_Extensions
 .obj/*
 .vscode/*
 *.dll
+*bin/*
