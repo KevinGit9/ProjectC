@@ -15,6 +15,7 @@ public class Database : DbContext {
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Machine> Machines { get; set; } = null!;
     public DbSet<Company> Companies { get; set; } = null!;
+    public DbSet<CompanyMachine> CompanyMachines { get; set; } = null!;
     public DbSet<Problem> Problems { get; set; } = null!;
     public DbSet<Ticket> Tickets { get; set; } = null!;
     
@@ -32,9 +33,9 @@ public class Database : DbContext {
             .HasMany(x => x.Problems)
             .WithOne(x => x.Machine)
             .HasForeignKey(x => x.MachineId);
-        modelBuilder.Entity<Machine>()
+        modelBuilder.Entity<CompanyMachine>()
             .HasOne(x => x.Company)
-            .WithMany(x => x.Machines)
+            .WithMany(x => x.CompanyMachines)
             .HasForeignKey(x => x.CompanyId);
 
         modelBuilder.Entity<Ticket>()
@@ -42,9 +43,9 @@ public class Database : DbContext {
             .WithMany(x => x.Tickets)
             .HasForeignKey(x => x.UserId);
         modelBuilder.Entity<Ticket>()
-            .HasOne(x => x.Machine)
+            .HasOne(x => x.CompanyMachine)
             .WithMany(x => x.Tickets)
-            .HasForeignKey(x => x.MachineId);
+            .HasForeignKey(x => x.CompanyMachineId);
         modelBuilder.Entity<Ticket>()
             .HasOne(x => x.ClaimedBy)
             .WithMany(x => x.ClaimedTickets)

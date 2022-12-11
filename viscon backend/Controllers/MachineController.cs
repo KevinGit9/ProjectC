@@ -17,22 +17,10 @@ public class MachineController : ControllerBase {
         return _database.Machines.ToList();
     }
 
-    [HttpGet ("{userId}")]
-    public ActionResult<List<Machine>> GetMyMachines(Guid userId) {
-        var user = _database.Users.Find(userId);
-        if (user == null) return NotFound();
-        var company = _database.Companies.FirstOrDefault(x => x.Id == user.CompanyId);
-        if (company == null) return NotFound();
-        return company.Machines;
-    }
-
     [HttpPost]
     public async Task<ActionResult<List<Machine>>> AddMachines(MachineDTO machineRequest) {
         Machine machine = new Machine();
         machine.Name = machineRequest.Name;
-        machine.Company = _database.Companies.FirstOrDefault(x => x.Name == machineRequest.CompanyName);
-        if (machine.Company == null) return NotFound();
-        machine.CompanyId = machine.Company.Id;
 
         _database.Machines.Add(machine);
         await _database.SaveChangesAsync();
