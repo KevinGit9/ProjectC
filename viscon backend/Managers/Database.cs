@@ -4,6 +4,11 @@ Add packages IF using Visual Studio Code:
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQ
 dotnet tool install --global dotnet-ef 
+
+Commands for Visual Studio Code:
+
+dotnet ef migrations add <Name>
+dotnet ef database update
 */
 
 using Microsoft.EntityFrameworkCore;

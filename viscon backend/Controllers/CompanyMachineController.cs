@@ -20,10 +20,10 @@ public class CompanyMachineController : ControllerBase {
     [HttpGet ("{userId}")]
     public ActionResult<List<CompanyMachine>> GetMyMachines(Guid userId) {
         var user = _database.Users.Find(userId);
-        if (user == null) return NotFound();
+        if (user == null) return NotFound("User does not exist.");
         var company = _database.Companies.FirstOrDefault(x => x.Id == user.CompanyId);
-        if (company == null) return NotFound();
-        return company.CompanyMachines;
+        if (company == null) return NotFound("User is not part of a company or company does not exist.");
+        return _database.CompanyMachines.Where(x => x.CompanyId == company.Id).ToList();
     }
 
     [HttpPost]
@@ -31,12 +31,14 @@ public class CompanyMachineController : ControllerBase {
         //Change Name to IDs
         CompanyMachine cMachine = new CompanyMachine();
         cMachine.Name = cMachineRequest.Name;
-        cMachine.Machine = _database.Machines.FirstOrDefault(x => x.Name == cMachineRequest.Name)!;
-        if (cMachine.Machine == null) return NotFound();
-        cMachine.MachineId = cMachine.Machine.Id;
-        cMachine.Company = _database.Companies.FirstOrDefault(x => x.Name == cMachineRequest.CompanyName)!;
-        if (cMachine.Company == null) return NotFound();
-        cMachine.CompanyId = cMachine.Company.Id;
+
+        var machine = _database.Machines.FirstOrDefault(x => x.Name == cMachineRequest.Name)!;
+        if (machine == null) return NotFound("Machine does not exist.");
+        cMachine.MachineId = machine.Id;
+
+        var company = _database.Companies.FirstOrDefault(x => x.Name == cMachineRequest.CompanyName)!;
+        if (company == null) return NotFound("Company does not exist.");
+        cMachine.CompanyId = company.Id;
 
         _database.CompanyMachines.Add(cMachine);
         await _database.SaveChangesAsync();
