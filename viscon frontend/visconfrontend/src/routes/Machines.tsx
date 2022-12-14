@@ -17,6 +17,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
 import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
 
 const SearchbarDropdown = (props: any) => {
   const { options, onInputChange } = props;
@@ -75,13 +76,28 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 
 function Machines() {
   var navigate = useNavigate();
-  const [options, setOptions] = useState<string[]>([]);
+  const [options, setOptions] = useState<any>([]);
   const onInputChange = (event) => {
-  console.log(event.target.value);
-  const new_options: string[] = defaultOptions.filter(option => option.includes(event.target.value))
-  setOptions(new_options)
+    console.log(event.target.value);
+    const new_options  : string[] = defaultOptions.filter(option => option.includes(event.target.value))
+    setOptions(new_options) // dit zou moeten werken (werkt op JS wel), maar kan een error geven
+    //setOptions(getMachines);
   }
 
+  /*
+  const getMachines = (e) => {
+    Axios
+      .get("http://localhost:5083/api/CompanyMachine")
+      .then((response) => {
+        console.log(response);
+        const machines = response.data.map((machine) => {
+          return machine.name
+        });
+        setOptions(machines);
+        console.log(machines);
+      })
+      .catch((error) => console.log(error));
+  }*/
 
   return (
     <div className="App container mt-2 mb-3">
