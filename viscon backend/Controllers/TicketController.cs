@@ -20,7 +20,7 @@ public class TicketController : ControllerBase {
     [HttpGet ("{adminId}")]
     public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if(admin == null) return NotFound("Admin not found.");
+        if (admin == null) return NotFound("Admin not found.");
 
         return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
     }
@@ -30,11 +30,11 @@ public class TicketController : ControllerBase {
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest) {
         Ticket ticket = new Ticket();
         var user = _database.Users.FirstOrDefault(x => x.FirstName == ticketRequest.User);
-        if(user == null)return NotFound("User does not exist.");
+        if (user == null) return NotFound("User does not exist.");
         ticket.UserId = user.Id;
 
         var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if(machine == null)return NotFound("Machine not found.");
+        if (machine == null) return NotFound("Machine not found.");
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
@@ -44,23 +44,24 @@ public class TicketController : ControllerBase {
         return Ok(await _database.Tickets.ToListAsync());
     }
 
-        [HttpPost ("{adminId}")]
+    //Test function to create a Ticket that has been claimed by an Admin.
+    [HttpPost ("{adminId}")]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest, Guid adminId) {
         Ticket ticket = new Ticket();
         var user = _database.Users.FirstOrDefault(x => x.FirstName == ticketRequest.User);
-        if(user == null)return NotFound("User does not exist.");
+        if (user == null) return NotFound("User does not exist.");
         ticket.UserId = user.Id;
 
         var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if(machine == null)return NotFound("Machine not found.");
+        if (machine == null) return NotFound("Machine not found.");
         ticket.CompanyMachineId = machine.Id;
 
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if(admin == null) return NotFound("Admin not found.");
-
+        if (admin == null) return NotFound("Admin not found.");
         ticket.AdminId = admin.Id;
 
         ticket.Fields = ticketRequest.Fields;
+
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
         return Ok(await _database.Tickets.ToListAsync());
