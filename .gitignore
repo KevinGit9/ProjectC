@@ -243,3 +243,5 @@ _Pvt_Extensions
 *.props
 .obj/*
 .vscode/*
+*.dll
+*bin/*
