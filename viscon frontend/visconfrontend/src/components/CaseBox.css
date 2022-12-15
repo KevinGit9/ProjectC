@@ -1,13 +1,17 @@
-.title-box {
-    margin: 20px;
-    text-decoration: none;
+.title-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
-.header-box {
-    background-color: #2A6F97;
-    color: white;
-    padding: 12px;
+.h-vertical-menu {
+    background: #2A6F97;
     margin: 0px 20px;
-    text-decoration: none;
+}
+.vertical-menu {
+    width: 250px;
+    height: 300px;
+    overflow-y: auto;
+    margin: 0px 20px 20px 20px;
 }
 
 .header-box .text {
@@ -34,3 +38,10 @@
 .vertical-menu a:hover {
     background-color: #ccc;
 }
+
+a.active{
+    text-decoration: none;
+    background-color: #2A6F97;
+    color: white;
+}
+
