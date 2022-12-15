@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using viscon_backend.DTOs;
 using viscon_backend.Models;
 
 namespace viscon_backend.Controllers;
@@ -10,24 +12,18 @@ public class MachineController : ControllerBase {
     public MachineController(Database database) =>
         _database = database;
 
-    [HttpGet ("{userId}")]
-    public ActionResult<List<Machine>> GetMyMachines(Guid userId) {
-        var user = _database.Users.Find(userId);
-        if (user == null) return NotFound();
-        var company = _database.Companies.FirstOrDefault(x => x.Id == user.CompanyId);
-        if (company == null) return NotFound();
-        return company.Machines;
+    [HttpGet]
+    public ActionResult<List<Machine>> Get() {
+        return _database.Machines.ToList();
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddMachines() {
-        for (int i = 0; i < 5; i++) {
-            var machine = new Machine();
-            machine.Id = Guid.NewGuid();
-            machine.Name = Console.ReadLine();
-            await _database.Machines.AddAsync(machine);
-        }
+    public async Task<ActionResult<List<Machine>>> AddMachine(MachineDTO machineRequest) {
+        Machine machine = new Machine();
+        machine.Name = machineRequest.Name;
+
+        _database.Machines.Add(machine);
         await _database.SaveChangesAsync();
-        return Ok();
+        return Ok(await _database.Machines.ToListAsync());
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using viscon_backend;
@@ -12,9 +13,11 @@ using viscon_backend;
 namespace visconbackend.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20221209164836_UpdatedRelations")]
+    partial class UpdatedRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,16 +41,13 @@ namespace visconbackend.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("viscon_backend.Models.CompanyMachine", b =>
+            modelBuilder.Entity("viscon_backend.Models.Machine", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("CompanyId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("MachineId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -57,23 +57,6 @@ namespace visconbackend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
-
-                    b.HasIndex("MachineId");
-
-                    b.ToTable("CompanyMachines");
-                });
-
-            modelBuilder.Entity("viscon_backend.Models.Machine", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
 
                     b.ToTable("Machines");
                 });
@@ -85,7 +68,6 @@ namespace visconbackend.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("MachineId")
@@ -95,7 +77,6 @@ namespace visconbackend.Migrations
                         .HasColumnType("text[]");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -114,7 +95,7 @@ namespace visconbackend.Migrations
                     b.Property<Guid>("AdminId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CompanyMachineId")
+                    b.Property<Guid>("MachineId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Problem")
@@ -130,7 +111,7 @@ namespace visconbackend.Migrations
 
                     b.HasIndex("AdminId");
 
-                    b.HasIndex("CompanyMachineId");
+                    b.HasIndex("MachineId");
 
                     b.HasIndex("UserId");
 
@@ -146,16 +127,13 @@ namespace visconbackend.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
+                    b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -165,23 +143,15 @@ namespace visconbackend.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("viscon_backend.Models.CompanyMachine", b =>
+            modelBuilder.Entity("viscon_backend.Models.Machine", b =>
                 {
                     b.HasOne("viscon_backend.Models.Company", "Company")
-                        .WithMany("CompanyMachines")
+                        .WithMany("Machines")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("viscon_backend.Models.Machine", "Machine")
-                        .WithMany("CompanyMachines")
-                        .HasForeignKey("MachineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Company");
-
-                    b.Navigation("Machine");
                 });
 
             modelBuilder.Entity("viscon_backend.Models.Problem", b =>
@@ -203,9 +173,9 @@ namespace visconbackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("viscon_backend.Models.CompanyMachine", "CompanyMachine")
+                    b.HasOne("viscon_backend.Models.Machine", "Machine")
                         .WithMany("Tickets")
-                        .HasForeignKey("CompanyMachineId")
+                        .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -217,7 +187,7 @@ namespace visconbackend.Migrations
 
                     b.Navigation("ClaimedBy");
 
-                    b.Navigation("CompanyMachine");
+                    b.Navigation("Machine");
 
                     b.Navigation("User");
                 });
@@ -235,21 +205,16 @@ namespace visconbackend.Migrations
 
             modelBuilder.Entity("viscon_backend.Models.Company", b =>
                 {
-                    b.Navigation("CompanyMachines");
-
                     b.Navigation("Employees");
-                });
 
-            modelBuilder.Entity("viscon_backend.Models.CompanyMachine", b =>
-                {
-                    b.Navigation("Tickets");
+                    b.Navigation("Machines");
                 });
 
             modelBuilder.Entity("viscon_backend.Models.Machine", b =>
                 {
-                    b.Navigation("CompanyMachines");
-
                     b.Navigation("Problems");
+
+                    b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("viscon_backend.Models.User", b =>
