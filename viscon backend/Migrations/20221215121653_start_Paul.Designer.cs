@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using viscon_backend;
@@ -12,9 +13,11 @@ using viscon_backend;
 namespace visconbackend.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20221215121653_start_Paul")]
+    partial class startPaul
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,15 +114,14 @@ namespace visconbackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("AdminId")
+                    b.Property<Guid>("AdminId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("CompanyMachineId")
                         .HasColumnType("uuid");
 
-                    b.Property<string[]>("Fields")
-                        .IsRequired()
-                        .HasColumnType("text[]");
+                    b.Property<string>("Problem")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("timestamp with time zone");
@@ -200,7 +202,9 @@ namespace visconbackend.Migrations
                 {
                     b.HasOne("viscon_backend.Models.User", "ClaimedBy")
                         .WithMany("ClaimedTickets")
-                        .HasForeignKey("AdminId");
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("viscon_backend.Models.CompanyMachine", "CompanyMachine")
                         .WithMany("Tickets")

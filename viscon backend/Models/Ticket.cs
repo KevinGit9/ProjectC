@@ -8,7 +8,7 @@ public class Ticket {
     public CompanyMachine CompanyMachine { get; set; } = null!;
     public Guid CompanyMachineId { get; set; }
     public User? ClaimedBy { get; set; }
-    public Guid AdminId { get; set; }
-    public string? Problem { get; set; } 
+    public Guid? AdminId { get; set; }
+    public string[] Fields { get; set; } = null!; 
     public bool Completed = false;
 }
