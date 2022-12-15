@@ -1,17 +1,21 @@
 import React from 'react';
 import './CaseBox.css';
+import {Link}from "react-router-dom";
+
 function CaseBox(props) {
     return (
     <div className = "title-box">
+        <div className="h-vertical-menu">
+        <Link to = '#' className="active">{props.name}</Link>
+        </div>
         <div className="vertical-menu">
-            <a href="#" className="active">{props.name}</a>
-            <a href="#"> Ticket 1 </a>
-            <a href="#"> Ticket 2 </a>
-            <a href="#"> Ticket 3 </a>
-            <a href="#"> Ticket 4 </a>
-            <a href="#"> Ticket 5 </a>
-            <a href="#"> Ticket 6 </a>
-            <a href="#"> Ticket 7 </a>
+            <Link to="#"> Ticket 1 </Link>
+            <Link to="#"> Ticket 2 </Link>
+            <Link to="#"> Ticket 3 </Link>
+            <Link to="#"> Ticket 4 </Link>
+            <Link to="#"> Ticket 5 </Link>
+            <Link to="#"> Ticket 6 </Link>
+            <Link to="#"> Ticket 7 </Link>
         </div>
     </div>
 
