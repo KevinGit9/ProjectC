@@ -5,7 +5,7 @@ using viscon_backend.Models;
 namespace viscon_backend.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class ProblemsController : ControllerBase {
     private readonly Database _database;
     public ProblemsController(Database database) =>

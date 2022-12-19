@@ -6,18 +6,9 @@ import './Home.css';
 
 function Home() {
     const [machines, setMachines] = useState<any>([]);
-    const getMachine = () => {
-        axios
-            .get("/api/CompanyMachine")
-            .then((response) => {
-                console.log(response);
-                setMachines(response.data);
-            });
-    }
-
     const getMachines = () => {
         axios
-          .get("/api/CompanyMachine")
+          .get("/CompanyMachine")
           .then((response) => {
             setMachines(response.data.map((machine, index) => {
               return(<p key={index}> {machine.name} </p>);
@@ -25,7 +16,7 @@ function Home() {
             console.log(response);
           })
           .catch((error) => console.log(error));
-        }
+    }
         
     return (
         <div className="Home">
