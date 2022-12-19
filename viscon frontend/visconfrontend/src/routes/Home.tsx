@@ -15,13 +15,23 @@ function Home() {
             });
     }
 
+    const getMachines = () => {
+        axios
+          .get("/api/CompanyMachine")
+          .then((response) => {
+            setMachines(response.data.map((machine, index) => {
+              return(<p key={index}> {machine.name} </p>);
+            }));
+            console.log(response);
+          })
+          .catch((error) => console.log(error));
+        }
+        
     return (
         <div className="Home">
             <h1> Home </h1>
-            <button onClick={getMachine}> See Machines </button>
-            {machines.map((machine, index) => {
-                return(<p key = {index}> {machine.name} </p>)
-            })}
+            <button onClick={() => setMachines(getMachines)}> See Machines </button>
+            {machines}
         </div>
     );
 }
