@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from '../axios';
 import { useState } from 'react';
 import './Home.css';
 
@@ -7,10 +7,12 @@ import './Home.css';
 function Home() {
     const [machines, setMachines] = useState<any>([]);
     const getMachine = () => {
-        Axios.get("http://localhost:5083/api/CompanyMachine").then((response) => {
-            console.log(response);
-            setMachines(response.data);
-        });
+        axios
+            .get("/api/CompanyMachine")
+            .then((response) => {
+                console.log(response);
+                setMachines(response.data);
+            });
     }
 
     return (
@@ -22,11 +24,6 @@ function Home() {
             })}
         </div>
     );
-}
-
-async function getMachines(): Promise<any> {
-    const response = await Axios.get("/api/CompanyMachine");
-    return response.data.Name;
 }
 
 export default Home;
