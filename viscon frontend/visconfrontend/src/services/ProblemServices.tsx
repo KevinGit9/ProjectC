@@ -8,7 +8,7 @@ const Requests = (machineId: string) => {
     getProblemsFromMachine: GetProblemsFromMachine("da00a43d-56ee-4ac9-9b44-cd830279dd57");
 }
 
-//Takes a machineId as input and returns all common problems that the machine has.
+//Takes a machineId + problemType as input and returns a filtered list of common problems that the machine has.
 export const GetProblemsFromMachine = async (machineId: string) => {
     const path = `/Problems/${machineId}`;
     let response = await axios.get(path)
