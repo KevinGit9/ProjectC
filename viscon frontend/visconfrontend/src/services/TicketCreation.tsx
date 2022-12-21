@@ -1,8 +1,9 @@
 import React from 'react';
 
+//React Context.
+
 type State = {
     selectedMachine: string | null;
-    problemType: string;
     ticketFields: string[];
     // Other state properties, if necessary
 };
@@ -17,13 +18,27 @@ type Props = {
 class CreateTicketForm extends React.Component<Props, State> {
     state: State = {
         selectedMachine: null,
-        problemType: "",
         ticketFields: [],
     };
 
     handleMachineSelection = (machineId: string) => {
         this.setState({ selectedMachine: machineId });
     };
+
+    
+    render() {
+        return (
+        <form>
+            <label>
+            Select a machine:
+            <select onChange={() => this.handleMachineSelection}>
+                {/* Options for selecting a machine here */}
+            </select>
+            </label>
+            {/* Other form fields here */}
+        </form>
+        );
+    }
 }
 
 export default CreateTicketForm;

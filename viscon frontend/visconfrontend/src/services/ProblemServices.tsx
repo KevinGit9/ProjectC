@@ -12,6 +12,7 @@ const Requests = (machineId: string) => {
 export const GetProblemsFromMachine = async (machineId: string) => {
     const path = `/Problems/${machineId}`;
     let response = await axios.get(path)
+    console.log(response.data);
     return(response.data);
 };
 

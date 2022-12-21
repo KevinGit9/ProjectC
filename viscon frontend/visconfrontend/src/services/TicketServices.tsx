@@ -23,17 +23,14 @@ class CreateTicketForm extends React.Component<Props, State> {
         this.setState({ selectedMachine: machineId });
     }; 
 }
-  
-const TicketServices = () => {
-    //To get the userId saved in the localStorage with the "currentUser" key.
-    const [userId, setUserId] = useState([]);
-    useEffect(() => {
-        const user = localStorage.getItem("currentUser");
-        if (user != null) {
-            let parsedUser = JSON.parse(user);
-            setUserId(parsedUser.Id);
-        } 
-    })
-}
 
-export default TicketServices;
+export const getUserID = () => {
+    //To get the userId stored in the localStorage with the "currentUser" key.
+    //User got stored inside the localStorage at /login.
+    const user = localStorage.getItem("currentUser");
+    if (user != null) {
+      let parsedUser = JSON.parse(user);
+      return parsedUser.Id;
+    }
+    return null;
+};
