@@ -19,13 +19,13 @@ function App() {
     <div className="App">
         <div className="routes">
           <Routes>
-            <Route path="/" element={<Layout> <Home /> </Layout>} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Layout> <Home/> </Layout>} />
             <Route path="/machines" element={<Layout> <Machines /> </Layout>} />
             <Route path="/checklist" element={<Layout> <Checklist /> </Layout>} />
             <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
-            <Route path="/problems" element={<Layout> <Problems /> </Layout>} />
+            <Route path="/problems" element={<Layout> <Problems/> </Layout>} />
             <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
-            <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
             <Route path="/*" element /> {/* 404 error page toevoegen*/}

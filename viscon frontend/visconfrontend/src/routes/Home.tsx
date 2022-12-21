@@ -2,8 +2,6 @@ import axios from '../axios';
 import { useState } from 'react';
 import './Home.css';
 
-
-
 function Home() {
     const [machines, setMachines] = useState<any>([]);
     const getMachines = () => {
@@ -17,7 +15,7 @@ function Home() {
           })
           .catch((error) => console.log(error));
     }
-        
+
     return (
         <div className="Home">
             <h1> Home </h1>

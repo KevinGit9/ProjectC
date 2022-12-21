@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Accordion from '../components/Accordion';
 import { useNavigate } from 'react-router-dom';
-import axios from '../axios';
+import { GetProblemsFromMachine } from "../services/ProblemServices";
 import './Problems.css';
 
 function Problems() {
@@ -10,12 +10,7 @@ function Problems() {
 
   useEffect(() => {
     async function fetchData() {
-      await axios
-        .get("/Problems/da00a43d-56ee-4ac9-9b44-cd830279dd57")
-        .then((response) => {
-          setProblems(response.data);
-          console.log(response);
-        });
+      setProblems(await GetProblemsFromMachine("da00a43d-56ee-4ac9-9b44-cd830279dd57"));
     }
     fetchData();
   }, []);

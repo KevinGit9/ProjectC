@@ -18,11 +18,11 @@ public class Usercontroller : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<Machine>>> AddMachine(UserDTO userRequest) {
+    public async Task<ActionResult<List<Machine>>> AddUser(UserDTO userRequest) {
         User user = new User();
         user.FirstName = userRequest.FirstName;
         user.LastName = userRequest.LastName;
-        user.Type = userRequest.Type;
+        user.Role = userRequest.Role;
 
         var company = _database.Companies.FirstOrDefault(x => x.Name == userRequest.CompanyName);
         if (company == null) return NotFound("Company does not exist.");
