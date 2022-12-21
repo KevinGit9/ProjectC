@@ -1,0 +1,47 @@
+.title-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.h-vertical-menu {
+    background: #2A6F97;
+    margin: 0px 20px;
+}
+.vertical-menu {
+    width: 250px;
+    height: 300px;
+    overflow-y: auto;
+    margin: 0px 20px 20px 20px;
+}
+
+.header-box .text {
+    text-decoration: none;
+    color: white;
+}
+
+.vertical-menu {
+    width: 400px;
+    height: 400px;
+    overflow-y: auto;
+    margin: 0px 20px;
+}
+
+.vertical-menu a{
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+
+
+}
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+a.active{
+    text-decoration: none;
+    background-color: #2A6F97;
+    color: white;
+}
+

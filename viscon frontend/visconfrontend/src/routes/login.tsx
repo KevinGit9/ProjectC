@@ -1,6 +1,5 @@
-import React from 'react';
+import React from 'react'
 import './login.css';
-
 const LoginLayout = () => {
   return (
       <div className="login-layout">

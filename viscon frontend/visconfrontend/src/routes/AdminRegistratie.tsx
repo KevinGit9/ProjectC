@@ -1,6 +1,6 @@
 import React from 'react';
 import './AdminRegistratie.css';
-const RegistrationLayout = () => {
+const AdminRegistration = () => {
   return (
     <div className="registration-layout">
       <div className="reg-title">
@@ -34,7 +34,7 @@ const RegistrationLayout = () => {
     </div>
   );
 };
-export default RegistrationLayout;
+export default AdminRegistration;
 
 
 

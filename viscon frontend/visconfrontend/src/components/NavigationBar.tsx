@@ -11,6 +11,7 @@ function NavigationBar() {
             <a href="/submitform"> Submit Form </a>
             <a href="/login"> Login Screen </a>
             <a href="/admin"> Admin Menu </a>
+            <a href="/Registration"> Admin Registration </a>
         </div>
     )
 }
