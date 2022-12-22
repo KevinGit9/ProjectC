@@ -7,7 +7,7 @@ import './Home.css';
 function Home() {
     const [machines, setMachines] = useState<any>([]);
     const getMachine = () => {
-        Axios.get("http://localhost:5083/api/CompanyMachine").then((response) => {
+        Axios.get("http://localhost:5083/api/CompanyMachine/").then((response) => {
             console.log(response);
             setMachines(response.data);
         });

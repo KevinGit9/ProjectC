@@ -23,4 +23,8 @@ function CaseBox(props) {
     );
 
 }
+
+function Ticket(){
+    
+}
 export default CaseBox;

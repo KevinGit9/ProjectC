@@ -8,8 +8,8 @@ function Admin() {
             <h1>Admin Name's Dashboard </h1>
             <div className = "cases">
                 <CaseBox name='Current Cases'></CaseBox>
-                <CaseBox name='Closed Cases'></CaseBox>
                 <CaseBox name='Unclaimed Cases'></CaseBox>
+                <CaseBox name='Closed Cases'></CaseBox>
             </div>
             <div className="Manage">
                <ul className = "ManageHeader"> Manage</ul>
