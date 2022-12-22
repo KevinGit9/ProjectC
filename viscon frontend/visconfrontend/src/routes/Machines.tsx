@@ -13,11 +13,12 @@ na heel veel keer op de zoekbalk drukken en dan weg drukken laadt het component 
 
 
 
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
 import { useNavigate } from 'react-router-dom';
-import Axios from 'axios';
+import axios from '../axios';
+import { GetMyMachines } from '../services/MachineServices';
 
 const SearchbarDropdown = (props: any) => {
   const { options, onInputChange } = props;
@@ -33,32 +34,32 @@ const SearchbarDropdown = (props: any) => {
 
     document.addEventListener('click', (event) => {
       console.log('doc click');
-      
+
       ulRef.current!.style.display = 'none';
     })
   })
   //zoekbalk en "knoppen" die de dropdown maken
   return (
-  <div className='Searchbar-Dropdown'>
-   <input type="text" className="form-control" placeholder="Search" ref={inputRef} onChange={onInputChange}></input>
-   <ul className="list-group" ref={ulRef}>
-    {options.map((option, index) => 
-      <button
-      type="button" 
-      key={(index)}
-      className="list-group-item list-group-item-action"
-      onClick={(e) => {
-        inputRef.current!.value = option;
-      }}
-      >
-       {option}
-       </button>
-      )}
-  
-   </ul>
-   
-   </div>
-   
+    <div className='Searchbar-Dropdown'>
+      <input type="text" className="form-control" placeholder="Search" ref={inputRef} onChange={onInputChange}></input>
+      <ul className="list-group" ref={ulRef}>
+        {options.map((option, index) =>
+          <button
+            type="button"
+            key={(index)}
+            className="list-group-item list-group-item-action"
+            onClick={(e) => {
+              inputRef.current!.value = option;
+            }}
+          >
+            {option}
+          </button>
+        )}
+
+      </ul>
+
+    </div>
+
   )
 }
 
@@ -69,7 +70,7 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 
 
 
-  
+
 
 
 //App, later aanpassen
@@ -79,32 +80,36 @@ function Machines() {
   const [options, setOptions] = useState<any>([]);
   const onInputChange = (event) => {
     console.log(event.target.value);
-    const new_options  : string[] = defaultOptions.filter(option => option.includes(event.target.value))
-    setOptions(new_options) // dit zou moeten werken (werkt op JS wel), maar kan een error geven
-    //setOptions(getMachines);
+    const new_options: string[] = defaultOptions.filter(option => option.includes(event.target.value))
+    //setOptions(new_options);
   }
 
-  /*
-  const getMachines = (e) => {
-    Axios
-      .get("http://localhost:5083/api/CompanyMachine")
-      .then((response) => {
-        console.log(response);
-        const machines = response.data.map((machine) => {
-          return machine.name
-        });
-        setOptions(machines);
-        console.log(machines);
-      })
-      .catch((error) => console.log(error));
-  }*/
+  //Werkt nog niet perfect, laadt al in voordat er wordt geklikt op de zoekbalk.
+  //Filteren werkt ook niet.
+  useEffect(() => {
+    async function fetchData() {
+      let machines = await GetMyMachines();
+      setOptions(machines.map(machine => {
+        return (machine.name);
+      }));
+    }
+    fetchData();
+    console.log();
+  }, []);
+
+  const getMachines = async () => {
+    let machines = await GetMyMachines();
+    setOptions(machines.map(machine => {
+      return (machine.name);
+    }));
+  }
 
   return (
     <div className="App container mt-2 mb-3">
       <h1>Select Machine</h1>
-      <SearchbarDropdown 
-      options={options}
-      onInputChange={onInputChange} />
+      <SearchbarDropdown
+        options={options}
+        onInputChange={onInputChange} />
       <button onClick={() => navigate("/checklist")}> Continue </button>
     </div>
   )

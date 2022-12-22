@@ -1,32 +1,25 @@
-import Axios from "axios";
-import { useState } from 'react';
+import axios from '../axios';
+import React from 'react';
+import { useEffect, useState} from 'react';
 import './Home.css';
-
-
+import { GetMyMachines } from '../services/MachineServices';
+import { getUserID } from '../services/TicketServices';
 
 function Home() {
-    const [machines, setMachines] = useState<any>([]);
-    const getMachine = () => {
-        Axios.get("http://localhost:5083/api/CompanyMachine/").then((response) => {
-            console.log(response);
-            setMachines(response.data);
-        });
-    }
+  const [machines, setMachines] = useState<any>([]);
+  const getMachines = async () => {
+    setMachines(await GetMyMachines());
+  }
 
-    return (
-        <div className="Home">
-            <h1> Home </h1>
-            <button onClick={getMachine}> See Machines </button>
-            {machines.map((machine, index) => {
-                return(<p key = {index}> {machine.name} </p>)
-            })}
-        </div>
-    );
-}
-
-async function getMachines(): Promise<any> {
-    const response = await Axios.get("/api/CompanyMachine");
-    return response.data.Name;
+  return (
+    <div className="Home">
+      <h1> Home </h1>
+      <button onClick={() => getMachines()}> See Machines </button>
+      {machines.map(machine => {
+        return (<p key={machine.id}> {machine.name} </p>)
+      })}
+    </div>
+  );
 }
 
 export default Home;
