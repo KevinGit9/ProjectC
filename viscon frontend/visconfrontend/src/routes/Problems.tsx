@@ -16,9 +16,8 @@ function Problems() {
 
   useEffect(() => {
     async function fetchData() {
-      const machineId = (await GetMachineFromCompanyMachine(companyMachineId));
-      console.log(machineId);
-      setProblems(await GetProblemsFromMachine(`${machineId}/${problemType}`));
+      const machine = (await GetMachineFromCompanyMachine(companyMachineId));
+      setProblems(await GetProblemsFromMachine(`${machine.id}/${problemType}`));
     }
     fetchData();
     console.log(problemType);
@@ -29,7 +28,7 @@ function Problems() {
       <h1> Common Problems </h1>
       <div className="navButtons">
         <button onClick={() => navigate(`/checklist?machineId=${companyMachineId}`)}> Back </button>
-        <button onClick={() => navigate("/submitform")}> Can't find solution </button>
+        <button onClick={() => navigate(`/submitform?machineId=${companyMachineId}`)}> Can't find solution </button>
       </div>
       {problems.map((problem, index) => {
         return(<Accordion key={index} buttonText={problem.description} panelText={problem.solutions}/>)

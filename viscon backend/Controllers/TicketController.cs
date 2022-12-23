@@ -29,7 +29,7 @@ public class TicketController : ControllerBase {
     [HttpPost]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest) {
         Ticket ticket = new Ticket();
-        var user = _database.Users.FirstOrDefault(x => x.FirstName == ticketRequest.User);
+        var user = _database.Users.FirstOrDefault(x => x.Id == ticketRequest.UserId);
         if (user == null) return NotFound("User does not exist.");
         ticket.UserId = user.Id;
 
@@ -48,7 +48,7 @@ public class TicketController : ControllerBase {
     [HttpPost ("{adminId}")]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest, Guid adminId) {
         Ticket ticket = new Ticket();
-        var user = _database.Users.FirstOrDefault(x => x.FirstName == ticketRequest.User);
+        var user = _database.Users.FirstOrDefault(x => x.Id == ticketRequest.UserId);
         if (user == null) return NotFound("User does not exist.");
         ticket.UserId = user.Id;
 

@@ -2,31 +2,25 @@
 import { useEffect, useState } from 'react';
 import './Home.css';
 import { GetMyMachines } from '../services/MachineServices';
-import { useTicketContext  } from '../services/TicketContext';
+import { CreateTicket } from '../services/TicketServices';
+import { getUserID } from '../services/LocalStorageManager';
 
 const Home: React.FC = () => {
-  const { machineId, setMachineId } = useTicketContext();
   const [machines, setMachines] = useState<any>([]);
   const getMachines = async () => {
     setMachines(await GetMyMachines());
   }
-  const handleClick = (id: string) => {
-    setMachineId(id);
-    console.log(machineId);
-    console.log(id);
-  };
+  const userId = getUserID();
+  const machineId = "533cb852-ceb8-498f-a90e-f9b6c75320dc";
 
   return (
     <div className="Home">
       <h1> Home </h1>
       <button onClick={() => getMachines()}> See Machines </button>
-      <button onClick={() => handleClick("533cb852-ceb8-498f-a90e-f9b6c75320dc")}>
-      Set Machine ID
-      </button>
-      <div>Machine ID: {machineId}</div>
       {machines.map(machine => {
         return (<p key={machine.id}> {machine.name} </p>)
       })}
+      <button onClick={() => CreateTicket(userId, machineId, ["field1", "field2", "field3"])}> Create a ticket with default values. </button>
     </div>
   );
 }

@@ -1,11 +1,26 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getUserID } from '../services/LocalStorageManager';
+import { CreateTicket } from '../services/TicketServices';
 
 import './submitform.css';
 
 
 function Submitform() {
-    return (
+    let navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const machineId = queryParams.get('machineId');
+    const userId = getUserID();
+    console.log(`userId = ${userId}`);
+    console.log(`machineId = ${machineId}`);
 
+    const handleTicketSubmit = () => {
+        CreateTicket(userId, machineId, ["this is", "from the", "submit form"]);
+        navigate("/usermenu");
+    }
+
+    return (
         <div className="submissionform">
             <h1>Problem submission form</h1>
             <form id="problemform">
@@ -19,7 +34,7 @@ function Submitform() {
                 <p>Please enter any additional information.</p>
                 <textarea className="textbox"> </textarea> <br />
                 <input className="paperclip" type="file" multiple accept="image/*, video/*" ></input>
-                <input type="submit" ></input>
+                <input type="submit" onClick={handleTicketSubmit}></input>
             </form>
 
         </div>
