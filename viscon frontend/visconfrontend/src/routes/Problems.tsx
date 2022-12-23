@@ -5,16 +5,17 @@ import { GetProblemsFromMachine } from "../services/ProblemServices";
 import './Problems.css';
 
 function Problems() {
+  const [problems, setProblems] = useState<any>([]);
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const problemType = queryParams.get('problemType');
+  const machineId = queryParams.get('machineId');
 
-  const navigate = useNavigate();
-  const [problems, setProblems] = useState<any>([]);
 
   useEffect(() => {
     async function fetchData() {
-      setProblems(await GetProblemsFromMachine(`da00a43d-56ee-4ac9-9b44-cd830279dd57/${problemType}`));
+      setProblems(await GetProblemsFromMachine(`${machineId}/${problemType}`));
     }
     fetchData();
     console.log(problemType);
@@ -24,7 +25,7 @@ function Problems() {
     <div className='Problems'>
       <h1> Common Problems </h1>
       <div className="navButtons">
-        <button onClick={() => navigate("/checklist")}> Back </button>
+        <button onClick={() => navigate(`/checklist?machineId=${machineId}`)}> Back </button>
         <button onClick={() => navigate("/submitform")}> Can't find solution </button>
       </div>
       {problems.map((problem, index) => {
