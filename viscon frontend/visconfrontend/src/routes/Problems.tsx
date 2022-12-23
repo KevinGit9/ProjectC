@@ -13,7 +13,8 @@ function Problems() {
   const problemType = queryParams.get('problemType');
   const companyMachineId = queryParams.get('machineId');
 
-
+  //Function that runs once when User loads the page.
+  //Gets the Problems of the selected Machine and filters them based on the Checklist selections.
   useEffect(() => {
     async function fetchData() {
       const machine = (await GetMachineFromCompanyMachine(companyMachineId));

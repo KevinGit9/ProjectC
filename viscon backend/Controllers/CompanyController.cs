@@ -14,11 +14,7 @@ public class CompanyController : ControllerBase {
 
     [HttpGet]
     public ActionResult<List<Company>> Get() {
-        List<Company> companies = _database.Companies.ToList();
-        foreach (Company c in companies) {
-            c.CompanyMachines = _database.CompanyMachines.Where(x => x.CompanyId == c.Id).ToList();
-        }
-        return companies;
+        return _database.Companies.ToList();
     }
 
     [HttpPost]

@@ -17,6 +17,7 @@ public class MachineController : ControllerBase {
         return _database.Machines.ToList();
     }
 
+    //Function that takes a companyMachineId, returns the Machine type of the Company Machine.
     [HttpGet ("{companyMachineId}")]
     public ActionResult<Machine> GetMachineFromMachineId(Guid companyMachineId) {
         var companyMachine = _database.CompanyMachines.FirstOrDefault(x => x.Id == companyMachineId);

@@ -16,6 +16,7 @@ public class ProblemsController : ControllerBase {
         return _database.Problems.ToList();
     }
 
+    //Function that takes a machineId, returns all common Problems of the machine.
     [HttpGet ("{machineId}")]
     public ActionResult<List<Problem>> GetProblemsFromMachine(Guid machineId) {
         //if (machineId == null) return BadRequest("No machine Id recieved.");
@@ -24,6 +25,7 @@ public class ProblemsController : ControllerBase {
         return _database.Problems.Where(x => x.MachineId == machine.Id).ToList();
     }
     
+    //Function that takes a machineId and type, returns a filtered list of common Problems of the machine.
     [HttpGet ("{machineId}/{type}")]
     public ActionResult<List<Problem>> FilterProblemsByType(Guid machineId, string type) {   
         //if (machineId == null) return BadRequest("No machine Id recieved.");

@@ -86,6 +86,8 @@ function Machines() {
     //setOptions(new_options);
   }
 
+  //Function that gets all the Machines that the company of the currently logged in User owns.
+  //Then displays the Machine Name + Id, if selected the machineId gets stored in the selectedMachine state.
   const getMachines = async () => {
     let machines = await GetMyMachines();
     setOptions(machines.map(machine => {
@@ -94,6 +96,7 @@ function Machines() {
     }));
   }
 
+  //Function that handles page navigation from the Machines page, it checks if a machine has been selected before sending the user to the next page in the Ticket Creation process.
   const handleNavigate = () => {
     if (selectedMachine == undefined) return (setError("Please select a machine."));
     navigate(`/checklist?machineId=${selectedMachine}`);

@@ -17,6 +17,7 @@ public class CompanyMachineController : ControllerBase {
         return _database.CompanyMachines.ToList();
     }
 
+    //Function that takes an userId, returns a list of Machines of the Company that the User is part of.
     [HttpGet ("{userId}")]
     public ActionResult<List<CompanyMachine>> GetMyMachines(Guid userId) {
         var user = _database.Users.Find(userId);

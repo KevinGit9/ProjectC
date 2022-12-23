@@ -19,3 +19,7 @@
     border-radius: 4px;
     margin-top: 2%;
 }
+
+.checkListBackButton:hover {
+    background-color: #ccc;
+}

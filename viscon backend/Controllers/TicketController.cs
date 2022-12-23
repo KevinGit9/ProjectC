@@ -17,6 +17,7 @@ public class TicketController : ControllerBase {
         return _database.Tickets.ToList();
     }
 
+    //Function that uses an adminId to find all Tickets claimed by the Admin.
     [HttpGet ("{adminId}")]
     public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
@@ -25,7 +26,7 @@ public class TicketController : ControllerBase {
         return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
     }
     
-
+    //Function used to create a Ticket.
     [HttpPost]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest) {
         Ticket ticket = new Ticket();
