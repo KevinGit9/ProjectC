@@ -17,7 +17,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
 import { useNavigate } from 'react-router-dom';
-import axios from '../axios';
 import { GetMyMachines } from '../services/MachineServices';
 
 const SearchbarDropdown = (props: any) => {
@@ -77,27 +76,28 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 
 function Machines() {
   var navigate = useNavigate();
+  const [error, setError] = useState<string>();
   const [options, setOptions] = useState<any>([]);
-  const [selectedMachine, setSelectedMachine] = useState<any>("da00a43d-56ee-4ac9-9b44-cd830279dd57");
+  const [selectedMachine, setSelectedMachine] = useState<any>();
   const onInputChange = (event) => {
     console.log(event.target.value);
+    getMachines();
     const new_options: string[] = defaultOptions.filter(option => option.includes(event.target.value))
     //setOptions(new_options);
   }
-  //da00a43d-56ee-4ac9-9b44-cd830279dd57
-  //Werkt nog niet perfect, laadt al in voordat er wordt geklikt op de zoekbalk.
-  //Filteren werkt ook niet.
-  useEffect(() => {
-    async function fetchData() {
-      let machines = await GetMyMachines();
-      setOptions(machines.map(machine => {
-        console.log(machines);
-        return (<option onClick={() => setSelectedMachine(machine)} value={machine}> {machine.name} </option>);
-      }));
-    }
-    fetchData();
-    console.log();
-  }, []);
+
+  const getMachines = async () => {
+    let machines = await GetMyMachines();
+    setOptions(machines.map(machine => {
+      console.log(machines);
+      return (<option onClick={() => setSelectedMachine(machine.id)} value={machine.id}> {machine.name} {machine.id} </option>);
+    }));
+  }
+
+  const handleNavigate = () => {
+    if (selectedMachine == undefined) return (setError("Please select a machine."));
+    navigate(`/checklist?machineId=${selectedMachine}`);
+  }
 
   return (
     <div className="App container mt-2 mb-3">
@@ -105,7 +105,8 @@ function Machines() {
       <SearchbarDropdown
         options={options}
         onInputChange={onInputChange} />
-      <button onClick={() => navigate(`/checklist?machineId=${selectedMachine}`)}> Continue </button>
+      <button onClick={handleNavigate}> Continue </button>
+      <p> {error} </p>
     </div>
   )
 }

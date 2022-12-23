@@ -3,6 +3,7 @@ import Accordion from '../components/Accordion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GetProblemsFromMachine } from "../services/ProblemServices";
 import './Problems.css';
+import { GetMachineFromCompanyMachine } from '../services/MachineServices';
 
 function Problems() {
   const [problems, setProblems] = useState<any>([]);
@@ -10,11 +11,13 @@ function Problems() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const problemType = queryParams.get('problemType');
-  const machineId = queryParams.get('machineId');
+  const companyMachineId = queryParams.get('machineId');
 
 
   useEffect(() => {
     async function fetchData() {
+      const machineId = (await GetMachineFromCompanyMachine(companyMachineId));
+      console.log(machineId);
       setProblems(await GetProblemsFromMachine(`${machineId}/${problemType}`));
     }
     fetchData();
@@ -25,7 +28,7 @@ function Problems() {
     <div className='Problems'>
       <h1> Common Problems </h1>
       <div className="navButtons">
-        <button onClick={() => navigate(`/checklist?machineId=${machineId}`)}> Back </button>
+        <button onClick={() => navigate(`/checklist?machineId=${companyMachineId}`)}> Back </button>
         <button onClick={() => navigate("/submitform")}> Can't find solution </button>
       </div>
       {problems.map((problem, index) => {
