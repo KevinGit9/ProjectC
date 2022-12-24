@@ -6,7 +6,12 @@ export const storeItem = (object: any, key: string) => {
   console.log(localStorage.getItem(key));
 }
 
-//To get the userId stored in the localStorage with the "currentUser" key.
+//Function used to remove the data stored inside the localStorage using it's key.
+export const removeItem = (key: string) => {
+  localStorage.removeItem(key);
+}
+
+//Function to get the userId stored in the localStorage with the "currentUser" key.
 //User got stored inside the localStorage at /login.
 export const getUserId = () => {
     const user = localStorage.getItem("currentUser");
@@ -15,17 +20,25 @@ export const getUserId = () => {
     return parsedUser.id;
 };
 
+//Function to get the companyId of the Company the currently logged in User is a part of.
 export const getUserCompany = () => {
   const user = localStorage.getItem("currentUser");
   if (user == null) return null;
-    let parsedUser = JSON.parse(user);
-    return parsedUser.companyId;
+  let parsedUser = JSON.parse(user);
+  return parsedUser.companyId;
 }
 
-/*
-setItem(): used to add data to localStorage
-getItem(): used to get data from localStorage
-removeItem(): used to remove data from localStorage
-clear(): used to delete all the data from localStorage
-key(): returns the name of the key from the Storage object.
-*/
+//Function to get the role of the User that is currently logged.
+export const getUserRole = () => {
+  const user = localStorage.getItem("currentUser");
+  if (user == null) return null;
+  let parsedUser = JSON.parse(user);
+  return parsedUser.role;
+}
+
+export const getFullName = () => {
+  const user = localStorage.getItem("currentUser");
+  if (user == null) return null;
+  let parsedUser = JSON.parse(user);
+  return (`${parsedUser.firstName} ${parsedUser.lastName}`);
+}

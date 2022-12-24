@@ -7,6 +7,7 @@
     left: 0;
     background-color: #01152C;
     overflow-x: hidden; /* Disable horizontal scroll */
+    justify-content: space-between;
 }
 
 .navigationBarPanel a {
@@ -20,5 +21,10 @@
 
 .navigationBarPanel a:hover {
     background-color: #052D5C;
+    width: 100%;
+}
+
+.logoutButton {
+    color: white;
     width: 100%;
 }
