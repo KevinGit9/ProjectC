@@ -17,7 +17,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
 import { useNavigate } from 'react-router-dom';
-import { GetMyMachines } from '../services/MachineServices';
+import { GetMyMachines } from '../services/CompanyMachineServices';
 
 const SearchbarDropdown = (props: any) => {
   const { options, onInputChange } = props;

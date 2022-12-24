@@ -1,8 +1,8 @@
 import axios from "../axios";
 
 //Function that takes a string as parameter and creates a Company using that string as it's name.
-export const CreateCompany = (name: string) => {
-    return axios.post(`/Company`, {
+export const CreateCompany = async (name: string) => {
+    return await axios.post(`/Company`, {
         name: name,
     })
     .then(response => {

@@ -25,8 +25,9 @@ public class CompanyController : ControllerBase {
         company.Name = companyRequest.Name;
         _database.Companies.Add(company);
         
-        var software = _database.Machines.FirstOrDefault(x => x.Name == "Software Issue"); if (software == null) return (BadRequest());
-        var noMachine = _database.Machines.FirstOrDefault(x => x.Name == "No Machine"); if (noMachine == null) return (BadRequest());
+        var software = _database.Machines.FirstOrDefault(x => x.Name == "Software Issue");
+        var noMachine = _database.Machines.FirstOrDefault(x => x.Name == "No Machine");
+        if (software == null || noMachine == null) return BadRequest("Software or No Machine does not yet exist in the Machine database.");
         CompanyMachine companySoftware = new CompanyMachine() {Name = software.Name, MachineId = software.Id, CompanyId = company.Id};
         CompanyMachine companyNoMachine = new CompanyMachine() {Name = noMachine.Name, MachineId = noMachine.Id, CompanyId = company.Id};
         _database.CompanyMachines.Add(companySoftware);

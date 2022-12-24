@@ -1,6 +1,6 @@
 import './Home.css';
 import { useState } from 'react';
-import { GetMyMachines } from '../services/MachineServices';
+import { GetMyMachines } from '../services/CompanyMachineServices';
 import { CreateTicket } from '../services/TicketServices';
 import { getUserID } from '../services/LocalStorageManager';
 
