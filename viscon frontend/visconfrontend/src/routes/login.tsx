@@ -4,7 +4,7 @@ import { Login } from '../services/UserServices';
 import './login.css';
 const LoginLayout = () => {
   //User for testing purposes.  
-  Login("visconadmin", "visconadmin");
+  Login("admin@gmail.com", "admin");
   console.log(getUserId());
 
   return (

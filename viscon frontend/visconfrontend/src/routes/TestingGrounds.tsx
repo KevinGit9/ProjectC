@@ -45,7 +45,7 @@ function TestingGrounds() {
             });
     }
 
-    const handleClickProblem = async (description: string, type: string, machineName: string, solutions: string) => {
+    const handleClickProblem = async (description: string, type: string, machineName: string, solutions: string[]) => {
 
         CreateProblem(description, type, machineName, solutions)
         .then(response => {
@@ -70,13 +70,13 @@ function TestingGrounds() {
 return (
     <div className="TestingGrounds">
         <h1> Testing Grounds </h1>
-        <button onClick={() => handleClickCompany("NZXT")}> Create a Company. </button>
+        <button onClick={() => handleClickCompany("Apple")}> Create a Company. </button>
         <p> {company} </p>
         <button onClick={() => handleClickMachine("Bulldozer")}> Create a Machine. </button>
         <p> {machine} </p>
-        <button onClick={() => handleClickCompanyMachine("Shuttle 3", "Sattelite Shuttle", "Viscon")}> Create a Company Machine. </button>
+        <button onClick={() => handleClickCompanyMachine("Shuttle 3", "Satellite Shuttle", "Viscon")}> Create a Company Machine. </button>
         <p> {companyMachine} </p>
-        <button onClick={() => handleClickProblem("Product placement wrong on machine.", "error message", "Sattelite Shuttle", "Check photocells. Possibly place any product in the correct position manually.")}> Add a Problem. </button>
+        <button onClick={() => handleClickProblem("test", "error message", "Satellite Shuttle", ["Check photocells. Possibly place any product in the correct position manually."])}> Add a Problem. </button>
         <p> {problem} </p>
         <button onClick={() => handleClickRegister("test", "test", "test@gmail.com", "test", "Viscon", "admin")}> Add an Admin. </button>
         <p> {user} </p>
