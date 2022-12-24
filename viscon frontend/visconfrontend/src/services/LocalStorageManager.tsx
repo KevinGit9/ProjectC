@@ -8,14 +8,19 @@ export const storeItem = (object: any, key: string) => {
 
 //To get the userId stored in the localStorage with the "currentUser" key.
 //User got stored inside the localStorage at /login.
-export const getUserID = () => {
+export const getUserId = () => {
     const user = localStorage.getItem("currentUser");
-    if (user != null) {
-      let parsedUser = JSON.parse(user);
-      return parsedUser.id;
-    }
-    return null;
+    if (user == null) return null;
+    let parsedUser = JSON.parse(user);
+    return parsedUser.id;
 };
+
+export const getUserCompany = () => {
+  const user = localStorage.getItem("currentUser");
+  if (user == null) return null;
+    let parsedUser = JSON.parse(user);
+    return parsedUser.companyId;
+}
 
 /*
 setItem(): used to add data to localStorage

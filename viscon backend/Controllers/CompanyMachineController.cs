@@ -28,15 +28,20 @@ public class CompanyMachineController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<CompanyMachine>>> AddCompanyMachine(CompanyMachineDTO cMachineRequest) {
-        CompanyMachine companyMachine = new CompanyMachine();
-        companyMachine.Name = cMachineRequest.MachineName;
+    public async Task<ActionResult<List<CompanyMachine>>> AddCompanyMachine(CompanyMachineDTO companyMachineRequest) {
+        //Commented lines are used for the final product (Uses Id's instead of names to identify objects).
 
-        var machine = _database.Machines.FirstOrDefault(x => x.Name == cMachineRequest.MachineName)!;
+        CompanyMachine companyMachine = new CompanyMachine();
+        //companyMachine.Name = cMachineRequest.MachineName;
+        companyMachine.Name = companyMachineRequest.Name;
+
+        //var machine = _database.Machines.FirstOrDefault(x => x.Id == cMachineRequest.MachineId)!;
+        var machine = _database.Machines.FirstOrDefault(x => x.Name == companyMachineRequest.MachineName)!;
         if (machine == null) return NotFound("Machine does not exist.");
         companyMachine.MachineId = machine.Id;
 
-        var company = _database.Companies.FirstOrDefault(x => x.Id == cMachineRequest.CompanyId)!;
+        //var company = _database.Companies.FirstOrDefault(x => x.Id == cMachineRequest.CompanyId)!;
+        var company = _database.Companies.FirstOrDefault(x => x.Name == companyMachineRequest.CompanyName)!;
         if (company == null) return NotFound("Company does not exist.");
         companyMachine.CompanyId = company.Id;
 

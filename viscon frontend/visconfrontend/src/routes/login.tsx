@@ -1,11 +1,11 @@
 import React from 'react'
-import { getUserID } from '../services/LocalStorageManager';
+import { getUserId } from '../services/LocalStorageManager';
 import { Login } from '../services/UserServices';
 import './login.css';
 const LoginLayout = () => {
   //User for testing purposes.  
   Login("visconadmin", "visconadmin");
-  console.log(getUserID());
+  console.log(getUserId());
 
   return (
       <div className="login-layout">

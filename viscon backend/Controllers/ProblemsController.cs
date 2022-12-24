@@ -38,16 +38,17 @@ public class ProblemsController : ControllerBase {
 
     [HttpPost]
     public async Task<IActionResult> AddProblem(ProblemDTO problemRequest) {
+        Machine machine = _database.Machines.FirstOrDefault(x => x.Name == problemRequest.MachineName)!;
+        if (machine == null) return NotFound("Machine not found.");
+        var problemsOfMachine = _database.Problems.Where(x => x.MachineId == machine.Id).ToList();
+        if(problemsOfMachine.Any(x => x.Description == problemRequest.Description)) return BadRequest("Problem already exists on Machine.");
+
         Problem problem = new Problem();
         problem.Description = problemRequest.Description;
         problem.Type = problemRequest.Type;
         problem.Solutions = problemRequest.Solutions;
-
-        Machine machine = _database.Machines.FirstOrDefault(x => x.Name == problemRequest.MachineName)!;
-        if (machine == null) return NotFound("Machine not found.");
         problem.MachineId = machine.Id;
 
-        if (problem == null) return BadRequest();
         await _database.Problems.AddAsync(problem);
         await _database.SaveChangesAsync();
         

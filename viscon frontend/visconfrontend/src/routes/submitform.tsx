@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getUserID } from '../services/LocalStorageManager';
+import { getUserId } from '../services/LocalStorageManager';
 import { CreateTicket } from '../services/TicketServices';
 
 import './submitform.css';
@@ -11,7 +11,7 @@ function Submitform() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const machineId = queryParams.get('machineId');
-    const userId = getUserID();
+    const userId = getUserId();
     console.log(`userId = ${userId}`);
     console.log(`machineId = ${machineId}`);
 

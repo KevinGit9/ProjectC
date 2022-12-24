@@ -12,6 +12,7 @@ import Admin from './routes/admin';
 import Login from './routes/login';
 import AdminRegistratie from './routes/AdminRegistratie';
 import TestingGrounds from './routes/TestingGrounds';
+import TemporaryData from './routes/TemporaryData';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
             <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
+            <Route path="/data" element={<Layout> <TemporaryData/> </Layout>} />
           </Routes>
         </div>
     </div>
