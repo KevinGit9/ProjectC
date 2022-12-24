@@ -6,11 +6,15 @@ import { CreateProblem } from '../services/ProblemServices';
 import { RegisterUser } from '../services/UserServices';
 
 function TemporaryData() {
-
     return (
         <div className="TempData">
             <h1> Fill Database </h1>
-            <p> Click on this button to fill the Database. NOTE: Make sure to have dropped your current Database and rebuilt it. </p>
+            <p> 
+                NOTE: Drop eerst je eigen database! <br/>
+                Dit doe je door deze command in Visual Studio Code te runnen: 'dotnet ef database drop'.<br/>
+                Vervolgens doe je 'dotnet ef database build'. <br/>
+            </p>
+            <p> Click on this button to fill the Database.</p>
             <button onClick={DummyData}> Fill Database </button>
         </div>
     );

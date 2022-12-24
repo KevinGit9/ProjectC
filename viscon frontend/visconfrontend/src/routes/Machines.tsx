@@ -92,7 +92,7 @@ function Machines() {
     let machines = await GetMyMachines();
     setOptions(machines.map(machine => {
       console.log(machines);
-      return (<option onClick={() => setSelectedMachine(machine.id)} value={machine.id}> {machine.name} {machine.id} </option>);
+      return (<option onClick={() => setSelectedMachine(machine.id)} value={machine.id}> {machine.name} </option>);
     }));
   }
 
