@@ -12,7 +12,7 @@ export const getUserID = () => {
     const user = localStorage.getItem("currentUser");
     if (user != null) {
       let parsedUser = JSON.parse(user);
-      return parsedUser.Id;
+      return parsedUser.id;
     }
     return null;
 };

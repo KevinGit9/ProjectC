@@ -1,11 +1,11 @@
 import './Home.css';
 import { useState } from 'react';
 import { GetMyMachines } from '../services/CompanyMachineServices';
-import { CreateTicket } from '../services/TicketServices';
 import { getUserID } from '../services/LocalStorageManager';
 
 function Home() {
-  const [machines, setMachines] = useState<any>([]);
+  const [machine, setMachines] = useState<any>([])
+  const [user, setUser] = useState<any>();
   const getMachines = async () => {
     setMachines(await GetMyMachines());
   }
@@ -15,11 +15,9 @@ function Home() {
   return (
     <div className="Home">
       <h1> Home </h1>
-      <button onClick={() => getMachines()}> See Machines </button>
-      {machines.map(machine => {
-        return (<p key={machine.id}> {machine.name} </p>)
-      })}
-      <button onClick={() => CreateTicket(userId, machineId, ["field1", "field2", "field3"])}> Create a ticket with default values. </button>
+      <button onClick={() => getMachines()}> Create data. </button>
+      <button onClick={() => setUser(getUserID)}> Get UserId. </button>
+      <p> {user} </p>
     </div>
   );
 }

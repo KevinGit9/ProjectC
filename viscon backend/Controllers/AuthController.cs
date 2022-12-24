@@ -45,11 +45,11 @@ public class AuthController : ControllerBase {
     //Checks if the Password the user has typed in is the same as the password that has been stored in the database.
     //NOTE: This only works if the email is unique for every user.
     [HttpPost("login")]
-    public async Task<ActionResult<string>> Login(LoginDTO loginRequest) {
+    public async Task<ActionResult<User>> Login(LoginDTO loginRequest) {
         var user = _database.Users.FirstOrDefault(x => x.Email == loginRequest.Email);
         if (user == null) return BadRequest("Email does not exist.");
         if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt)) return BadRequest("Wrong password.");
-        return Ok("My token."); //TODO: Create JSON Web Token.
+        return Ok(user); //TODO: Create JSON Web Token.
     }
 
     //Function that converts the Password of the User into a passwordHash and passwordSalt.
