@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Layout from './components/Layout'
 import Home from "./routes/Home";
@@ -10,7 +11,7 @@ import Submitform from './routes/submitform';
 import Admin from './routes/admin';
 import Login from './routes/login';
 import AdminRegistratie from './routes/AdminRegistratie';
-import './App.css';
+import TestingGrounds from './routes/TestingGrounds';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
             <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
             <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
-            <Route path="/*" element /> {/* 404 error page toevoegen*/}
+            <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
           </Routes>
         </div>
     </div>

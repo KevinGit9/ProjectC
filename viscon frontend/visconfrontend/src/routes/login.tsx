@@ -1,4 +1,5 @@
 import React from 'react'
+import { storeItem } from '../services/LocalStorageManager';
 import './login.css';
 const LoginLayout = () => {
   //User for testing purposes.  
@@ -6,8 +7,7 @@ const LoginLayout = () => {
     Id: "3eac0239-0ad8-4a1d-bddf-7e26c731a119",
     Name: "admin",
   }  
-  localStorage.setItem("currentUser", JSON.stringify(user))  
-  console.log(localStorage.getItem("currentUser"));
+  storeItem(user, "currentUser");
 
   return (
       <div className="login-layout">

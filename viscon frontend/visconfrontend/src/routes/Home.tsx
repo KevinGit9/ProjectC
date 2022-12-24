@@ -1,11 +1,10 @@
-
-import { useEffect, useState } from 'react';
 import './Home.css';
+import { useState } from 'react';
 import { GetMyMachines } from '../services/MachineServices';
 import { CreateTicket } from '../services/TicketServices';
 import { getUserID } from '../services/LocalStorageManager';
 
-const Home: React.FC = () => {
+function Home() {
   const [machines, setMachines] = useState<any>([]);
   const getMachines = async () => {
     setMachines(await GetMyMachines());
