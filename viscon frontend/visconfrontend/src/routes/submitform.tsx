@@ -7,6 +7,11 @@ import './submitform.css';
 
 
 function Submitform() {
+    //TODO: 
+    //Use the user input to create a ticket.
+    //Add a Component(because it will also get used in other screens) called "ConfirmScreen" which is a pop-up screen with a "continue" and "go back" button. This gets called when the User clicks on the Submit button.
+    //Add field in the Ticket Model which stores photos/videos.
+    //Add an optional field in which the User can add their phone number.
     let navigate = useNavigate();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);

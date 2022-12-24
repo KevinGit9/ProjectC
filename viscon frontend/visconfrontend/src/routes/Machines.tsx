@@ -75,6 +75,12 @@ const defaultOptions = ['satelliet shuttle', 'transfer shuttle', 'lift', 'opzetp
 //App, later aanpassen
 
 function Machines() {
+  //TODO: 
+  //Fix bug that keeps storing clicks in the cache.
+  //Display selected machine in the search bar.
+  //Make the search bar a functional component so it can be used in different pages.
+  //Filter options based on what the user has typed into the search bar.
+        
   var navigate = useNavigate();
   const [error, setError] = useState<string>();
   const [options, setOptions] = useState<any>([]);
