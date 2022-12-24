@@ -18,7 +18,7 @@ function TemporaryData() {
 
 export const DummyData = async () => {
     const CreateMachines = async () => {
-        await CreateMachine("SoftWare Issue");
+        await CreateMachine("Software Issue");
         await CreateMachine("No Machine");
         await CreateMachine("Satellite Shuttle");
         await CreateMachine("Transfer Shuttle");
@@ -56,12 +56,12 @@ export const DummyData = async () => {
     await CreateCompanyMachines();
 
     const CreateProblemsForMachines = async () => {
-        await CreateProblem("Product placement wrong on machine.", "error message", "Satellite Shuttle", "[Check photocells. Possibly place any product in the correct position manually.]");
-        await CreateProblem("No connection with satellite.", "error message", "Satellite Shuttle", "[Check if the sattelite is on. If it is in the channel and has to charge up, charge it up using a charging cable and set the shuttle back on manual operation.]");
-        await CreateProblem("Not safe to move", "error message", "Satellite Shuttle", "[The pallet protrudes on the shuttle or another pallet on a lane on the shuttle path. Rotate the pallet manually to the correct position.]");
-        await CreateProblem("Not an error message 1", "no error message", "Satellite Shuttle", "[Solution for an error that's not an error message]");
-        await CreateProblem("Not an error message 2", "no error message", "Satellite Shuttle", "[Solution for an error that's not an error message]");
-        await CreateProblem("Not an error message 3", "no error message", "Satellite Shuttle", "[Solution for an error that's not an error message]");
+        await CreateProblem("Product placement wrong on machine.", "error message", "Satellite Shuttle", ["Check photocells. Possibly place any product in the correct position manually."]);
+        await CreateProblem("No connection with satellite.", "error message", "Satellite Shuttle", ["Check if the sattelite is on. If it is in the channel and has to charge up, charge it up using a charging cable and set the shuttle back on manual operation."]);
+        await CreateProblem("Not safe to move", "error message", "Satellite Shuttle", ["The pallet protrudes on the shuttle or another pallet on a lane on the shuttle path. Rotate the pallet manually to the correct position."]);
+        await CreateProblem("Not an error message 1", "no error message", "Satellite Shuttle", ["Solution for an error that's not an error message"]);
+        await CreateProblem("Not an error message 2", "no error message", "Satellite Shuttle", ["Solution for an error that's not an error message"]);
+        await CreateProblem("Not an error message 3", "no error message", "Satellite Shuttle", ["Solution for an error that's not an error message"]);
     }
     await CreateProblemsForMachines();
 }
