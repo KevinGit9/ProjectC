@@ -1,0 +1,17 @@
+.TicketContainter Link{
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+
+}
+.TicketContainter Link:hover {
+    background-color: #ccc;
+}
+
+Link.active{
+    text-decoration: none;
+    background-color: #2A6F97;
+    color: white;
+}

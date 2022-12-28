@@ -4,7 +4,7 @@ import './CaseBox.css';
 import Ticket from './Ticket';
 
 
-function CaseBox(props) {
+function ClosedCaseBox(props) {
     return (
     <div className = "title-box">
         <div className="h-vertical-menu">
@@ -19,4 +19,4 @@ function CaseBox(props) {
 
 }
 
-export default CaseBox;
+export default ClosedCaseBox;

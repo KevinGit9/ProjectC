@@ -4,14 +4,14 @@ import './CaseBox.css';
 import Ticket from './Ticket';
 
 
-function CaseBox(props) {
+function UnclaimedCaseBox(props) {
     return (
     <div className = "title-box">
         <div className="h-vertical-menu">
         <Link to = '#' className="active">{props.name}</Link>
         </div>
         <div className="vertical-menu">
-            <Ticket name = "1"/>
+            <Ticket name = "2"/>
         </div>
     </div>
 
@@ -19,4 +19,4 @@ function CaseBox(props) {
 
 }
 
-export default CaseBox;
+export default UnclaimedCaseBox;
