@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import axios from '../axios';
 
 type State = {
     selectedMachine: string | null;
@@ -33,4 +34,12 @@ export const getUserID = () => {
       return parsedUser.Id;
     }
     return null;
+};
+
+export const GetTicketByAdminId = async () => {
+    let adminId = getUserID();
+    const path = `/Ticket/${adminId}`;
+    let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
 };
