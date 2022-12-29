@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "./Header";
 import "./Layout.css";
+import Header from "./Header";
 import NavigationBar from "./NavigationBar";
 
 const Layout = ({ children }) => {

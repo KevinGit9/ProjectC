@@ -14,21 +14,26 @@ public class CompanyController : ControllerBase {
 
     [HttpGet]
     public ActionResult<List<Company>> Get() {
-        List<Company> companies = _database.Companies.ToList();
-        foreach (Company c in companies) {
-            c.CompanyMachines = _database.CompanyMachines.Where(x => x.CompanyId == c.Id).ToList();
-        }
-        return companies;
+        return _database.Companies.ToList();
     }
 
     [HttpPost]
     public async Task<ActionResult<List<Company>>> AddCompany(CompanyDTO companyRequest) {
+        if (_database.Companies.Any(x => x.Name == companyRequest.Name)) return BadRequest("Company already exists.");
+
         Company company = new Company();
         company.Name = companyRequest.Name;
-
         _database.Companies.Add(company);
-        await _database.SaveChangesAsync();
         
+        var software = _database.Machines.FirstOrDefault(x => x.Name == "Software Issue");
+        var noMachine = _database.Machines.FirstOrDefault(x => x.Name == "No Machine");
+        if (software == null || noMachine == null) return BadRequest("Software or No Machine does not yet exist in the Machine database.");
+        CompanyMachine companySoftware = new CompanyMachine() {Name = software.Name, MachineId = software.Id, CompanyId = company.Id};
+        CompanyMachine companyNoMachine = new CompanyMachine() {Name = noMachine.Name, MachineId = noMachine.Id, CompanyId = company.Id};
+        _database.CompanyMachines.Add(companySoftware);
+        _database.CompanyMachines.Add(companyNoMachine);
+        
+        await _database.SaveChangesAsync();
         return Ok(await _database.Companies.ToListAsync());
     }
 }

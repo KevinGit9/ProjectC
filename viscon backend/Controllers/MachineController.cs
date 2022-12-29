@@ -17,8 +17,21 @@ public class MachineController : ControllerBase {
         return _database.Machines.ToList();
     }
 
+    //Function that takes a companyMachineId, returns the Machine type of the Company Machine.
+    [HttpGet ("{companyMachineId}")]
+    public ActionResult<Machine> GetMachineFromMachineId(Guid companyMachineId) {
+        var companyMachine = _database.CompanyMachines.FirstOrDefault(x => x.Id == companyMachineId);
+        if (companyMachine == null) return NotFound("This Company Machine does not exist.");
+        var machine = _database.Machines.FirstOrDefault(x => x.Id == companyMachine.MachineId);
+        if (machine == null) return NotFound("This Machine does not exist.");
+        return machine;
+    }
+
+    //Function used to create a machine.
     [HttpPost]
     public async Task<ActionResult<List<Machine>>> AddMachine(MachineDTO machineRequest) {
+        if (_database.Machines.Any(x => x.Name == machineRequest.Name)) return BadRequest("Machine already exists.");
+
         Machine machine = new Machine();
         machine.Name = machineRequest.Name;
 

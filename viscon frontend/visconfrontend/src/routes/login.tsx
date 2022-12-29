@@ -1,6 +1,17 @@
 import React from 'react'
 import './login.css';
+import { useNavigate } from 'react-router';
+import { Login } from '../services/UserServices';
+import { getUserRole } from '../services/LocalStorageManager';
+
 const LoginLayout = () => {
+  let navigate = useNavigate();
+  const handleLogin = async (email: string, password: string) => {
+    await Login(email, password);
+    if (getUserRole() == "admin") navigate("/admin");
+    else navigate("/usermenu");
+  }
+
   return (
       <div className="login-layout">
           <h1>Login</h1>
@@ -19,9 +30,11 @@ const LoginLayout = () => {
               <button type="submit">Login</button>
               <button type="button" className="back-button">Back</button>
           </form>
+          <button onClick={() => handleLogin("admin@gmail.com", "admin")}> Temporary Log in button</button>
       </div>
   );
 };
+
 export default LoginLayout;
 
 

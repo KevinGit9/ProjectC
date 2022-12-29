@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
 import './Admin.css'
 import CaseBox from '../components/CaseBox';
+import { getFullName } from "../services/LocalStorageManager";
 
 function Admin() {
+    const currentAdmin = getFullName();
+
     return (
         <div className='admin'>
-            <h1>Admin Name's Dashboard </h1>
+            <h1> {currentAdmin}'s Dashboard </h1>
             <div className = "cases">
                 <CaseBox name='Current Cases'></CaseBox>
                 <CaseBox name='Closed Cases'></CaseBox>

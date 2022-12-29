@@ -4,11 +4,13 @@ namespace viscon_backend.Models {
         public Guid Id { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public byte[] PasswordHash { get; set; } = null!;
+        public byte[] PasswordSalt { get; set; } = null!;
         public Company Company { get; set; } = null!;
         public Guid CompanyId { get; set; }
         public List<Ticket>? Tickets { get; set; } 
-        public string Type { get; set; } = null!; //Admin, Key User, User
+        public string Role { get; set; } = null!; //Admin, Key User, User
         public List<Ticket>? ClaimedTickets { get; set; }
-        
     }
 }

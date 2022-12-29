@@ -16,20 +16,4 @@ public class Usercontroller : ControllerBase {
     public ActionResult<List<User>> Get() {
         return _database.Users.ToList();
     }
-
-    [HttpPost]
-    public async Task<ActionResult<List<Machine>>> AddMachine(UserDTO userRequest) {
-        User user = new User();
-        user.FirstName = userRequest.FirstName;
-        user.LastName = userRequest.LastName;
-        user.Type = userRequest.Type;
-
-        var company = _database.Companies.FirstOrDefault(x => x.Name == userRequest.CompanyName);
-        if (company == null) return NotFound("Company does not exist.");
-        user.CompanyId = company.Id;
-
-        _database.Users.Add(user);
-        await _database.SaveChangesAsync();
-        return Ok(await _database.Users.ToListAsync());
-    }
 }

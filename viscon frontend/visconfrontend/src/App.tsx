@@ -1,6 +1,6 @@
 import React from 'react';
+import './App.css';
 import { Routes, Route } from "react-router-dom";
-import NavigationBar from './components/NavigationBar';
 import Layout from './components/Layout'
 import Home from "./routes/Home";
 import Machines from "./routes/Machines";
@@ -11,7 +11,8 @@ import Submitform from './routes/submitform';
 import Admin from './routes/admin';
 import Login from './routes/login';
 import AdminRegistratie from './routes/AdminRegistratie';
-import './App.css';
+import TestingGrounds from './routes/TestingGrounds';
+import TemporaryData from './routes/TemporaryData';
 
 
 function App() {
@@ -19,16 +20,17 @@ function App() {
     <div className="App">
         <div className="routes">
           <Routes>
-            <Route path="/" element={<Layout> <Home /> </Layout>} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Layout> <Home/> </Layout>} />
             <Route path="/machines" element={<Layout> <Machines /> </Layout>} />
             <Route path="/checklist" element={<Layout> <Checklist /> </Layout>} />
             <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
-            <Route path="/problems" element={<Layout> <Problems /> </Layout>} />
+            <Route path="/problems" element={<Layout> <Problems/> </Layout>} />
             <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
-            <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
-            <Route path="/*" element /> {/* 404 error page toevoegen*/}
+            <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
+            <Route path="/data" element={<Layout> <TemporaryData/> </Layout>} />
           </Routes>
         </div>
     </div>

@@ -1,5 +1,3 @@
-using viscon_backend.Models;
-
 namespace viscon_backend.DTOs;
 
 public class MachineDTO {
