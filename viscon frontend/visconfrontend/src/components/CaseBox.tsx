@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './CaseBox.css';
 import Ticket from './Ticket';
-import { GetTicketByAdminId} from "../services/TicketServices";
+import { GetTicketByAdminId } from "../services/TicketServices";
 
 
 function CaseBox(props) {
@@ -24,9 +24,9 @@ function CaseBox(props) {
                 <Link to='#' className="active">{props.name}</Link>
             </div>
             <div className="vertical-menu">
-                {tickets.map((name, index) => {
-            return(<Ticket key={index} name = {name}></Ticket>)
-      })}
+                {tickets.map((ticket, index) => {
+                    return (<Ticket key={index} name={ticket.fields[0]}/>)
+                })}
             </div>
         </div>
 
