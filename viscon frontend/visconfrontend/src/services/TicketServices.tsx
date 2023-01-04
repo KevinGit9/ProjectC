@@ -43,3 +43,11 @@ export const GetTicketByAdminId = async () => {
     console.log(response.data);
     return(response.data);
 };
+
+// export const GetMachineNameById = async () => {
+//     let adminId = getUserID();
+//     const path = `/Ticket/${adminId}`;
+//     let response = await axios.get(path)
+//     console.log(response.data);
+//     return(response.data);
+// };

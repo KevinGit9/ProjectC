@@ -24,7 +24,9 @@ function CaseBox(props) {
                 <Link to='#' className="active">{props.name}</Link>
             </div>
             <div className="vertical-menu">
-                <Ticket name="1" />
+                {tickets.map((name, index) => {
+            return(<Ticket key={index} name = {name}></Ticket>)
+      })}
             </div>
         </div>
 
