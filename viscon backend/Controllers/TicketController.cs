@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -35,14 +36,16 @@ public class TicketController : ControllerBase {
         ticket.UserId = user.Id;
 
         var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if (machine == null) return NotFound("Machine not found.");
+        if (machine == null) return NotFound("Machine does not exist.");
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
-
+        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
+        
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(await _database.Tickets.ToListAsync());
+        return Ok(ticket);
     }
 
     //Test function to create a Ticket that has been claimed by an Admin.
@@ -62,10 +65,12 @@ public class TicketController : ControllerBase {
         ticket.AdminId = admin.Id;
 
         ticket.Fields = ticketRequest.Fields;
+        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
 
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(await _database.Tickets.ToListAsync());
+        return Ok(ticket);
     }
 
 
