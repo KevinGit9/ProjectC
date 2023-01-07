@@ -85,11 +85,18 @@ function Machines() {
   const [error, setError] = useState<string>();
   const [options, setOptions] = useState<any>([]);
   const [selectedMachine, setSelectedMachine] = useState<any>();
+  const [selectedMachineName, setSelectedMachineName] = useState<any>();
   const onInputChange = (event) => {
     console.log(event.target.value);
     getMachines();
     const new_options: string[] = defaultOptions.filter(option => option.includes(event.target.value))
     //setOptions(new_options);
+  }
+
+  //Function to set the Machine states to the selected machine.
+  const setMachineStates = (name: string, id: string) => {
+    setSelectedMachine(id);
+    setSelectedMachineName(name);
   }
 
   //Function that gets all the Machines that the company of the currently logged in User owns.
@@ -98,14 +105,15 @@ function Machines() {
     let machines = await GetMyMachines();
     setOptions(machines.map(machine => {
       console.log(machines);
-      return (<option onClick={() => setSelectedMachine(machine.id)} value={machine.id}> {machine.name} </option>);
+      return (<option onClick={() => setMachineStates(machine.name, machine.id)} value={machine.id}> {machine.name} </option>);
     }));
   }
 
   //Function that handles page navigation from the Machines page, it checks if a machine has been selected before sending the user to the next page in the Ticket Creation process.
   const handleNavigate = () => {
     if (selectedMachine == undefined) return (setError("Please select a machine."));
-    navigate(`/checklist?machineId=${selectedMachine}`);
+    if (selectedMachineName == "Software Issue" || selectedMachineName == "No Machine") navigate(`/submitform?machineId=${selectedMachine}`);
+    else navigate(`/checklist?machineId=${selectedMachine}`);
   }
 
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import './Admin.css'
 import CaseBox from '../components/CaseBox';
-import { getFullName } from "../services/LocalStorageManager";
 import ClosedCaseBox from '../components/ClosedCaseBox';
 import UnclaimedCaseBox from '../components/UnclaimedCaseBox';
+import { getFullName } from '../services/LocalStorageManager';
 
 
 

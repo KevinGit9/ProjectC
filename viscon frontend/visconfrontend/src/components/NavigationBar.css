@@ -24,6 +24,10 @@
     width: 100%;
 }
 
+.navigationBarPanelButtons {
+    width: 100%;
+}
+
 .logoutButton {
     color: white;
     width: 100%;
