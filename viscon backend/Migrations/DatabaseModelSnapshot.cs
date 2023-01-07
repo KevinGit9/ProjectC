@@ -117,9 +117,6 @@ namespace visconbackend.Migrations
                     b.Property<Guid>("CompanyMachineId")
                         .HasColumnType("uuid");
 
-                    b.Property<bool>("Completed")
-                        .HasColumnType("boolean");
-
                     b.Property<string[]>("Fields")
                         .IsRequired()
                         .HasColumnType("text[]");
