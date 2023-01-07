@@ -1,26 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './CaseBox.css';
+import Ticket from './Ticket';
+import { GetTicketByAdminId } from "../services/TicketServices";
 
 
 function CaseBox(props) {
+    // hier wil ik iets doen
+    const [tickets, setTickets] = useState<any>([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            setTickets(await GetTicketByAdminId());
+        }
+        fetchData();
+        console.log();
+    }, []);
+
     return (
-    <div className = "title-box">
-        <div className="h-vertical-menu">
-        <Link to = '#' className="active">{props.name}</Link>
+        <div className="title-box">
+            <div className="h-vertical-menu">
+                <Link to='#' className="active">{props.name}</Link>
+            </div>
+            <div className="vertical-menu">
+                {tickets.map((ticket, index) => {
+                    return (<Ticket key={index} name={ticket.fields[0]}/>)
+                })}
+            </div>
         </div>
-        <div className="vertical-menu">
-            <Link to="#"> Ticket 1 </Link>
-            <Link to="#"> Ticket 2 </Link>
-            <Link to="#"> Ticket 3 </Link>
-            <Link to="#"> Ticket 4 </Link>
-            <Link to="#"> Ticket 5 </Link>
-            <Link to="#"> Ticket 6 </Link>
-            <Link to="#"> Ticket 7 </Link>
-        </div>
-    </div>
 
     );
 
 }
+
 export default CaseBox;
