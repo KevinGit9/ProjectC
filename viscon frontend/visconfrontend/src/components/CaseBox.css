@@ -33,6 +33,7 @@
     padding: 12px;
     text-decoration: none;
 
+
 }
 .vertical-menu a:hover {
     background-color: #ccc;
@@ -43,3 +44,4 @@ a.active{
     background-color: #2A6F97;
     color: white;
 }
+

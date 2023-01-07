@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import React from 'react';
 import Accordion from '../components/Accordion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GetProblemsFromMachine } from "../services/ProblemServices";

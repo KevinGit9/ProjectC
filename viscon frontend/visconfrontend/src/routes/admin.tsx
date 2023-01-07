@@ -1,11 +1,6 @@
-import React from 'react';
 import './Admin.css'
 import CaseBox from '../components/CaseBox';
 import { getFullName } from "../services/LocalStorageManager";
-import ClosedCaseBox from '../components/ClosedCaseBox';
-import UnclaimedCaseBox from '../components/UnclaimedCaseBox';
-
-
 
 function Admin() {
     const currentAdmin = getFullName();
@@ -14,9 +9,9 @@ function Admin() {
         <div className='admin'>
             <h1> {currentAdmin}'s Dashboard </h1>
             <div className = "cases">
-                <CaseBox name='Current Cases'/>
-                <UnclaimedCaseBox name='Unclaimed Cases'/>
-                <ClosedCaseBox name='Closed Cases'/>
+                <CaseBox name='Current Cases'></CaseBox>
+                <CaseBox name='Closed Cases'></CaseBox>
+                <CaseBox name='Unclaimed Cases'></CaseBox>
             </div>
             <div className="Manage">
                <ul className = "ManageHeader"> Manage</ul>
@@ -28,7 +23,6 @@ function Admin() {
     );
 
 }
-
 
 export default Admin;
 

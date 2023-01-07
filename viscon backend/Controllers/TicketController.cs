@@ -1,4 +1,3 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -10,10 +9,11 @@ namespace viscon_backend.Controllers;
 [Route("api/[controller]")]
 public class TicketController : ControllerBase {
     private readonly Database _database;
-    public TicketController(Database database) => _database = database;
+    public TicketController(Database database) =>
+        _database = database;
 
     [HttpGet]
-    public ActionResult<List<Ticket>> GetTickets() {
+    public ActionResult<List<Ticket>> Get() {
         return _database.Tickets.ToList();
     }
 
@@ -25,18 +25,6 @@ public class TicketController : ControllerBase {
 
         return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
     }
-   
-    // [HttpGet] 
-    // public ActionResult<List<Ticket>> GetUnclaimedTickets() {
-    //     return _database.Tickets.Where(x => x.AdminId == null).ToList();
-    // }
-    
-    
-    // [HttpGet] 
-    // public ActionResult<List<Ticket>> GetClosedTickets(){
-    //     return _database.Tickets.Where(x => x.Completed == true).ToList();
-            
-    // }
     
     //Function used to create a Ticket.
     [HttpPost]
@@ -47,16 +35,14 @@ public class TicketController : ControllerBase {
         ticket.UserId = user.Id;
 
         var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if (machine == null) return NotFound("Machine does not exist.");
+        if (machine == null) return NotFound("Machine not found.");
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
-        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
-        
+
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(ticket);
+        return Ok(await _database.Tickets.ToListAsync());
     }
 
     //Test function to create a Ticket that has been claimed by an Admin.
@@ -76,21 +62,11 @@ public class TicketController : ControllerBase {
         ticket.AdminId = admin.Id;
 
         ticket.Fields = ticketRequest.Fields;
-        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
 
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(ticket);
+        return Ok(await _database.Tickets.ToListAsync());
     }
-
-    // [HttpPost]
-    // //Hmm gaat dit lukken?
-    // public async Task ChangeCompletion(Ticket ticket){
-    //     if(ticket.Completed) ticket.Completed = false; 
-    //     else ticket.Completed = true;
-    //     await _database.SaveChangesAsync();
-    // }
 
 
 
