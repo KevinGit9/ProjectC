@@ -1,29 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
 import axios from '../axios';
-
-type State = {
-    selectedMachine: string | null;
-    problemType: string | null;
-    ticketFields: string[];
-    // Other state properties, if necessary
-};
-
-type Props = {
-    onMachineSelection: (machineId: string) => void;
-}
-  
-class CreateTicketForm extends React.Component<Props, State> {
-    state: State = {
-        selectedMachine: null,
-        problemType: null,
-        ticketFields: [],
-    };
-
-    handleMachineSelection = (machineId: string) => {
-        this.setState({ selectedMachine: machineId });
-    }; 
-import axios from '../axios';
+import { getUserId } from '../services/LocalStorageManager';
 
 //Takes an userId, machineId and fields and creates an ticket with those.
 export const CreateTicket = (userId: string, machineId: string | null, fields: string[]) => {
@@ -38,12 +14,13 @@ export const CreateTicket = (userId: string, machineId: string | null, fields: s
 
 
 export const GetTicketByAdminId = async () => {
-    let adminId = getUserID();
+    let adminId = getUserId();
     const path = `/Ticket/${adminId}`;
     let response = await axios.get(path)
     console.log(response.data);
     return(response.data);
 };
+
 
 // export const GetMachineNameById = async () => {
 //     let adminId = getUserID();

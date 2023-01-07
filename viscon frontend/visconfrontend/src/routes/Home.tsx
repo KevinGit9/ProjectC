@@ -1,9 +1,7 @@
-import axios from '../axios';
-import React from 'react';
-import { useEffect, useState} from 'react';
 import './Home.css';
-import { GetMyMachines } from '../services/MachineServices';
-import { getUserID } from '../services/TicketServices';
+import { useState } from 'react';
+import { GetMyMachines } from '../services/CompanyMachineServices';
+import { getUserId } from '../services/LocalStorageManager';
 
 function Home() {
   const [machine, setMachines] = useState<any>([])
