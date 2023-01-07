@@ -11,7 +11,7 @@ function NavigationBar() {
 
     return (
         <div className="navigationBarPanel">
-            <div>
+            <div className="navigationBarPanelButtons">
                 <a href="/home"> Home </a>
                 <a href="/machines"> Machines </a>
                 <a href="/checklist"> Checklist </a>
