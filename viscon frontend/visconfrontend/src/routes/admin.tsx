@@ -22,20 +22,20 @@ function Admin() {
             <div className="Management">
 
                 <Tiles 
-                svg = "icons/manage_accounts_black_24dp.svg" 
+                svg = "icons/groups_black_24dp.svg" 
                 header = "Users" 
                 desc = "View and manage all your users"
-                buttontext = "View all Users"/>
+                buttontext = "View all users"/>
                 <Tiles 
-                svg = "icons/manage_accounts_black_24dp.svg" 
+                svg = "icons/precision_manufacturing_black_24dp.svg" 
                 header = "Machines" 
-                desc = "view and manage all your Machines"
-                buttontext = "View all Machines"/>
+                desc = "View and manage all your machines"
+                buttontext = "View all machines"/>
                 <Tiles 
-                svg = "icons/manage_accounts_black_24dp.svg" 
+                svg = "icons/engineering_black_24dp.svg" 
                 header = "Company" 
-                desc = "View and manage your Company Information"
-                buttontext = "View Company"/>
+                desc = "View and manage your company"
+                buttontext = "View company info"/>
 
             </div>
         </div>

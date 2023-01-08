@@ -16,6 +16,16 @@
 }
 
 .filter-theme {
-    width: 6rem;
+    transition: 0.5s;
+    width: 4rem;
     filter: invert(36%) sepia(47%) saturate(652%) hue-rotate(158deg) brightness(97%) contrast(92%);
+}
+
+.tile :hover .filter-theme{
+    transition: 0.5s;
+    width: 6rem;
+}
+.tile :hover .tile-header{
+    font-weight: 700;
+    transition: 0.3s;
 }
