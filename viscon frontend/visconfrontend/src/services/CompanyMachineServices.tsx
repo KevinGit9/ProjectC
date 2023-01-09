@@ -32,3 +32,11 @@ export const GetMyMachines = async () => {
     console.log(response.data);
     return(response.data);
 };
+
+//Takes an companyMachineId and gets the info of the corresponding Company Machine.
+export const GetCompanyMachineInfo = async (companyMachineId: string) => {
+    const path = `/CompanyMachine/companyMachineInfo${companyMachineId}`;
+    let response = await axios.get(path)
+    console.log(response.data.name);
+    return(response.data);
+}

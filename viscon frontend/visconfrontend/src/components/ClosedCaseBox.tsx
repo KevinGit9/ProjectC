@@ -23,7 +23,7 @@ function ClosedCaseBox(props) {
             </div>
             <div className="vertical-menu">
                 {tickets.map((ticket, index) => {
-                    return (<Ticket key={index} name={ticket.fields[0]} />)
+                    return (<Ticket key={index} name={ticket.fields[0]} machine={ticket.companyMachineId} ticketId={ticket.id}/>)
                 })}
             </div>
         </div>

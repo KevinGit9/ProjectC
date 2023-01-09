@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { GetCompanyMachineInfo } from '../services/CompanyMachineServices';
+import { GetTicketInfo } from '../services/TicketServices';
 import './Ticket.css';
 
 
 interface ITicket{
-    name : string
-
+    name: string;
+    machine: string;
+    ticketId: string;
 }
 
 function Ticket(ticket: ITicket) {
-     // useState van machine naam en dat wordt ticket.name
+    //GetTicketInfo()
+    const [machine, setMachine] = useState<any>([]);
+    useEffect(() => {
+        async function fetchData() {
+            setMachine(await GetCompanyMachineInfo(ticket.machine));
+        }
+        fetchData();
+        console.log();
+    }, []);
+
+    let ticketName = `${machine.name}: ${ticket.name}`;
+    
     return (
         <div className="TicketContainer">
-            <Link to="#"> {ticket.name} </Link>
+            <Link to="#"> {ticketName} </Link>
         </div>
     )
 }

@@ -20,11 +20,11 @@ function CaseBox(props) {
     return (
         <div className="title-box">
             <div className="h-vertical-menu">
-                <Link to='#' className="active">{props.name}</Link>
+                <Link to='#' className="active"> {props.name} </Link>
             </div>
             <div className="vertical-menu">
                 {tickets.map((ticket, index) => {
-                    return (<Ticket key={index} name={ticket.fields[0]} />)
+                    return (<Ticket key={index} name={ticket.fields[0]} machine={ticket.companyMachineId} ticketId={ticket.id}/>)
                 })}
             </div>
         </div>

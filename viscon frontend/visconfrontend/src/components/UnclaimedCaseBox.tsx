@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './CaseBox.css';
 import Ticket from './Ticket';
-import { GetTicketByAdminId, GetUnclaimedTickets } from "../services/TicketServices";
+import { GetUnclaimedTickets } from "../services/TicketServices";
 
 
 
@@ -21,11 +21,12 @@ function UnclaimedCaseBox(props) {
   return (
     <div className="title-box">
       <div className="h-vertical-menu">
-        <Link to='#' className="active">{props.name}</Link>
+        <p className="ticketCount"> {tickets.length} </p>
+        <Link to='#' className="active"> {props.name} </Link>
       </div>
       <div className="vertical-menu">
         {tickets.map((ticket, index) => {
-          return (<Ticket key={index} name={ticket.fields[0]} />)
+          return (<Ticket key={index} name={ticket.fields[0]} machine={ticket.companyMachineId} ticketId={ticket.id}/>)
         })}
       </div>
     </div>

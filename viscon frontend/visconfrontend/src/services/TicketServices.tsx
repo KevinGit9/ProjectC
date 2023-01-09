@@ -36,10 +36,10 @@ export const GetClosedTickets = async () => {
     return(response.data);
 }
 
-// export const GetMachineNameById = async () => {
-//     let adminId = getUserID();
-//     const path = `/Ticket/${adminId}`;
-//     let response = await axios.get(path)
-//     console.log(response.data);
-//     return(response.data);
-// };
+//Takes an ticketId and gets the info of the corresponding Ticket.
+export const GetTicketInfo = async (ticketId: string) => {
+    const path = `/Ticket/ticketInfo${ticketId}`;
+    let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
+}
