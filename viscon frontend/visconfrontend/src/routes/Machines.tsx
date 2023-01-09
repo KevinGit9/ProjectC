@@ -13,7 +13,7 @@ na heel veel keer op de zoekbalk drukken en dan weg drukken laadt het component 
 
 
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Machines.css';
 import { useNavigate } from 'react-router-dom';
@@ -111,8 +111,8 @@ function Machines() {
 
   //Function that handles page navigation from the Machines page, it checks if a machine has been selected before sending the user to the next page in the Ticket Creation process.
   const handleNavigate = () => {
-    if (selectedMachine == undefined) return (setError("Please select a machine."));
-    if (selectedMachineName == "Software Issue" || selectedMachineName == "No Machine") navigate(`/submitform?machineId=${selectedMachine}`);
+    if (selectedMachine === undefined) return (setError("Please select a machine."));
+    if (selectedMachineName === "Software Issue" || selectedMachineName === "No Machine") navigate(`/submitform?machineId=${selectedMachine}`);
     else navigate(`/checklist?machineId=${selectedMachine}`);
   }
 
