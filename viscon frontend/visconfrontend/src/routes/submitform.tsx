@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getUserId, getUserRole } from '../services/LocalStorageManager';
 import { CreateTicket } from '../services/TicketServices';
-
 import './submitform.css';
 
 
