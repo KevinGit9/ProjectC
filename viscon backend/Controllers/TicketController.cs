@@ -13,20 +13,35 @@ public class TicketController : ControllerBase {
     public TicketController(Database database) =>
         _database = database;
 
-    [HttpGet]
-    public ActionResult<List<Ticket>> Get() {
-        return _database.Tickets.ToList();
-    }
 
     //Function that uses an adminId to find all Tickets claimed by the Admin.
     [HttpGet ("{adminId}")]
     public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if (admin == null) return NotFound("Admin not found.");
-
+        if (admin == null) return NotFound("Admin does not exist.");
         return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
     }
-    
+
+    //Function that returns all Unclaimed Tickets.
+    [HttpGet ("unclaimed")]
+    public ActionResult<List<Ticket>> GetUnclaimedTickets() {
+        return _database.Tickets.Where(x => x.AdminId == null).ToList();
+    }
+
+    //Function that returns all Closed Tickets.
+    [HttpGet ("closed")]
+    public ActionResult<List<Ticket>> GetClosedTickets() {
+        return _database.Tickets.Where(x => x.Completed == true).ToList();
+    }
+
+    //Function that uses an ticketId to find the corresponding Ticket.
+    [HttpGet ("ticketInfo{ticketId}")]
+    public ActionResult<Ticket> GetTicketInfo(Guid ticketId) {
+        var ticket = _database.Tickets.FirstOrDefault(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        return Ok(ticket);
+    }
+
     //Function used to create a Ticket.
     [HttpPost]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest) {
@@ -42,6 +57,7 @@ public class TicketController : ControllerBase {
         ticket.Fields = ticketRequest.Fields;
         string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
         ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
+        ticket.Completed = false;
         
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();

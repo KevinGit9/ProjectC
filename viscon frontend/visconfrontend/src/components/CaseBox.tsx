@@ -7,7 +7,6 @@ import { GetTicketByAdminId } from "../services/TicketServices";
 
 
 function CaseBox(props) {
-    // hier wil ik iets doen
     const [tickets, setTickets] = useState<any>([]);
 
     useEffect(() => {
@@ -25,7 +24,7 @@ function CaseBox(props) {
             </div>
             <div className="vertical-menu">
                 {tickets.map((ticket, index) => {
-                    return (<Ticket key={index} name={ticket.fields[0]}/>)
+                    return (<Ticket key={index} name={ticket.fields[0]} />)
                 })}
             </div>
         </div>
