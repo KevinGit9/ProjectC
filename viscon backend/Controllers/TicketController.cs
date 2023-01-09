@@ -19,7 +19,7 @@ public class TicketController : ControllerBase {
     public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
         if (admin == null) return NotFound("Admin does not exist.");
-        return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
+        return _database.Tickets.Where(x => (x.AdminId == admin.Id) && (x.Completed == false)).ToList();
     }
 
     //Function that returns all Unclaimed Tickets.
@@ -89,6 +89,26 @@ public class TicketController : ControllerBase {
         return Ok(ticket);
     }
 
+    //Function that uses a ticketId and adminId to assign the Ticket to the Admin.
+    [HttpPut ("{ticketId}/{adminId}")]
+    public async Task<ActionResult<Ticket>> ClaimTicket(Guid ticketId, Guid adminId) {
+        var ticket = await _database.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        ticket.AdminId = adminId;
 
+        await _database.SaveChangesAsync();
+        return Ok(ticket);
+    }
+
+    //Function that uses a ticketId and updates it's completion state to 'true'.
+    [HttpPut ("{ticketId}")]
+    public async Task<ActionResult<Ticket>> CloseTicket(Guid ticketId) {
+        var ticket = await _database.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        ticket.Completed = true;
+
+        await _database.SaveChangesAsync();
+        return Ok(ticket);
+    }
 
 }   
