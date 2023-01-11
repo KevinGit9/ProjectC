@@ -3,13 +3,14 @@ import './Admin.css'
 import CaseBox from '../components/CaseBox';
 import ClosedCaseBox from '../components/ClosedCaseBox';
 import UnclaimedCaseBox from '../components/UnclaimedCaseBox';
-import { getFullName } from '../services/LocalStorageManager';
-import StandardButton from '../components/StandardButton';
 import Tiles from '../components/Tiles';
-
+import StandardButton from '../components/StandardButton';
+import { getFullName } from '../services/LocalStorageManager';
+import { useNavigate } from 'react-router-dom';
 
 function Admin() {
     const currentAdmin = getFullName();
+    const navigate = useNavigate();
 
     return (
         <div className='admin'>
@@ -25,19 +26,19 @@ function Admin() {
                 svg = "icons/groups_black_24dp.svg" 
                 header = "Users" 
                 desc = "View and manage all your users"
-                onClick = "ManageUsers"
+                click = {() => navigate("usermanagement")}
                 buttontext = "View all users"/>
                 <Tiles 
                 svg = "icons/precision_manufacturing_black_24dp.svg" 
                 header = "Machines" 
                 desc = "View and manage all your machines"
-                onClick = "ManageMachines"
+                click = "ManageMachines"
                 buttontext = "View all machines"/>
                 <Tiles 
                 svg = "icons/engineering_black_24dp.svg" 
                 header = "Company" 
                 desc = "View and manage your company"
-                onClick = "ManageCompany"
+                click = "ManageCompany"
                 buttontext = "View company info"/>
 
             </div>

@@ -13,6 +13,8 @@ import Login from './routes/login';
 import AdminRegistratie from './routes/AdminRegistratie';
 import TestingGrounds from './routes/TestingGrounds';
 import TemporaryData from './routes/TemporaryData';
+import UserManagement from './routes/UserManagement';
+import MachineManagement from './routes/MachineManagement';
 
 
 function App() {
@@ -27,10 +29,14 @@ function App() {
             <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
             <Route path="/problems" element={<Layout> <Problems/> </Layout>} />
             <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
-            <Route path="/admin" element={<Layout> < Admin/> </Layout>} />
+            <Route path="/admin" element={<Layout> < Admin/> </Layout>}/>
+              <Route path= "admin/usermanagement" element= {<Layout><UserManagement/></Layout>}></Route>
+              <Route path= "admin/machinemanagement" element= {<Layout><MachineManagement/></Layout>}></Route>
+              <Route path= "admin/companymanagement" element= {<Layout><UserManagement/></Layout>}></Route>
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
             <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
             <Route path="/data" element={<Layout> <TemporaryData/> </Layout>} />
+            
           </Routes>
         </div>
     </div>

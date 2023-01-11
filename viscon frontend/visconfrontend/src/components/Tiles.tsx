@@ -11,7 +11,7 @@ function Tiles(props){
             <h3 className='tile-header'>{props.header}</h3>
             <p className='tile-description'>{props.desc}</p>
             <div>
-            <StandardButton onClick = {props.onClick} text= {props.buttontext}/>
+            <StandardButton click = {props.click} text= {props.buttontext}/>
             </div>
         </div>
     </div>
