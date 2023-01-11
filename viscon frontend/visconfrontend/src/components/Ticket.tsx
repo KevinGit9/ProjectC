@@ -14,6 +14,8 @@ interface ITicket{
 function Ticket(ticket: ITicket) {
     //GetTicketInfo()
     const [machine, setMachine] = useState<any>([]);
+    let ticketName = `${machine.name}: ${ticket.name}`;
+    
     useEffect(() => {
         async function fetchData() {
             setMachine(await GetCompanyMachineInfo(ticket.machine));
@@ -21,8 +23,6 @@ function Ticket(ticket: ITicket) {
         fetchData();
         console.log();
     }, []);
-
-    let ticketName = `${machine.name}: ${ticket.name}`;
     
     return (
         <div className="TicketContainer">
