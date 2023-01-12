@@ -1,6 +1,6 @@
-/* The Modal (background) */
+/* Darker Background */
 .dark {
-    display: block; /* Hidden by default */
+    display: block; 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -12,18 +12,40 @@
     background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
-.confirmationWindowPanel {
+/* Confirmation Window */
+.confirmationWindow {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    margin: 15% auto; 
+    width: 40%; 
     display: flex;
     flex-direction: column;
+    border-radius: 4px;
 }
 
-/* The Close Button */
+.confirmationWindowHeader {
+    background-color: #01152C;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    border-radius: 4px;
+}
+
+.confirmationWindowPanel {
+    padding: 3%;
+}
+
+.confirmationWindowButtons {
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 10%;
+}
+
+.confirmationWindowButtons button {
+    background-color: gainsboro;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Close Button */
 .close {
     color: #aaa;
     float: right;
@@ -33,7 +55,14 @@
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: grey;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .confirmationWindow {
+        margin: 50% auto; /* 15% from the top and centered */
+        width: 100%;
+    }
 }
