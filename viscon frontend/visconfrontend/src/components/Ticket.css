@@ -1,4 +1,4 @@
-.TicketContainter Link{
+.TicketContainter a{
     background-color: #eee;
     color: black;
     display: block;
@@ -6,11 +6,11 @@
     text-decoration: none;
 
 }
-.TicketContainter Link:hover {
+.TicketContainter a:hover {
     background-color: #ccc;
 }
 
-Link.active{
+a.active{
     text-decoration: none;
     background-color: #2A6F97;
     color: white;

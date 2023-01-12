@@ -1,25 +1,19 @@
 import './Home.css';
+import ConfirmationWindow from '../components/ConfirmationWindow';
 import { useState } from 'react';
-import { GetMyMachines } from '../services/CompanyMachineServices';
-import { getUserId } from '../services/LocalStorageManager';
 
 function Home() {
-  const [machine, setMachines] = useState<any>([])
-  const [user, setUser] = useState<any>();
-  const getMachines = async () => {
-    setMachines(await GetMyMachines());
-  }
-  const userId = getUserId();
-  const machineId = "533cb852-ceb8-498f-a90e-f9b6c75320dc";
+  const[confirmWindow, setConfirmWindow] = useState(false)
 
   return (
-    <div className="Home">
-      <h1> Home </h1>
-      <button onClick={() => getMachines()}> Create data. </button>
-      <button onClick={() => setUser(getUserId)}> Get UserId. </button>
-      <p> {user} </p>
+    <div>
+      <div className="Home">
+        <button onClick={() => setConfirmWindow(true)}> Confirm </button>
+      </div>
+      <ConfirmationWindow open={confirmWindow} text="Test to see if it works." setOpen={setConfirmWindow}/>
     </div>
   );
 }
+
 
 export default Home;

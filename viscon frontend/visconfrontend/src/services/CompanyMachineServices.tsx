@@ -1,7 +1,8 @@
 import axios from "../axios";
 import { getUserId } from "./LocalStorageManager";
+
+//Function that takes a string as parameter and creates a Company Machine using that string as it's name.
 /*
-//Function that takes a string as parameter and creates a Company using that string as it's name.
 export const CreateCompanyMachine = async (machineName: string, machineId: string, companyId: string) => {
     return await axios.post(`/CompanyMachine`, {
         machineName: machineName,
@@ -37,6 +38,6 @@ export const GetMyMachines = async () => {
 export const GetCompanyMachineInfo = async (companyMachineId: string) => {
     const path = `/CompanyMachine/companyMachineInfo${companyMachineId}`;
     let response = await axios.get(path)
-    console.log(response.data);
+    //console.log(response.data);
     return(response.data);
 }

@@ -1,0 +1,68 @@
+/* Darker Background */
+.dark {
+    display: block; 
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+}
+
+/* Confirmation Window */
+.confirmationWindow {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    width: 40%; 
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.confirmationWindowHeader {
+    background-color: #01152C;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    border-radius: 4px;
+}
+
+.confirmationWindowPanel {
+    padding: 3%;
+}
+
+.confirmationWindowButtons {
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 10%;
+}
+
+.confirmationWindowButtons button {
+    background-color: gainsboro;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .confirmationWindow {
+        margin: 50% auto; /* 15% from the top and centered */
+        width: 100%;
+    }
+}

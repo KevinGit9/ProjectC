@@ -16,7 +16,7 @@ export const GetTicketByAdminId = async () => {
     let adminId = getUserId();
     const path = `/Ticket/${adminId}`;
     let response = await axios.get(path)
-    console.log(response.data);
+    //console.log(response.data);
     return(response.data);
 };
 
@@ -24,7 +24,7 @@ export const GetTicketByAdminId = async () => {
 export const GetUnclaimedTickets = async () => {
     const path = '/Ticket/unclaimed';
     let response = await axios.get(path)
-    console.log(response.data);
+    //console.log(response.data);
     return(response.data);
 }
 
@@ -32,7 +32,7 @@ export const GetUnclaimedTickets = async () => {
 export const GetClosedTickets = async () => {
     const path = '/Ticket/closed';
     let response = await axios.get(path)
-    console.log(response.data);
+    //console.log(response.data);
     return(response.data);
 }
 
@@ -40,6 +40,20 @@ export const GetClosedTickets = async () => {
 export const GetTicketInfo = async (ticketId: string) => {
     const path = `/Ticket/ticketInfo${ticketId}`;
     let response = await axios.get(path)
-    console.log(response.data);
+    //console.log(response.data);
+    return(response.data);
+}
+
+export const ClaimTicket = async (ticketId: string, adminId: string) => {
+    const path = `/Ticket/${ticketId}/${adminId}`;
+    let response = await axios.put(path)
+    //console.log(response.data);
+    return(response.data);
+}
+
+export const CloseTicket = async (ticketId: string) => {
+    const path = `/Ticket/${ticketId}`;
+    let response = await axios.put(path)
+    //console.log(response.data);
     return(response.data);
 }
