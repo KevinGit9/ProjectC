@@ -13,7 +13,16 @@ public class Usercontroller : ControllerBase {
         _database = database;
 
     [HttpGet]
-    public ActionResult<List<User>> Get() {
-        return _database.Users.ToList();
+    public ActionResult<List<User>> GetFirst10Users() {
+        return _database.Users.Take(10).ToList();
+    }
+
+    [HttpGet("{userInput}")]
+    public ActionResult<List<User>> GetUserByInput(string userInput) {
+        
+        return _database.Users.Where(x => x.FirstName.Contains(userInput) || x.LastName.Contains(userInput)).ToList();
+
     }
 }
+
+
