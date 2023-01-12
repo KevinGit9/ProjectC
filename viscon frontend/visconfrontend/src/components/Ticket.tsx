@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { GetCompanyMachineInfo } from '../services/CompanyMachineServices';
 import { GetTicketInfo } from '../services/TicketServices';
 import './Ticket.css';
+import TicketView from './TicketView';
 
 
 interface ITicket{
@@ -12,7 +13,7 @@ interface ITicket{
 }
 
 function Ticket(ticket: ITicket) {
-    //GetTicketInfo()
+    const [viewTicket, setViewTicket] = useState(false);
     const [machine, setMachine] = useState<any>([]);
     let ticketName = `${machine.name}: ${ticket.name}`;
     
@@ -26,7 +27,8 @@ function Ticket(ticket: ITicket) {
     
     return (
         <div className="TicketContainer">
-            <Link to="#"> {ticketName} </Link>
+            <a onClick={() => setViewTicket(true)}> {ticketName} </a>
+            <TicketView open={viewTicket} ticketId={ticket.ticketId} machine={machine.name} setOpen={setViewTicket} />
         </div>
     )
 }

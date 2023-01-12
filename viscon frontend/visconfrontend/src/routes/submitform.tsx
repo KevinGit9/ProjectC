@@ -25,12 +25,8 @@ function Submitform() {
         console.log(`userId = ${userId}`);
         console.log(`machineId = ${machineId}`);
 
-        const handleSubmit = () => {
-            setConfirmWindow(true);
-        }
-
         const handleTicketSubmit = () => {
-            CreateTicket(userId, machineId, ["this is", "from the", "submit form"])
+            CreateTicket(userId, machineId, ["this ticket got", "created in the", "submit form"]);
             navigate("/usermenu");
         }
 
