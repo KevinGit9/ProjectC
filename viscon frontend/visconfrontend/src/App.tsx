@@ -15,6 +15,7 @@ import TestingGrounds from './routes/TestingGrounds';
 import TemporaryData from './routes/TemporaryData';
 import UserManagement from './routes/UserManagement';
 import MachineManagement from './routes/MachineManagement';
+import MyTickets from './routes/MyTickets';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
             <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
             <Route path="/data" element={<Layout> <TemporaryData/> </Layout>} />
+            <Route path="/MyTickets" element={<Layout> <MyTickets/> </Layout>} />
             
           </Routes>
         </div>
