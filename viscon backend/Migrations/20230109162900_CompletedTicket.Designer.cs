@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using viscon_backend;
@@ -12,9 +13,11 @@ using viscon_backend;
 namespace visconbackend.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20230109162900_CompletedTicket")]
+    partial class CompletedTicket
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,9 +119,6 @@ namespace visconbackend.Migrations
 
                     b.Property<Guid>("CompanyMachineId")
                         .HasColumnType("uuid");
-
-                    b.Property<bool>("Completed")
-                        .HasColumnType("boolean");
 
                     b.Property<string[]>("Fields")
                         .IsRequired()

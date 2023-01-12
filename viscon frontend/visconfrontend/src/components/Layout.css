@@ -4,7 +4,6 @@
     flex-direction: column;
 }
 
-
 .navigationWrapper {
     display: flex;
     justify-content: stretch;
@@ -26,4 +25,11 @@
     flex-grow: 1;
     overflow-y: auto;
     width: 85%;
+}
+
+@media (max-width: 1200px) {
+    .sideNav.Open {
+        transition: 0.02s;
+        width: 100%;
+    }
 }

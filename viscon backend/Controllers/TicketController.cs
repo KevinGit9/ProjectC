@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -9,11 +10,10 @@ namespace viscon_backend.Controllers;
 [Route("api/[controller]")]
 public class TicketController : ControllerBase {
     private readonly Database _database;
-    public TicketController(Database database) =>
-        _database = database;
+    public TicketController(Database database) => _database = database;
 
     [HttpGet]
-    public ActionResult<List<Ticket>> Get() {
+    public ActionResult<List<Ticket>> GetTickets() {
         return _database.Tickets.ToList();
     }
 
@@ -21,11 +21,30 @@ public class TicketController : ControllerBase {
     [HttpGet ("{adminId}")]
     public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
         var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if (admin == null) return NotFound("Admin not found.");
-
-        return _database.Tickets.Where(x => x.AdminId == admin.Id).ToList();
+        if (admin == null) return NotFound("Admin does not exist.");
+        return _database.Tickets.Where(x => (x.AdminId == admin.Id) && (x.Completed == false)).ToList();
     }
-    
+
+    //Function that returns all Unclaimed Tickets.
+    [HttpGet ("unclaimed")]
+    public ActionResult<List<Ticket>> GetUnclaimedTickets() {
+        return _database.Tickets.Where(x => x.AdminId == null).ToList();
+    }
+
+    //Function that returns all Closed Tickets.
+    [HttpGet ("closed")]
+    public ActionResult<List<Ticket>> GetClosedTickets() {
+        return _database.Tickets.Where(x => x.Completed == true).ToList();
+    }
+
+    //Function that uses an ticketId to find the corresponding Ticket.
+    [HttpGet ("ticketInfo{ticketId}")]
+    public ActionResult<Ticket> GetTicketInfo(Guid ticketId) {
+        var ticket = _database.Tickets.FirstOrDefault(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        return Ok(ticket);
+    }
+
     //Function used to create a Ticket.
     [HttpPost]
     public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest) {
@@ -35,14 +54,17 @@ public class TicketController : ControllerBase {
         ticket.UserId = user.Id;
 
         var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if (machine == null) return NotFound("Machine not found.");
+        if (machine == null) return NotFound("Machine does not exist.");
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
-
+        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
+        ticket.Completed = false;
+        
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(await _database.Tickets.ToListAsync());
+        return Ok(ticket);
     }
 
     //Test function to create a Ticket that has been claimed by an Admin.
@@ -62,12 +84,34 @@ public class TicketController : ControllerBase {
         ticket.AdminId = admin.Id;
 
         ticket.Fields = ticketRequest.Fields;
+        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
 
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
-        return Ok(await _database.Tickets.ToListAsync());
+        return Ok(ticket);
     }
 
+    //Function that uses a ticketId and adminId to assign the Ticket to the Admin.
+    [HttpPut ("{ticketId}/{adminId}")]
+    public async Task<ActionResult<Ticket>> ClaimTicket(Guid ticketId, Guid adminId) {
+        var ticket = await _database.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        ticket.AdminId = adminId;
 
+        await _database.SaveChangesAsync();
+        return Ok(ticket);
+    }
+
+    //Function that uses a ticketId and updates it's completion state to 'true'.
+    [HttpPut ("{ticketId}")]
+    public async Task<ActionResult<Ticket>> CloseTicket(Guid ticketId) {
+        var ticket = await _database.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        ticket.Completed = true;
+
+        await _database.SaveChangesAsync();
+        return Ok(ticket);
+    }
 
 }   

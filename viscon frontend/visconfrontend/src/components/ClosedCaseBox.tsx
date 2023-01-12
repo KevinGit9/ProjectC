@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { GetClosedTickets } from '../services/TicketServices';
 import './CaseBox.css';
 import Ticket from './Ticket';
-import { GetTicketByAdminId } from "../services/TicketServices";
 
 
-function CaseBox(props) {
+function ClosedCaseBox(props) {
     const [tickets, setTickets] = useState<any>([]);
 
     useEffect(() => {
         async function fetchData() {
-            setTickets(await GetTicketByAdminId());
+            setTickets(await GetClosedTickets());
         }
         fetchData();
         console.log();
@@ -20,7 +19,7 @@ function CaseBox(props) {
     return (
         <div className="title-box">
             <div className="h-vertical-menu">
-                <Link to='#' className="active"> {props.name} </Link>
+                <Link to='#' className="active">{props.name}</Link>
             </div>
             <div className="vertical-menu">
                 {tickets.map((ticket, index) => {
@@ -33,4 +32,4 @@ function CaseBox(props) {
 
 }
 
-export default CaseBox;
+export default ClosedCaseBox;

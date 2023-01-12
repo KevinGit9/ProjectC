@@ -3,7 +3,6 @@ import './Checklist.css';
 import OrderedBoxes from '../components/OrderedBoxes';
 import { useNavigate } from 'react-router-dom';
 import InitialBox from '../components/OrderedBoxesInitial';
-import { GetMachineFromCompanyMachine } from '../services/MachineServices';
 
 function Checklist() {
     const [currentId, setCurrentId] = useState(1);

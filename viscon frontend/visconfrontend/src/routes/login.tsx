@@ -30,7 +30,7 @@ const LoginLayout = () => {
               <button type="submit">Login</button>
               <button type="button" className="back-button">Back</button>
           </form>
-          <button onClick={() => handleLogin("admin@gmail.com", "admin")}> Temporary Log in button</button>
+          <button onClick={() => handleLogin("visconadmin", "visconadmin")}> Temporary Log in button</button>
       </div>
   );
 };

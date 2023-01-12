@@ -14,6 +14,13 @@
     margin: 0px 20px 20px 20px;
 }
 
+.ticketCount {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    width: 8%;
+}
+
 .header-box .text {
     text-decoration: none;
     color: white;
@@ -33,7 +40,6 @@
     padding: 12px;
     text-decoration: none;
 
-
 }
 .vertical-menu a:hover {
     background-color: #ccc;
@@ -44,4 +50,3 @@ a.active{
     background-color: #2A6F97;
     color: white;
 }
-
