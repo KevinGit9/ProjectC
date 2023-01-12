@@ -15,6 +15,9 @@ function UserManagement(props) {
         svg = "../icons/groups_black_24dp.svg"
         text = "User Management"
         placeholder = "Search for user..."
+        title1 = "Firstname"
+        title2 = "Lastname"
+
         />
     </div>
     );

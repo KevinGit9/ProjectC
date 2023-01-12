@@ -1,8 +1,10 @@
 // import { NavLink } from 'react-router-dom'
 import './AdminTools.css'
+import TableRow from './TableRow';
+
 
 function AdminTools(props) {
-    return(
+    return (
         <div className="AdminTools">
             <div className="table-tool">
                 <div className="table-tool-header">
@@ -15,10 +17,23 @@ function AdminTools(props) {
                     </div>
                 </div>
                 <div className="table-tool-content">
+                    <div className="table-tool-title">
+                        <a>{props.title1}</a>
+                        <a>{props.title2}</a>
+                        <a>{props.title3}</a>
+                    </div>
+                    <div className="table-tool-panel">
+                      <TableRow
+                      firstName = "Pete"
+                      lastName = "Smith"
+                      />
+                    </div>
                 </div>
             </div>
+
         </div>
     );
- }
+}
 
 export default AdminTools;
+
