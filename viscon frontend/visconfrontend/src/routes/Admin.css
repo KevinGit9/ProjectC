@@ -8,19 +8,13 @@
     font-size: 20px;
 }
 
+.Management{
+    display: flex;
+    justify-content: center;
+}
+
 .cases{
     display: flex;
     justify-content: center;
     align-items: c;
-}
-
-.Manage {
-    display: flex;
-    flex-direction: column;
-    background-color: #eee;
-    
-}
-.ManageHeader {
-    color: #fff;
-    background-color: #2A6F97;
 }

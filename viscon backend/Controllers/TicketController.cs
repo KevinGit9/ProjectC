@@ -10,9 +10,12 @@ namespace viscon_backend.Controllers;
 [Route("api/[controller]")]
 public class TicketController : ControllerBase {
     private readonly Database _database;
-    public TicketController(Database database) =>
-        _database = database;
+    public TicketController(Database database) => _database = database;
 
+    [HttpGet]
+    public ActionResult<List<Ticket>> GetTickets() {
+        return _database.Tickets.ToList();
+    }
 
     //Function that uses an adminId to find all Tickets claimed by the Admin.
     [HttpGet ("{adminId}")]
