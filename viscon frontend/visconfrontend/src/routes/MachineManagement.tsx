@@ -15,6 +15,7 @@ function MachineManagement(props) {
         text = "Machine Management"
         placeholder = "Search for machine..."
         />
+        
     </div>
     );
 }

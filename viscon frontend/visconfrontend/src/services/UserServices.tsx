@@ -29,3 +29,19 @@ export const Login = async (email: string, password: string) => {
         else storeItem(response.data, "currentUser");
     })
 }
+//Gets 10 Users to load in User Management table
+export const Get10Users = async () => {
+    const path = '/User';
+    let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
+}
+
+//Gets user based on user input
+export const GetUsersNameNyInput = async (userInput : string) => {
+    const path = `/User/${userInput}`;
+    let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
+}
+//Gets user based on user input

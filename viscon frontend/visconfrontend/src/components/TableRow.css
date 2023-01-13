@@ -1,6 +1,15 @@
-.TableRowPanel {
+.rows {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 1.5rem;
+    background-color: #e5e5e5;
+    color: #01152C
 }
+
+.rows.even {
+    background-color:#f2f2f2;
+}
+
+
 

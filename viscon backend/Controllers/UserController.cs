@@ -13,8 +13,8 @@ public class Usercontroller : ControllerBase {
         _database = database;
 
     [HttpGet]
-    public ActionResult<List<User>> GetFirst10Users() {
-        return _database.Users.Take(10).ToList();
+    public ActionResult<List<User>> GetFirst20Users() {
+        return _database.Users.Take(20).ToList();
     }
 
     [HttpGet("{userInput}")]

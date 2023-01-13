@@ -4,6 +4,7 @@ import TableRow from './TableRow';
 
 
 function AdminTools(props) {
+
     return (
         <div className="AdminTools">
             <div className="table-tool">
@@ -22,15 +23,9 @@ function AdminTools(props) {
                         <a>{props.title2}</a>
                         <a>{props.title3}</a>
                     </div>
-                    <div className="table-tool-panel">
-                      <TableRow
-                      firstName = "Pete"
-                      lastName = "Smith"
-                      />
-                    </div>
+                    {props.TableRow}
                 </div>
             </div>
-
         </div>
     );
 }

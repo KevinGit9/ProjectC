@@ -50,8 +50,9 @@
 .table-tool-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    overflow-y:auto;
     background-color: #ccc;
+    max-height: 100%;
 
 }
 
@@ -60,15 +61,17 @@
     display: flex;
     flex-direction: row;
     color: #fff;
+    font-weight: 600;
+    background-color:#307eab; 
+    border-color: #2A6F97;
+    border: 10px;
+    /*#358cbf*/
 }
 
-.table-tool-panel {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
+
 .table-tool-content a {
     font-size: 25px;
     display: block;
     width: 80%;
 }
+
