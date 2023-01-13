@@ -43,7 +43,8 @@
     box-sizing: border-box;
     margin: 16px 12px 0px 0px;
     padding: 10px 10px 10px 10px;
-    border: 0px;
+    border: 0;
+    
 }
 
 .table-tool-content {
@@ -58,10 +59,7 @@
     flex-direction: row;
     color: #fff;
     font-weight: 600;
-    background-color:#307eab; 
-    border-color: #2A6F97;
-    border: 10px;
-    /*#358cbf*/
+    background-color:#307eab;
 }
 .table-tool-rows {
     width: 100%;

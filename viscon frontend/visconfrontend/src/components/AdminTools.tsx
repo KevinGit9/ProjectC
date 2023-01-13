@@ -22,6 +22,7 @@ function AdminTools(props) {
                         <a>{props.title1}</a>
                         <a>{props.title2}</a>
                         <a>{props.title3}</a>
+                        {props.button}
                     </div>
                     <div className="table-tool-rows">
                         {props.TableRow}

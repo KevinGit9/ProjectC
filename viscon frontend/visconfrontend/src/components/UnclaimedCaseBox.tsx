@@ -20,9 +20,9 @@ function UnclaimedCaseBox(props) {
 
   return (
     <div className="title-box">
-      <div className="h-vertical-menu">
-        <p className="ticketCount"> {tickets.length} </p>
+      <div className="h-vertical-menu  unclaimed">
         <Link to='#' className="active"> {props.name} </Link>
+        <p className="ticketCount"> {tickets.length} </p>
       </div>
       <div className="vertical-menu">
         {tickets.map((ticket, index) => {
