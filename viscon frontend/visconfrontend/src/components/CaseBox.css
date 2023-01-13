@@ -10,7 +10,7 @@
 .vertical-menu {
     width: 250px;
     height: 300px;
-    overflow-y: auto;
+    overflow-y: auto;  
     margin: 0px 20px 20px 20px;
 }
 
