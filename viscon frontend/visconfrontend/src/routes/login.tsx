@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css';
 import { useNavigate } from 'react-router';
 import { Login } from '../services/UserServices';
 import { getUserRole } from '../services/LocalStorageManager';
 
 const LoginLayout = () => {
+    const [emailInput, setEmailInput]= useState<string>('')
+    const [passwordInput, setPasswordInput]= useState('')
   let navigate = useNavigate();
   const handleLogin = async (email: string, password: string) => {
-    await Login(email, password);
-    if (getUserRole() == "admin") navigate("/admin");
-    else navigate("/usermenu");
+    console.log(`email: ${email}`)
+    console.log(`password: ${password}`)
   }
 
   return (
@@ -18,28 +19,22 @@ const LoginLayout = () => {
           <form>
               <div className="form-group">
                   <label>Email</label>
-                  <input type="email" name="email" />
+                  <input type="email" name="email" onChange={e => setEmailInput(e.target.value)}/>
               </div>
               <div className="form-group">
                   <label>Password</label>
-                  <input type="password" name="password" />
+                  <input type="password" name="password" onChange={e => setPasswordInput(e.target.value)}/>
               </div>
               <div className="form-group">
                   <a href="#">Forget password?</a>
               </div>
-              <button type="submit">Login</button>
-              <button type="button" className="back-button">Back</button>
           </form>
-          <button onClick={() => handleLogin("visconadmin", "visconadmin")}> Temporary Log in button</button>
+          <button onClick={() => handleLogin(emailInput, passwordInput)}> Temporary Log in button</button>
       </div>
   );
 };
 
 export default LoginLayout;
-
-
-
-
 
 
 
