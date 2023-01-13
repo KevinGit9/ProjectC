@@ -29,7 +29,7 @@ const LoginLayout = () => {
                   <a href="#">Forget password?</a>
               </div>
           </form>
-          <button onClick={() => handleLogin(emailInput, passwordInput)}> Temporary Log in button</button>
+          <button className="login" onClick={() => handleLogin(emailInput, passwordInput)}>Log in</button>
       </div>
   );
 };
