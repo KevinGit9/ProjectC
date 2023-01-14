@@ -55,7 +55,7 @@ public class TicketController : ControllerBase {
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
-        ticket.Date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        ticket.Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         ticket.Completed = false;
         
         _database.Tickets.Add(ticket);

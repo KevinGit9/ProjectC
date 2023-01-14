@@ -13,7 +13,6 @@ function Submitform() {
 
     function Submit() {
         //TODO: 
-        //Use the user input to create a ticket.
         //Add field in the Ticket Model which stores photos/videos.
         //Add an optional field in which the User can add their phone number.
         const [field1, setField1] = useState("");
@@ -37,6 +36,7 @@ function Submitform() {
         }
 
         const handleTicketSubmit = () => {
+            if (field1 === "" || field2 === "") return;
             CreateTicket(userId, machineId, [field1, field2, field3]);
             navigate("/usermenu");
         }
@@ -44,34 +44,29 @@ function Submitform() {
         return (
             <div>
                 <div className="submissionform">
-                    <h1>Problem submission form</h1>
+                    <h1> Submission Form </h1>
+                    <p> All fields with an * are required. </p>
                     <div className="form">
-                        <p>Please describe the behaviour you're expecting. *</p>
+                        <p> Please describe the behaviour you're expecting. * </p>
                         <input
                             type="text"
-                            id="field1"
-                            name="field1"
                             onChange={handleChange1}
                             value={field1}
                         />
-                        <p>Please describe the behaviour you're seeing. *</p>
+                        <p> Please describe the behaviour you're seeing. * </p>
                         <input
                             type="text"
-                            id="field2"
-                            name="field2"
                             onChange={handleChange2}
                             value={field2}
                         />
-                        <p>Please enter any additional information.</p>
+                        <p> Please enter any additional information. </p>
                         <input
                             type="text"
-                            id="field3"
-                            name="field3"
                             onChange={handleChange3}
                             value={field3}
                         />
+                        <button onClick={() => setConfirmWindow(true)}> Submit Ticket </button>
                     </div>
-                    <button onClick={() => setConfirmWindow(true)}> Submit Ticket </button>
                 </div>
                 <ConfirmationWindow open={confirmWindow} text="Are you sure you want to submit the ticket?" setOpen={setConfirmWindow} continueButton={handleTicketSubmit} />
             </div>

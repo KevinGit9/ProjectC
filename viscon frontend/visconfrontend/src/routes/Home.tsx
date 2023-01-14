@@ -1,19 +1,11 @@
 import './Home.css';
-import ConfirmationWindow from '../components/ConfirmationWindow';
-import { useState } from 'react';
+import { getUserRole } from '../services/LocalStorageManager';
+import Admin from './admin';
+import UserMenu from './UserMenu';
 
 function Home() {
-  const[confirmWindow, setConfirmWindow] = useState(false)
-
-  return (
-    <div>
-      <div className="Home">
-        <button onClick={() => setConfirmWindow(true)}> Confirm </button>
-      </div>
-      <ConfirmationWindow open={confirmWindow} text="Test to see if it works." setOpen={setConfirmWindow}/>
-    </div>
-  );
+  if (getUserRole() === "admin") return(<Admin/>);
+  else return(<UserMenu/>);
 }
-
 
 export default Home;

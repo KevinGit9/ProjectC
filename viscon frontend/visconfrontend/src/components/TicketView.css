@@ -24,3 +24,14 @@
     justify-content: space-between;
     margin: 3% 10%;
 }
+
+.ticketViewButtons button {
+    background-color: gainsboro;
+    border: none;
+    padding: 1.5% 6%;
+    border-radius: 4px;
+}
+
+.ticketViewButtons button:hover {
+    background-color: #ccc;
+}
