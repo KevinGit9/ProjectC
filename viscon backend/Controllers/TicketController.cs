@@ -28,7 +28,7 @@ public class TicketController : ControllerBase {
     //Function that returns all Unclaimed Tickets.
     [HttpGet ("unclaimed")]
     public ActionResult<List<Ticket>> GetUnclaimedTickets() {
-        return _database.Tickets.Where(x => x.AdminId == null).ToList();
+        return _database.Tickets.Where(x => (x.AdminId == null) && (x.Completed == false)).ToList();
     }
 
     //Function that returns all Closed Tickets.
@@ -58,35 +58,9 @@ public class TicketController : ControllerBase {
         ticket.CompanyMachineId = machine.Id;
 
         ticket.Fields = ticketRequest.Fields;
-        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
+        ticket.Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         ticket.Completed = false;
         
-        _database.Tickets.Add(ticket);
-        await _database.SaveChangesAsync();
-        return Ok(ticket);
-    }
-
-    //Test function to create a Ticket that has been claimed by an Admin.
-    [HttpPost ("{adminId}")]
-    public async Task<ActionResult<List<Ticket>>> AddTicket(TicketDTO ticketRequest, Guid adminId) {
-        Ticket ticket = new Ticket();
-        var user = _database.Users.FirstOrDefault(x => x.Id == ticketRequest.UserId);
-        if (user == null) return NotFound("User does not exist.");
-        ticket.UserId = user.Id;
-
-        var machine = _database.CompanyMachines.FirstOrDefault(x => x.Id == ticketRequest.MachineId);
-        if (machine == null) return NotFound("Machine not found.");
-        ticket.CompanyMachineId = machine.Id;
-
-        var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if (admin == null) return NotFound("Admin not found.");
-        ticket.AdminId = admin.Id;
-
-        ticket.Fields = ticketRequest.Fields;
-        string time = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        ticket.Time = Convert.ToDateTime(time).ToUniversalTime();
-
         _database.Tickets.Add(ticket);
         await _database.SaveChangesAsync();
         return Ok(ticket);

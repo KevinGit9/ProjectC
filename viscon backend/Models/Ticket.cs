@@ -2,7 +2,7 @@ namespace viscon_backend.Models;
 
 public class Ticket {
     public Guid Id { get; set; }
-    public DateTime Time { get; set; }
+    public string Date { get; set; } = string.Empty;
     public User User { get; set; } = null!;
     public Guid UserId { get; set; }
     public CompanyMachine CompanyMachine { get; set; } = null!;

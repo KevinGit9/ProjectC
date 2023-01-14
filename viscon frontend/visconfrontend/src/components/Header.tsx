@@ -26,7 +26,7 @@ function Header(header: IHeader) {
                     <div className="bar3"></div>
                 </div>
                 <div className="headerImages">
-                    <a href="/"><img src="visconlogo.png" className="logo-nav"></img></a>
+                    <a href="/home"><img src="visconlogo.png" className="logo-nav"></img></a>
                     {/* <button onClick={() => toggleMenu()}><img src="/profile-icon.png" className="icon-profile" /> </button> */}
                 </div>
                 <ProfileMenu></ProfileMenu>

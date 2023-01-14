@@ -42,7 +42,12 @@
 .confirmationWindowButtons button {
     background-color: gainsboro;
     border: none;
+    padding: 1.5% 6%;
     border-radius: 4px;
+}
+
+.confirmationWindowButtons button:hover {
+    background-color: #ccc;
 }
 
 /* Close Button */
