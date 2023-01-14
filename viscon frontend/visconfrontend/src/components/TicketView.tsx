@@ -35,11 +35,13 @@ function TicketView(props) {
                 </div>
                 <div className="ticketViewPanel">
                     <p> Machine: {props.machine} <br/>
+                        Problem: {ticket.fields[0]} <br/>
                         Date: {ticket.date} <br/>
                         <br/>
-                        Fields down below: <br/>
-                        {ticket.fields[0]} <br/>
+                        Description: <br/>
                         {ticket.fields[1]} <br/>
+                        <br/>
+                        Additional Information: <br/>
                         {ticket.fields[2]} <br/>
                         <br/>
                         Status: {ticketStatus} <br/>
