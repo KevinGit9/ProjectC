@@ -16,6 +16,16 @@ function TicketView(props) {
         fetchData();
         console.log(ticket);
     }, [props.open]);
+    
+    const handleClaim = async () => {
+        await ClaimTicket(props.ticketId, adminId)
+        window.location.reload();
+    }
+
+    const handleClose = async () => {
+        await CloseTicket(props.ticketId)
+        window.location.reload();
+    }
 
     return (props.open) ? (
         <div className="dark">
@@ -24,8 +34,8 @@ function TicketView(props) {
                     <span className="close" onClick={() => props.setOpen(false)}> &times; </span>
                 </div>
                 <div className="ticketViewPanel">
-                    <p> Ticket Id: {props.ticketId} <br/>
-                        Machine: {props.machine} <br/>
+                    <p> Machine: {props.machine} <br/>
+                        Date: {ticket.date} <br/>
                         <br/>
                         Fields down below: <br/>
                         {ticket.fields[0]} <br/>
@@ -36,8 +46,8 @@ function TicketView(props) {
                     </p>
                 </div>
                 <div className="ticketViewButtons">
-                    <button onClick={() => ClaimTicket(props.ticketId, adminId)}> Claim Ticket </button>
-                    <button onClick={() => CloseTicket(props.ticketId)}> Close Ticket </button>
+                    <button onClick={handleClaim}> Claim Ticket </button>
+                    <button onClick={handleClose}> Close Ticket </button>
                 </div>
             </div>
         </div>

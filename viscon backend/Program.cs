@@ -5,8 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(policyBuilder =>
     policyBuilder.AddDefaultPolicy(policy =>
-        policy.WithOrigins("*").AllowAnyHeader().AllowAnyHeader())
+        policy.WithOrigins("*").AllowAnyHeader().AllowAnyHeader().AllowAnyMethod())
 );
+
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:5083");
+                      });
+});
 
 // Add services to the container.
 builder.Services.AddControllers().AddJsonOptions(x =>
