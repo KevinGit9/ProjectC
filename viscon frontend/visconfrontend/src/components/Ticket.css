@@ -10,7 +10,7 @@
     background-color: #ccc;
 }
 
-a.active{
+.TicketContainter a.active{
     text-decoration: none;
     background-color: #2A6F97;
     color: white;

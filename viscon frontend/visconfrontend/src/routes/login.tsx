@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './login.css';
 import { useNavigate } from 'react-router';
 import { Login } from '../services/UserServices';
-import { getUserRole } from '../services/LocalStorageManager';
 
 const LoginLayout = () => {
     let navigate = useNavigate();
@@ -11,8 +10,8 @@ const LoginLayout = () => {
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
-        if (email === "") return (setError("email has not been filled in."));
-        if (password === "") return (setError("password has not been filled in."));
+        if (email === "") return (setError("Email has not been filled in."));
+        if (password === "") return (setError("Password has not been filled in."));
         await Login(email, password)
             .then(response => {
                 navigate("/home");

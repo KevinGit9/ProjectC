@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './Checklist.css';
-import OrderedBoxes from '../components/OrderedBoxes';
 import { useNavigate } from 'react-router-dom';
 import InitialBox from '../components/OrderedBoxesInitial';
 import OrderedBoxesSingle from '../components/OrderedBoxesSingle';
