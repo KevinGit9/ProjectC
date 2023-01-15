@@ -18,7 +18,7 @@ const LoginLayout = () => {
                 navigate("/home");
             })
             .catch(error => {
-                setError(`Email or Password is not correct.`);
+                setError(`Email or Password is incorrect.`);
             });
     }
 
