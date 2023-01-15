@@ -17,6 +17,14 @@ public class CompanyController : ControllerBase {
         return _database.Companies.ToList();
     }
 
+    //Function that takes a companyId and returns the corresponding Company.
+    [HttpGet ("{companyId}")]
+    public ActionResult<List<Company>> GetCompanyFromId(Guid companyId) {
+        var company = _database.Companies.FirstOrDefault(x => x.Id == companyId);
+        if (company == null) return NotFound("Company does not exist.");
+        return Ok(company);
+    }
+
     [HttpPost]
     public async Task<ActionResult<List<Company>>> AddCompany(CompanyDTO companyRequest) {
         if (_database.Companies.Any(x => x.Name == companyRequest.Name)) return BadRequest("Company already exists.");

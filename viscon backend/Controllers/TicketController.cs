@@ -85,4 +85,15 @@ public class TicketController : ControllerBase {
         return Ok(ticket);
     }
 
+    //Function that uses a ticketId and adds a reply to the Reply field.
+    [HttpPut ("reply{ticketId}/{reply}")]
+    public async Task<ActionResult<Ticket>> ReplyToTicket(Guid ticketId, string reply) {
+        var ticket = await _database.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
+        if (ticket == null) return NotFound("Ticket does not exist.");
+        ticket.Reply = reply;
+
+        await _database.SaveChangesAsync();
+        return Ok(ticket);
+    }
+
 }   

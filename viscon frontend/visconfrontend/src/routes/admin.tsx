@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import './Admin.css'
 import CaseBox from '../components/CaseBox';
 import ClosedCaseBox from '../components/ClosedCaseBox';

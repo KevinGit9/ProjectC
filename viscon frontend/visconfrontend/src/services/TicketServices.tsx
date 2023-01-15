@@ -44,6 +44,7 @@ export const GetTicketInfo = async (ticketId: string) => {
     return(response.data);
 }
 
+//Takes an ticketId and adminId to then assign the Ticket to the Admin.
 export const ClaimTicket = async (ticketId: string, adminId: string) => {
     const path = `/Ticket/${ticketId}/${adminId}`;
     let response = await axios.put(path)
@@ -51,8 +52,17 @@ export const ClaimTicket = async (ticketId: string, adminId: string) => {
     return(response.data);
 }
 
+//Takes an ticketId and changes the status of the Ticket to Completed.
 export const CloseTicket = async (ticketId: string) => {
     const path = `/Ticket/${ticketId}`;
+    let response = await axios.put(path)
+    //console.log(response.data);
+    return(response.data);
+}
+
+//Takes an ticketId and adds a reply to the Reply field.
+export const ReplyToTicket = async (ticketId: string, reply: string) => {
+    const path = `/Ticket/reply${ticketId}/${reply}`;
     let response = await axios.put(path)
     //console.log(response.data);
     return(response.data);

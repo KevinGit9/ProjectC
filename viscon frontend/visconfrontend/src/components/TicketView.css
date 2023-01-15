@@ -19,6 +19,39 @@
     text-align: left;
 }
 
+.ticketPanelTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin-top: 2%;
+    padding: 2% 2%;
+}
+
+.ticketPanelMiddle {
+    border: 1px solid black;
+    margin-top: 2%;
+    padding: 2% 2%;
+}
+
+.ticketReply {
+    border: 1px solid black;
+    margin-top: 2%;
+    padding: 2% 2%;
+}
+
+.ticketReply input {
+    border: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.ticketPanelFooter {
+    border: 1px solid black;
+    margin-top: 2%;
+    padding: 2% 2%;
+}
+
 .ticketViewButtons {
     display: flex;
     justify-content: space-between;

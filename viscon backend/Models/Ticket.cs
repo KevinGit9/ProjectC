@@ -10,5 +10,6 @@ public class Ticket {
     public User? ClaimedBy { get; set; }
     public Guid? AdminId { get; set; }
     public string[] Fields { get; set; } = null!; 
+    public string Reply { get; set; } = string.Empty;
     public bool Completed { get; set; }
 }

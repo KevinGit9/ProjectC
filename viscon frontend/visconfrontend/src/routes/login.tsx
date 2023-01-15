@@ -8,7 +8,7 @@ const LoginLayout = () => {
   let navigate = useNavigate();
   const handleLogin = async (email: string, password: string) => {
     await Login(email, password);
-    if (getUserRole() == "admin") navigate("/admin");
+    if (getUserRole() === "admin") navigate("/admin");
     else navigate("/usermenu");
   }
 
