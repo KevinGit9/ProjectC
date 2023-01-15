@@ -13,6 +13,7 @@ function NavigationBar() {
         const [confirmWindow, setConfirmWindow] = useState(false);
         const Logout = () => {
             removeItem("currentUser");
+            removeItem("jwtToken");
             navigate("/");
         }
 
