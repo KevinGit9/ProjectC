@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { GetCompanies } from '../services/CompanyServices';
 import { RegisterUser } from '../services/UserServices';
 import './AdminRegistratie.css';
 
@@ -9,8 +10,18 @@ const AdminRegistration = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [company, setCompany] = useState("");
+  const [companies, setCompanies] = useState<any>([]);
   const [role, setRole] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      setCompanies(await GetCompanies());
+    }
+    fetchData();
+    console.log(companies);
+  }, []);
+
 
   const handleChange = (e, setter) => {
     setter(e.target.value);
@@ -58,12 +69,19 @@ const AdminRegistration = () => {
           </label>
           <label>
             Company:
-            <input type="text" onChange={(e) => handleChange(e, setCompany)} value={company} placeholder="Enter company" />
+            <select onChange={(e) => handleChange(e, setCompany)} value={company}>
+              <option value=""> Select a company </option>
+              {companies.map((company) => (
+                <option key={company.id} value={company.name}>
+                  {company.name}
+                </option>
+              ))}
+            </select>
           </label>
           <label>
             Select a Role:
             <select onChange={(e) => handleChange(e, setRole)} value={role}>
-              <option value=""> Select an option </option>
+              <option value=""> Select a  </option>
               <option value="admin"> Admin </option>
               <option value="key user"> Key User </option>
               <option value="user"> User </option>
