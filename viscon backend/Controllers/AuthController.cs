@@ -2,19 +2,26 @@
 Create and assign a web token to an user when they log in.
 */
 
+using System.Security.Claims;
 using System.Security.Cryptography;
+using System.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend;
 using viscon_backend.DTOs;
 using viscon_backend.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase {
     private readonly Database _database;
-    public AuthController(Database database) =>
+    private readonly IConfiguration _configuration;
+    public AuthController(IConfiguration configuration, Database database) {
         _database = database;
+        _configuration = configuration;
+    }
 
     //Function used to register an User. First checks if there is already an account registered with the Email that was entered.
     //Calls the CreatePasswordHash method to convert the Password of the User into bytes.
@@ -43,13 +50,39 @@ public class AuthController : ControllerBase {
 
     //Function used to login. Checks if the Email exists in the database, if it does, continue.
     //Checks if the Password the user has typed in is the same as the password that has been stored in the database.
-    //NOTE: This only works if the email is unique for every user.
     [HttpPost("login")]
     public async Task<ActionResult<User>> Login(LoginDTO loginRequest) {
         var user = _database.Users.FirstOrDefault(x => x.Email == loginRequest.Email);
         if (user == null) return BadRequest("Email does not exist.");
         if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt)) return BadRequest("Wrong password.");
-        return Ok(user); //TODO: Create JSON Web Token.
+
+        string token = CreateToken(user);
+
+        var loginResponse = new LoginResponse();
+        loginResponse.User = user;
+        loginResponse.Jwt = token;
+
+        return Ok(loginResponse); 
+    }
+
+    private string CreateToken(User user) {
+        List<Claim> claims = new List<Claim> {
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role)
+        };
+
+        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+        var token = new JwtSecurityToken(
+            claims: claims,
+            expires: DateTime.Now.AddDays(1),
+            signingCredentials: credentials
+        );
+
+        var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return jwt;
     }
 
     //Function that converts the Password of the User into a passwordHash and passwordSalt.

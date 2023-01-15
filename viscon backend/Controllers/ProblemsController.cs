@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using viscon_backend.DTOs;
 using viscon_backend.Models;
@@ -17,7 +18,7 @@ public class ProblemsController : ControllerBase {
     }
 
     //Function that takes a machineId, returns all common Problems of the machine.
-    [HttpGet ("{machineId}")]
+    [HttpGet ("{machineId}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<List<Problem>> GetProblemsFromMachine(Guid machineId) {
         //if (machineId == null) return BadRequest("No machine Id recieved.");
         var machine = _database.Machines.Find(machineId);
@@ -26,7 +27,7 @@ public class ProblemsController : ControllerBase {
     }
     
     //Function that takes a machineId and type, returns a filtered list of common Problems of the machine.
-    [HttpGet ("{machineId}/{type}")]
+    [HttpGet ("{machineId}/{type}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<List<Problem>> FilterProblemsByType(Guid machineId, string type) {   
         //if (machineId == null) return BadRequest("No machine Id recieved.");
         var machine = _database.Machines.Find(machineId);
@@ -36,7 +37,7 @@ public class ProblemsController : ControllerBase {
         return problems;
     }
 
-    [HttpPost]
+    [HttpPost, Authorize(Roles = "admin")]
     public async Task<IActionResult> AddProblem(ProblemDTO problemRequest) {
         Machine machine = _database.Machines.FirstOrDefault(x => x.Name == problemRequest.MachineName)!;
         if (machine == null) return NotFound("Machine not found.");

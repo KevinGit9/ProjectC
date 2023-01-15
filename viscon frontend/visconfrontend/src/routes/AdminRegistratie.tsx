@@ -33,7 +33,7 @@ const AdminRegistration = () => {
     if (email === "") return (setError("Email has not been filled in."));
     if (password === "") return (setError("Password has not been filled in."));
     if (confirmPassword === "") return (setError("Password has not been filled in."));
-    if (company === "") return (setError("Company has not been filled in."));
+    if (company === "") return (setError("Company has not been selected."));
     if (role === "") return (setError("Role has not been selected."));
     if (password !== confirmPassword) return (setError("Passwords do not match."));
     RegisterUser(firstName, lastName, email, password, company, role);

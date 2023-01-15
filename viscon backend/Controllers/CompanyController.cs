@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -12,20 +13,20 @@ public class CompanyController : ControllerBase {
     public CompanyController(Database database) =>
         _database = database;
 
-    [HttpGet]
+    [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<Company>> Get() {
         return _database.Companies.OrderBy(x => x.Name).ToList();
     }
 
     //Function that takes a companyId and returns the corresponding Company.
-    [HttpGet ("{companyId}")]
+    [HttpGet ("{companyId}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<List<Company>> GetCompanyFromId(Guid companyId) {
         var company = _database.Companies.FirstOrDefault(x => x.Id == companyId);
         if (company == null) return NotFound("Company does not exist.");
         return Ok(company);
     }
 
-    [HttpPost]
+    [HttpPost, Authorize(Roles = "admin")]
     public async Task<ActionResult<List<Company>>> AddCompany(CompanyDTO companyRequest) {
         if (_database.Companies.Any(x => x.Name == companyRequest.Name)) return BadRequest("Company already exists.");
 

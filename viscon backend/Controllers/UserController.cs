@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -12,7 +13,7 @@ public class Usercontroller : ControllerBase {
     public Usercontroller(Database database) =>
         _database = database;
 
-    [HttpGet]
+    [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<User>> Get() {
         return _database.Users.ToList();
     }
