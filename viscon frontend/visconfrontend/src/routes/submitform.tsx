@@ -18,6 +18,7 @@ function Submitform() {
         const [field1, setField1] = useState("");
         const [field2, setField2] = useState("");
         const [field3, setField3] = useState("");
+        const [error, setError] = useState("");
 
         const [confirmWindow, setConfirmWindow] = useState(false);
         const location = useLocation();
@@ -30,7 +31,11 @@ function Submitform() {
         }
 
         const handleTicketSubmit = () => {
-            if (field1 === "" || field2 === "") return;
+            if (field1 === "" || field2 === "") return(setError("Not all required fields have been filled in."));
+            setConfirmWindow(true);
+        }
+
+        const submitTicket = () => {
             CreateTicket(userId, machineId, [field1, field2, field3]);
             navigate("/usermenu");
         }
@@ -59,10 +64,11 @@ function Submitform() {
                             onChange={(e) => handleChange(e, setField3)}
                             value={field3}
                         />
-                        <button onClick={() => setConfirmWindow(true)}> Submit Ticket </button>
+                        <p> {error} </p>
+                        <button onClick={handleTicketSubmit}> Submit Ticket </button>
                     </div>
                 </div>
-                <ConfirmationWindow open={confirmWindow} text="Are you sure you want to submit the ticket?" setOpen={setConfirmWindow} continueButton={handleTicketSubmit} />
+                <ConfirmationWindow open={confirmWindow} text="Are you sure you want to submit the ticket?" setOpen={setConfirmWindow} continueButton={submitTicket} />
             </div>
         );
     }

@@ -1,38 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css';
 import { useNavigate } from 'react-router';
 import { Login } from '../services/UserServices';
 import { getUserRole } from '../services/LocalStorageManager';
 
 const LoginLayout = () => {
-  let navigate = useNavigate();
-  const handleLogin = async (email: string, password: string) => {
-    await Login(email, password);
-    if (getUserRole() === "admin") navigate("/admin");
-    else navigate("/usermenu");
-  }
+    let navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-  return (
-      <div className="login-layout">
-          <h1>Login</h1>
-          <form>
-              <div className="form-group">
-                  <label>Email</label>
-                  <input type="email" name="email" />
-              </div>
-              <div className="form-group">
-                  <label>Password</label>
-                  <input type="password" name="password" />
-              </div>
-              <div className="form-group">
-                  <a href="#">Forget password?</a>
-              </div>
-              <button type="submit">Login</button>
-              <button type="button" className="back-button">Back</button>
-          </form>
-          <button onClick={() => handleLogin("visconadmin", "visconadmin")}> Temporary Log in button</button>
-      </div>
-  );
+    const handleLogin = async () => {
+        if (email === "") return (setError("email has not been filled in."));
+        if (password === "") return (setError("password has not been filled in."));
+        await Login(email, password)
+            .then(response => {
+                navigate("/home");
+            })
+            .catch(error => {
+                setError(`Email or Password is not correct.`);
+            });
+    }
+
+    const handleChange = (e, setter) => {
+        setter(e.target.value);
+    }
+
+    return (
+        <div className="login-layout">
+            <h1>Login</h1>
+            <div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" onChange={(e) => handleChange(e, setEmail)} value={email} placeholder="Enter your email" />
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" onChange={(e) => handleChange(e, setPassword)} value={password} placeholder="Enter your password" onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleLogin();
+                        }
+                    }} />
+                </div>
+                <div className="form-group">
+                    <a href="#">Forget password?</a>
+                    <p> {error} </p>
+                </div>
+                <button className="loginButton" onClick={handleLogin}> Login </button>
+            </div>
+        </div>
+    );
 };
 
 export default LoginLayout;
