@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { GetCompanyMachineInfo } from '../services/CompanyMachineServices';
-import { GetTicketInfo } from '../services/TicketServices';
 import './Ticket.css';
 import TicketView from './TicketView';
 
@@ -28,7 +26,7 @@ function Ticket(ticket: ITicket) {
     return (
         <div className="TicketContainer">
             <a onClick={() => setViewTicket(true)}> {ticketName} </a>
-            <TicketView open={viewTicket} ticketId={ticket.ticketId} machine={machine.name} setOpen={setViewTicket} />
+            <TicketView open={viewTicket} ticketId={ticket.ticketId} machine={machine.name} setOpen={setViewTicket} machineId={ticket.machine} company={machine.companyId} />
         </div>
     )
 }

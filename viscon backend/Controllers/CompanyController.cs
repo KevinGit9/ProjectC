@@ -14,7 +14,15 @@ public class CompanyController : ControllerBase {
 
     [HttpGet]
     public ActionResult<List<Company>> Get() {
-        return _database.Companies.ToList();
+        return _database.Companies.OrderBy(x => x.Name).ToList();
+    }
+
+    //Function that takes a companyId and returns the corresponding Company.
+    [HttpGet ("{companyId}")]
+    public ActionResult<List<Company>> GetCompanyFromId(Guid companyId) {
+        var company = _database.Companies.FirstOrDefault(x => x.Id == companyId);
+        if (company == null) return NotFound("Company does not exist.");
+        return Ok(company);
     }
 
     [HttpPost]

@@ -4,8 +4,7 @@
 }
 .reg-title {
   text-align: center;
-  padding: 10%;
-  margin-top: 15%;
+  padding: 5%;
 }
 .reg-title h1 {
   font-size: 2.4rem;
@@ -32,6 +31,13 @@
   border: 1px solid #ddd;
   outline: none;
 }
+.reg-form select {
+  width: 95%;
+  padding: 2%;
+  border-radius: 5%;
+  border: 1px solid #ddd;
+  outline: none;
+}
 .reg-form button {
   width: 100%;
   padding: 1%;
@@ -47,5 +53,10 @@
 }
 .reg-form button:hover {
   background-color: #0076ce;
-  
+}
+
+@media (max-width: 1200px) {
+  .registration-layout {
+    width: 100%;
+  }
 }

@@ -26,7 +26,7 @@ function NavigationBar() {
                     <a href="/submitform"> Submit Form </a>
                     <a href="/"> Login Screen </a>
                     <a href="/admin"> Admin Menu </a>
-                    <a href="/Registration"> Admin Registration </a>
+                    <a href="/registration"> Admin Registration </a>
                 </div>
                 <div className="logoutButton">
                     <a onClick={() => setConfirmWindow(true)}> Log out </a>

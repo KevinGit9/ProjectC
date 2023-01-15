@@ -17,3 +17,9 @@ export const GetCompanies = async () => {
     console.log(response.data);
     return(response.data);
 }
+
+export const GetCompanyFromId = async (companyId: string) => {
+    let response = await axios.get( `/Company/${companyId}`);
+    console.log(response.data);
+    return(response.data);
+}

@@ -27,9 +27,9 @@ public class CompanyMachineController : ControllerBase {
         return _database.CompanyMachines.Where(x => x.CompanyId == company.Id).ToList();
     }
 
-    //Function that uses an ticketId to find the corresponding Ticket.
+    //Function that uses an companyMachineId to find the corresponding Company Machine.
     [HttpGet ("companyMachineInfo{companyMachineId}")]
-    public ActionResult<Ticket> GetTicketInfo(Guid companyMachineId) {
+    public ActionResult<CompanyMachine> GetCompanyMachineInfo(Guid companyMachineId) {
         var compMachine = _database.CompanyMachines.FirstOrDefault(x => x.Id == companyMachineId);
         if (compMachine == null) return NotFound("Machine does not exist.");
         return Ok(compMachine);
