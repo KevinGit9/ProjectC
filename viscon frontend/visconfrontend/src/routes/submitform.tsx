@@ -25,14 +25,8 @@ function Submitform() {
         const machineId = queryParams.get('machineId');
         const userId = getUserId();
 
-        const handleChange1 = (e) => {
-            setField1(e.target.value);
-        }
-        const handleChange2 = (e) => {
-            setField2(e.target.value);
-        }
-        const handleChange3 = (e) => {
-            setField3(e.target.value);
+        const handleChange = (e, setter) => {
+            setter(e.target.value);
         }
 
         const handleTicketSubmit = () => {
@@ -50,19 +44,19 @@ function Submitform() {
                         <p> Please describe the behaviour you're expecting. * </p>
                         <input
                             type="text"
-                            onChange={handleChange1}
+                            onChange={(e) => handleChange(e, setField1)}
                             value={field1}
                         />
                         <p> Please describe the behaviour you're seeing. * </p>
                         <input
                             type="text"
-                            onChange={handleChange2}
+                            onChange={(e) => handleChange(e, setField2)}
                             value={field2}
                         />
                         <p> Please enter any additional information. </p>
                         <input
                             type="text"
-                            onChange={handleChange3}
+                            onChange={(e) => handleChange(e, setField3)}
                             value={field3}
                         />
                         <button onClick={() => setConfirmWindow(true)}> Submit Ticket </button>
