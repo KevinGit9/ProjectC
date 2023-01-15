@@ -14,7 +14,7 @@ public class CompanyController : ControllerBase {
 
     [HttpGet]
     public ActionResult<List<Company>> Get() {
-        return _database.Companies.ToList();
+        return _database.Companies.OrderBy(x => x.Name).ToList();
     }
 
     //Function that takes a companyId and returns the corresponding Company.

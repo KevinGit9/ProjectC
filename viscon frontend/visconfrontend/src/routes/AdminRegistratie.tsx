@@ -43,7 +43,7 @@ const AdminRegistration = () => {
   return (
     <div className="registration-layout">
       <div className="reg-title">
-        <h1>Create an Account</h1>
+        <h1> Register an Account</h1>
       </div>
       <div className="reg-form">
         <div>
@@ -81,7 +81,7 @@ const AdminRegistration = () => {
           <label>
             Select a Role:
             <select onChange={(e) => handleChange(e, setRole)} value={role}>
-              <option value=""> Select a  </option>
+              <option value=""> Select a Role </option>
               <option value="admin"> Admin </option>
               <option value="key user"> Key User </option>
               <option value="user"> User </option>
