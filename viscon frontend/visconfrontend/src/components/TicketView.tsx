@@ -10,10 +10,12 @@ function TicketView(props) {
     const [machine, setMachine] = useState<any>([]);
     const [company, setCompany] = useState<any>([]);
     const [reply, setReply] = useState<any>([]);
+
     var adminId = getUserId();
     var ticketStatus = "";
     if (ticket.completed) ticketStatus = "Completed";
     else ticketStatus = "In progress";
+
     useEffect(() => {
         async function fetchData() {
             setTicket(await GetTicketInfo(props.ticketId));

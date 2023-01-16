@@ -18,7 +18,7 @@ public class Usercontroller : ControllerBase {
         return _database.Users.ToList();
     }
 
-    [HttpGet("{userInput}")]
+    [HttpGet("{userInput}"), Authorize(Roles = "admin")]
     public ActionResult<List<User>> GetUserByInput(string userInput) {
         
         return _database.Users.Where(x => x.FirstName.Contains(userInput) || x.LastName.Contains(userInput)).ToList();

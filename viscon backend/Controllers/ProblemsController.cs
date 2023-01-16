@@ -12,7 +12,7 @@ public class ProblemsController : ControllerBase {
     public ProblemsController(Database database) =>
         _database = database;
 
-    [HttpGet]
+    [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<Problem>> Get() {
         return _database.Problems.ToList();
     }

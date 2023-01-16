@@ -4,7 +4,6 @@ import CaseBox from '../components/CaseBox';
 import ClosedCaseBox from '../components/ClosedCaseBox';
 import UnclaimedCaseBox from '../components/UnclaimedCaseBox';
 import Tiles from '../components/Tiles';
-import StandardButton from '../components/StandardButton';
 import { getFullName } from '../services/LocalStorageManager';
 import { useNavigate } from 'react-router-dom';
 

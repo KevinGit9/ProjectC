@@ -16,6 +16,7 @@ import TemporaryData from './routes/TemporaryData';
 import UserManagement from './routes/UserManagement';
 import MachineManagement from './routes/MachineManagement';
 import UserTickets from './routes/UserTickets';
+import UserRegistration from './routes/UserRegistration';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/machinemanagement" element={<Layout><MachineManagement /></Layout>}></Route>
           <Route path="/companymanagement" element={<Layout><UserManagement /></Layout>}></Route>
           <Route path="/registration" element={<Layout> < AdminRegistratie /> </Layout>} />
+          <Route path="/userregistration" element={<Layout> < UserRegistration /> </Layout>} />
           <Route path="/testing" element={<Layout> <TestingGrounds /> </Layout>} />
           <Route path="/data" element={<Layout> <TemporaryData /> </Layout>} />
 
