@@ -26,7 +26,7 @@ function Admin() {
                 svg = "icons/groups_black_24dp.svg" 
                 header = "Users" 
                 desc = "View and manage all your users"
-                click = {() => navigate("usermanagement")}
+                click = {() => navigate("/usermanagement")}
                 buttontext = "View all users"/>
                 <Tiles 
                 svg = "icons/precision_manufacturing_black_24dp.svg" 

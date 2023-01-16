@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './UserManagement.css'
 import AdminTools from '../components/AdminTools'
-import { Get10Users } from '../services/UserServices';
+import { GetAllUsers } from '../services/UserServices';
 import { getFullName } from '../services/LocalStorageManager';
 import TableRow from '../components/TableRow';
 
@@ -13,7 +13,7 @@ function UserManagement(props) {
     const [users, setUsers] = useState<any>([]);
     useEffect(() => {
         async function fetchData() {
-            setUsers(await Get10Users());
+            setUsers(await GetAllUsers());
         }
         fetchData();
         console.log(users);

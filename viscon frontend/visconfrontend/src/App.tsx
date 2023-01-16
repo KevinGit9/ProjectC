@@ -20,25 +20,25 @@ import MachineManagement from './routes/MachineManagement';
 function App() {
   return (
     <div className="App">
-        <div className="routes">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Layout> <Home/> </Layout>} />
-            <Route path="/machines" element={<Layout> <Machines /> </Layout>} />
-            <Route path="/checklist" element={<Layout> <Checklist /> </Layout>} />
-            <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
-            <Route path="/problems" element={<Layout> <Problems/> </Layout>} />
-            <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
-            <Route path="/admin" element={<Layout> < Admin/> </Layout>}/>
-              <Route path= "admin/usermanagement" element= {<Layout><UserManagement/></Layout>}></Route>
-              <Route path= "admin/machinemanagement" element= {<Layout><MachineManagement/></Layout>}></Route>
-              <Route path= "admin/companymanagement" element= {<Layout><UserManagement/></Layout>}></Route>
-            <Route path="/registration" element={<Layout> < AdminRegistratie/> </Layout>} />
-            <Route path="/testing" element={<Layout> <TestingGrounds/> </Layout>} />
-            <Route path="/data" element={<Layout> <TemporaryData/> </Layout>} />
-            
-          </Routes>
-        </div>
+      <div className="routes">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Layout> <Home /> </Layout>} />
+          <Route path="/machines" element={<Layout> <Machines /> </Layout>} />
+          <Route path="/checklist" element={<Layout> <Checklist /> </Layout>} />
+          <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
+          <Route path="/problems" element={<Layout> <Problems /> </Layout>} />
+          <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
+          <Route path="/admin" element={<Layout> < Admin /> </Layout>} />
+          <Route path="/usermanagement" element={<Layout><UserManagement /></Layout>}></Route>
+          <Route path="/machinemanagement" element={<Layout><MachineManagement /></Layout>}></Route>
+          <Route path="/companymanagement" element={<Layout><UserManagement /></Layout>}></Route>
+          <Route path="/registration" element={<Layout> < AdminRegistratie /> </Layout>} />
+          <Route path="/testing" element={<Layout> <TestingGrounds /> </Layout>} />
+          <Route path="/data" element={<Layout> <TemporaryData /> </Layout>} />
+
+        </Routes>
+      </div>
     </div>
   );
 }

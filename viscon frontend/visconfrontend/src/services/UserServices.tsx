@@ -33,8 +33,8 @@ export const Login = async (email: string, password: string) => {
         } 
     })
 }
-//Gets 10 Users to load in User Management table
-export const Get10Users = async () => {
+//Gets all Users to load in User Management table
+export const GetAllUsers = async () => {
     const path = '/User';
     let response = await axios.get(path)
     console.log(response.data);
