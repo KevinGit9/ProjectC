@@ -81,7 +81,7 @@ const AdminRegistration = () => {
           <label>
             Select a Role:
             <select onChange={(e) => handleChange(e, setRole)} value={role}>
-              <option value=""> Select a Role </option>
+              <option value=""> Select a role </option>
               <option value="admin"> Admin </option>
               <option value="key user"> Key User </option>
               <option value="user"> User </option>

@@ -5,10 +5,12 @@
 }
 .h-vertical-menu {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: #2A6F97;
     margin: 0px 20px;
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-left: 3%;
 }
 
 
@@ -26,6 +28,7 @@
     background-color: #01152C;
     border-radius: 50%;
     width: 8%;
+    text-align: center;
 }
 
 .header-box .text {
