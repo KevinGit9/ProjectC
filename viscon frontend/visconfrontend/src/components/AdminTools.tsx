@@ -22,7 +22,7 @@ function AdminTools(props) {
                         <a>{props.title1}</a>
                         <a>{props.title2}</a>
                         <a>{props.title3}</a>
-                        {props.button}
+                        <img className = "dropbtn hide"src = "/icons/more_horiz_FILL0_wght400_GRAD0_opsz48.svg" />
                     </div>
                     <div className="table-tool-rows">
                         {props.TableRow}

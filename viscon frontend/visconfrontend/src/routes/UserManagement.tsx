@@ -28,8 +28,9 @@ function UserManagement(props) {
         title1 = "Firstname"
         title2 = "Lastname"
         TableRow =  {users.map((user, index) => {
-            return(<TableRow class={`rows ${index % 2 == 0 ? "even": "odd"}`} row1={user.firstName} row2={user.lastName}/>)
+            return(<TableRow class={`rows ${index % 2 == 0 ? "even": "odd"}`} row1={user.firstName} row2={user.lastName} entity = "User"/>)
           })}
+        
         />
        
     </div>
