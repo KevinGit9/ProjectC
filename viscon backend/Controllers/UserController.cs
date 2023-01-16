@@ -17,4 +17,13 @@ public class Usercontroller : ControllerBase {
     public ActionResult<List<User>> Get() {
         return _database.Users.ToList();
     }
+
+    [HttpGet("{userInput}")]
+    public ActionResult<List<User>> GetUserByInput(string userInput) {
+        
+        return _database.Users.Where(x => x.FirstName.Contains(userInput) || x.LastName.Contains(userInput)).ToList();
+
+    }
 }
+
+

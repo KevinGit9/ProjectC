@@ -59,4 +59,9 @@ public class CompanyMachineController : ControllerBase {
         await _database.SaveChangesAsync();
         return Ok(await _database.CompanyMachines.ToListAsync());
     }
-}
+    [HttpGet ("first20")]
+    public ActionResult<List<CompanyMachine>> GetFirst20Users() {
+        return _database.CompanyMachines.Take(20).ToList();
+    }
+    }
+

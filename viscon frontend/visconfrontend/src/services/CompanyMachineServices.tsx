@@ -41,3 +41,10 @@ export const GetCompanyMachineInfo = async (companyMachineId: string) => {
     //console.log(response.data);
     return(response.data);
 }
+
+export const Get20Machines = async () => {
+    const path = '/first20';
+    let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
+}

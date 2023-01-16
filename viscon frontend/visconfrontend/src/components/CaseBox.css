@@ -4,9 +4,14 @@
     justify-content: flex-start;
 }
 .h-vertical-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #2A6F97;
     margin: 0px 20px;
 }
+
+
 .vertical-menu {
     width: 250px;
     height: 300px;
@@ -16,8 +21,9 @@
 }
 
 .ticketCount {
+    position: relative;
     color: white;
-    background-color: red;
+    background-color: #01152C;
     border-radius: 50%;
     width: 8%;
 }
