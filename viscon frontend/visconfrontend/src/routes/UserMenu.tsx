@@ -25,7 +25,7 @@ function UserMenu() {
             <p>Help us find a solution to the problem of your device. <br />Get <span>started</span> with us</p>
             <div className="mainButtonContainer">
               <button className="btn-1" onClick={() => navigate("/machines")}> Create Ticket </button>
-              <button className="btn-2"> View My Tickets </button>
+              <button className="btn-2" onClick={() => navigate("/tickets")}> View My Tickets </button>
             </div>
             <div className="VectorArt"></div>
           </div>

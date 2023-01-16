@@ -42,7 +42,6 @@ const LoginLayout = () => {
                     }} />
                 </div>
                 <div className="form-group">
-                    <a href="#">Forget password?</a>
                     <p> {error} </p>
                 </div>
                 <button className="loginButton" onClick={handleLogin}> Login </button>
