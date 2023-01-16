@@ -15,6 +15,7 @@ import TestingGrounds from './routes/TestingGrounds';
 import TemporaryData from './routes/TemporaryData';
 import UserManagement from './routes/UserManagement';
 import MachineManagement from './routes/MachineManagement';
+import UserTickets from './routes/UserTickets';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/machines" element={<Layout> <Machines /> </Layout>} />
           <Route path="/checklist" element={<Layout> <Checklist /> </Layout>} />
           <Route path="/usermenu" element={<Layout> <UserMenu /> </Layout>} />
+          <Route path="/tickets" element={<Layout> <UserTickets /> </Layout>} />
           <Route path="/problems" element={<Layout> <Problems /> </Layout>} />
           <Route path="/submitform" element={<Layout> <Submitform /> </Layout>} />
           <Route path="/admin" element={<Layout> < Admin /> </Layout>} />

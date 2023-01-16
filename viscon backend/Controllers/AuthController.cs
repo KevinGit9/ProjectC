@@ -1,7 +1,3 @@
-/*TODO: 
-Create and assign a web token to an user when they log in.
-*/
-
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.IdentityModel.Tokens;
@@ -65,6 +61,7 @@ public class AuthController : ControllerBase {
         return Ok(loginResponse); 
     }
 
+    //Function used to create a JWT Token. The token contains the Email and Role of the User when they log in.
     private string CreateToken(User user) {
         List<Claim> claims = new List<Claim> {
             new Claim(ClaimTypes.Email, user.Email),

@@ -67,3 +67,19 @@ export const ReplyToTicket = async (ticketId: string, reply: string) => {
     //console.log(response.data);
     return(response.data);
 }
+
+export const GetOpenUserTickets = async () => {
+    let userId = getUserId();
+    const path = `/Ticket/useropen${userId}`;
+    let response = await axios.get(path)
+    //console.log(response.data);
+    return(response.data);
+}
+
+export const GetClosedUserTickets = async () => {
+    let userId = getUserId();
+    const path = `/Ticket/userclosed${userId}`;
+    let response = await axios.get(path)
+    //console.log(response.data);
+    return(response.data);
+}

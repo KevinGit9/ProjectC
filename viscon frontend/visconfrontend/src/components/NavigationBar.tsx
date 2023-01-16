@@ -14,20 +14,17 @@ function NavigationBar() {
         const Logout = () => {
             removeItem("currentUser");
             removeItem("jwtToken");
+            localStorage.clear();
             navigate("/");
         }
 
         return (
             <div className="navigationBarPanel">
                 <div className="navigationBarPanelButtons">
-                    <a href="/machines"> Machines </a>
-                    <a href="/checklist"> Checklist </a>
+                    <a href="/home"> My Dashboard </a>
+                    <a href="/usermanagement"> Manage Users </a>
+                    <a href="/registration"> Register User </a>
                     <a href="/usermenu"> User Menu </a>
-                    <a href="/problems"> Problems </a>
-                    <a href="/submitform"> Submit Form </a>
-                    <a href="/"> Login Screen </a>
-                    <a href="/admin"> Admin Menu </a>
-                    <a href="/registration"> Admin Registration </a>
                 </div>
                 <div className="logoutButton">
                     <a onClick={() => setConfirmWindow(true)}> Log out </a>
@@ -49,15 +46,8 @@ function NavigationBar() {
         return (
             <div className="navigationBarPanel">
                 <div className="navigationBarPanelButtons">
-                    <a href="/home"> Home </a>
-                    <a href="/machines"> Machines </a>
-                    <a href="/checklist"> Checklist </a>
-                    <a href="/usermenu"> User Menu </a>
-                    <a href="/problems"> Problems </a>
-                    <a href="/submitform"> Submit Form </a>
-                    <a href="/"> Login Screen </a>
-                    <a href="/admin"> Admin Menu </a>
-                    <a href="/Registration"> Admin Registration </a>
+                    <a href="/machines"> Submit a Ticket </a>
+                    <a href="/tickets"> My Tickets </a>
                 </div>
                 <div className="logoutButton">
                     <a onClick={() => setConfirmWindow(true)}> Log out </a>
