@@ -18,7 +18,7 @@ function Accordion(acc: IAccordion) {
 }
 
 const handleClick = (e: any) => {
-    e.target.classList.toggle("active");
+    e.target.classList.toggle("activeAccordion");
 
     let panel = e.target.nextElementSibling;
     if (panel.style.display === "block") {

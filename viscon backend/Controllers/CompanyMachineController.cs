@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -12,13 +13,14 @@ public class CompanyMachineController : ControllerBase {
     public CompanyMachineController(Database database) =>
         _database = database;
 
-    [HttpGet]
+
+    [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<CompanyMachine>> Get() {
         return _database.CompanyMachines.ToList();
     }
 
     //Function that takes an userId, returns a list of Machines of the Company that the User is part of.
-    [HttpGet ("{userId}")]
+    [HttpGet ("{userId}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<List<CompanyMachine>> GetMyMachines(Guid userId) {
         var user = _database.Users.Find(userId);
         if (user == null) return NotFound("User does not exist.");
@@ -28,14 +30,14 @@ public class CompanyMachineController : ControllerBase {
     }
 
     //Function that uses an companyMachineId to find the corresponding Company Machine.
-    [HttpGet ("companyMachineInfo{companyMachineId}")]
+    [HttpGet ("companyMachineInfo{companyMachineId}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<CompanyMachine> GetCompanyMachineInfo(Guid companyMachineId) {
         var compMachine = _database.CompanyMachines.FirstOrDefault(x => x.Id == companyMachineId);
         if (compMachine == null) return NotFound("Machine does not exist.");
         return Ok(compMachine);
     }
 
-    [HttpPost]
+    [HttpPost, Authorize(Roles = "admin")]
     public async Task<ActionResult<List<CompanyMachine>>> AddCompanyMachine(CompanyMachineDTO companyMachineRequest) {
         //Commented lines are used for the final product (Uses Id's instead of names to identify objects).
 

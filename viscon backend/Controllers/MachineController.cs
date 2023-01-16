@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using viscon_backend.DTOs;
@@ -12,13 +13,14 @@ public class MachineController : ControllerBase {
     public MachineController(Database database) =>
         _database = database;
 
-    [HttpGet]
+
+    [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<Machine>> Get() {
         return _database.Machines.ToList();
     }
 
     //Function that takes a companyMachineId, returns the Machine type of the Company Machine.
-    [HttpGet ("{companyMachineId}")]
+    [HttpGet ("{companyMachineId}"), Authorize(Roles = "admin, key user, user")]
     public ActionResult<Machine> GetMachineFromMachineId(Guid companyMachineId) {
         var companyMachine = _database.CompanyMachines.FirstOrDefault(x => x.Id == companyMachineId);
         if (companyMachine == null) return NotFound("This Company Machine does not exist.");
@@ -28,7 +30,7 @@ public class MachineController : ControllerBase {
     }
 
     //Function used to create a machine.
-    [HttpPost]
+    [HttpPost, Authorize(Roles = "admin")]
     public async Task<ActionResult<List<Machine>>> AddMachine(MachineDTO machineRequest) {
         if (_database.Machines.Any(x => x.Name == machineRequest.Name)) return BadRequest("Machine already exists.");
 

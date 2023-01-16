@@ -33,11 +33,11 @@
   transition: transform 0.1s;
 }
 
-.active {
+.activeAccordion {
   background-color: gainsboro;
 }
 
-.active:after {
+.activeAccordion:after {
   content: "\203A";
   transform: rotate(90deg);
   font-size: 40px;

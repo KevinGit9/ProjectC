@@ -17,6 +17,7 @@
 .ticketViewPanel {
     padding: 3%;
     text-align: left;
+    word-wrap: break-word;
 }
 
 .ticketPanelTop {

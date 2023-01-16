@@ -26,6 +26,10 @@ export const Login = async (email: string, password: string) => {
     .then(response => {
         //If the request was a BadRequest, display an error message.
         if (response.status === 400) return ("Email or Password was wrong.");
-        else storeItem(response.data, "currentUser");
+        else {
+            storeItem(response.data.user, "currentUser");
+            localStorage.setItem("jwtToken", response.data.jwt);
+            console.log(response.data.jwt);
+        } 
     })
 }

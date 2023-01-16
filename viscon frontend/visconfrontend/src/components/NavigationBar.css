@@ -21,6 +21,7 @@
 
 .navigationBarPanel a:hover {
     background-color: #052D5C;
+    color: white;
     width: 100%;
 }
 
