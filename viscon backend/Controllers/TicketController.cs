@@ -13,11 +13,6 @@ public class TicketController : ControllerBase {
     private readonly Database _database;
     public TicketController(Database database) => _database = database;
 
-    [HttpGet]
-    public ActionResult<List<Ticket>> GetTickets() {
-        return _database.Tickets.ToList();
-    }
-
     //Function that returns all Tickets in the database.
     [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<Ticket>> Get() {
