@@ -5,7 +5,8 @@
     justify-content: space-between;
     font-size: 1.5rem;
     background-color: #e5e5e5;
-    color: #01152C
+    color: #01152C;
+    padding-left: 2%;
 }
 
 .rows.even {

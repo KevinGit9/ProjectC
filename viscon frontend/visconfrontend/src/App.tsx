@@ -17,6 +17,7 @@ import UserManagement from './routes/UserManagement';
 import MachineManagement from './routes/MachineManagement';
 import UserTickets from './routes/UserTickets';
 import UserRegistration from './routes/UserRegistration';
+import CompanyManagement from './routes/CompanyManagement';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
           <Route path="/admin" element={<Layout> < Admin /> </Layout>} />
           <Route path="/usermanagement" element={<Layout><UserManagement /></Layout>}></Route>
           <Route path="/machinemanagement" element={<Layout><MachineManagement /></Layout>}></Route>
-          <Route path="/companymanagement" element={<Layout><UserManagement /></Layout>}></Route>
+          <Route path="/companymanagement" element={<Layout><CompanyManagement /></Layout>}></Route>
           <Route path="/registration" element={<Layout> < AdminRegistratie /> </Layout>} />
           <Route path="/userregistration" element={<Layout> < UserRegistration /> </Layout>} />
           <Route path="/testing" element={<Layout> <TestingGrounds /> </Layout>} />

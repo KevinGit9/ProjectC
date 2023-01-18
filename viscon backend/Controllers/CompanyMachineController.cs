@@ -18,7 +18,7 @@ public class CompanyMachineController : ControllerBase
     [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<CompanyMachine>> Get()
     {
-        return _database.CompanyMachines.ToList();
+        return _database.CompanyMachines.OrderBy(x => x.CompanyId).ThenBy(x => x.MachineId).ToList();
     }
 
     //Function that takes an userId, returns a list of Machines of the Company that the User is part of.
@@ -44,18 +44,13 @@ public class CompanyMachineController : ControllerBase
     [HttpPost, Authorize(Roles = "admin")]
     public async Task<ActionResult<List<CompanyMachine>>> AddCompanyMachine(CompanyMachineDTO companyMachineRequest)
     {
-        //Commented lines are used for the final product (Uses Id's instead of names to identify objects).
-
         CompanyMachine companyMachine = new CompanyMachine();
-        //companyMachine.Name = cMachineRequest.MachineName;
         companyMachine.Name = companyMachineRequest.Name;
 
-        //var machine = _database.Machines.FirstOrDefault(x => x.Id == cMachineRequest.MachineId)!;
         var machine = _database.Machines.FirstOrDefault(x => x.Name == companyMachineRequest.MachineName)!;
         if (machine == null) return NotFound("Machine does not exist.");
         companyMachine.MachineId = machine.Id;
 
-        //var company = _database.Companies.FirstOrDefault(x => x.Id == cMachineRequest.CompanyId)!;
         var company = _database.Companies.FirstOrDefault(x => x.Name == companyMachineRequest.CompanyName)!;
         if (company == null) return NotFound("Company does not exist.");
         companyMachine.CompanyId = company.Id;
