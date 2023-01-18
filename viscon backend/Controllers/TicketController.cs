@@ -19,16 +19,8 @@ public class TicketController : ControllerBase {
         return _database.Tickets.ToList();
     }
 
-    //Function that uses an adminId to find all Tickets claimed by the Admin.
-    [HttpGet ("{adminId}"), Authorize(Roles = "admin")]
-    public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
-        var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
-        if (admin == null) return NotFound("Admin does not exist.");
-        return _database.Tickets.Where(x => (x.AdminId == admin.Id) && (x.Completed == false)).ToList();
-    }
-
     //Function that uses an userId to find all Tickets created by the User that have not been Completed.
-    [HttpGet ("useropen{userId}"), Authorize(Roles = "admin, key user, user")]
+    [HttpGet ("useropen{userId}"), Authorize(Roles = "admin, key user")]
     public ActionResult<List<Ticket>> GetUserTickets(Guid userId) {
         var user = _database.Users.FirstOrDefault(x => x.Id == userId);
         if (user == null) return NotFound("User does not exist.");
@@ -36,11 +28,19 @@ public class TicketController : ControllerBase {
     }
 
     //Function that uses an userId to find all Tickets created by the User that have not been Completed.
-    [HttpGet ("userclosed{userId}"), Authorize(Roles = "admin, key user, user")]
+    [HttpGet ("userclosed{userId}"), Authorize(Roles = "admin, key user")]
     public ActionResult<List<Ticket>> GetClosedUserTickets(Guid userId) {
         var user = _database.Users.FirstOrDefault(x => x.Id == userId);
         if (user == null) return NotFound("User does not exist.");
         return _database.Tickets.Where(x => (x.UserId == userId) && (x.Completed == true)).ToList();
+    }
+
+    //Function that uses an adminId to find all Tickets claimed by the Admin.
+    [HttpGet ("{adminId}"), Authorize(Roles = "admin")]
+    public ActionResult<List<Ticket>> GetTicketsByAdmin(Guid adminId) {
+        var admin = _database.Users.FirstOrDefault(x => x.Id == adminId);
+        if (admin == null) return NotFound("Admin does not exist.");
+        return _database.Tickets.Where(x => (x.AdminId == admin.Id) && (x.Completed == false)).ToList();
     }
 
     //Function that returns all Unclaimed Tickets.
