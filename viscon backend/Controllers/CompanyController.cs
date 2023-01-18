@@ -45,4 +45,15 @@ public class CompanyController : ControllerBase {
         await _database.SaveChangesAsync();
         return Ok(await _database.Companies.ToListAsync());
     }
+
+    [HttpDelete("{companyId}"), Authorize(Roles = "admin")]
+    public async Task<ActionResult<User>> DeleteCompanyMachine(Guid companyId) {
+        var company = _database.Companies.FirstOrDefault(x => x.Id == companyId);
+        if (company == null) return BadRequest("User does not exist.");
+        
+        _database.Companies.Remove(company);
+        await _database.SaveChangesAsync();
+
+        return Ok(company);
+    }
 }

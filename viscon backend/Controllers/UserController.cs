@@ -24,6 +24,17 @@ public class Usercontroller : ControllerBase {
         return _database.Users.Where(x => x.FirstName.Contains(userInput) || x.LastName.Contains(userInput)).ToList();
 
     }
+
+    [HttpDelete("{userId}"), Authorize(Roles = "admin")]
+    public async Task<ActionResult<User>> DeleteUser(Guid userId) {
+        var user = _database.Users.FirstOrDefault(x => x.Id == userId);
+        if (user == null) return BadRequest("User does not exist.");
+        
+        _database.Users.Remove(user);
+        await _database.SaveChangesAsync();
+
+        return Ok(user);
+    }
 }
 
 

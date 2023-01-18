@@ -42,10 +42,16 @@ export const GetAllUsers = async () => {
 }
 
 //Gets user based on user input
-export const GetUsersNameNyInput = async (userInput : string) => {
+export const GetUsersNameByInput = async (userInput : string) => {
     const path = `/User/${userInput}`;
     let response = await axios.get(path)
     console.log(response.data);
     return(response.data);
 }
-//Gets user based on user input
+
+export const DeleteUser = async (userId: string) => {
+    const path = `/User/${userId}`;
+    let response = await axios.delete(path);
+    console.log(response.data);
+    return(response.data);
+}

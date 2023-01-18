@@ -23,3 +23,10 @@ export const GetCompanyFromId = async (companyId: string) => {
     console.log(response.data);
     return(response.data);
 }
+
+export const DeleteCompany = async (companyId: string) => {
+    const path = `/Company/${companyId}`;
+    let response = await axios.delete(path);
+    console.log(response.data);
+    return(response.data);
+}

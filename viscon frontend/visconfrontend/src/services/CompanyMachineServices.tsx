@@ -1,19 +1,6 @@
 import axios from "../axios";
 import { getUserId } from "./LocalStorageManager";
 
-//Function that takes a string as parameter and creates a Company Machine using that string as it's name.
-/*
-export const CreateCompanyMachine = async (machineName: string, machineId: string, companyId: string) => {
-    return await axios.post(`/CompanyMachine`, {
-        machineName: machineName,
-        machineId: machineId,
-        companyId: companyId,
-    })
-    .then(response => {
-        return response;
-    })
-}
-*/
 export const CreateCompanyMachine = async (name: string, machineName: string, companyName: string) => {
     return await axios.post(`/CompanyMachine`, {
         name: name,
@@ -45,6 +32,13 @@ export const GetCompanyMachineInfo = async (companyMachineId: string) => {
 export const GetAllMachines = async () => {
     const path = `/CompanyMachine`;
     let response = await axios.get(path)
+    console.log(response.data);
+    return(response.data);
+}
+
+export const DeleteCompanyMachine = async (companyMachineId: string) => {
+    const path = `/CompanyMachine/${companyMachineId}`;
+    let response = await axios.delete(path);
     console.log(response.data);
     return(response.data);
 }

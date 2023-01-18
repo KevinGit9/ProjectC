@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './UserManagement.css'
 import AdminTools from '../components/AdminTools'
-import { GetAllUsers } from '../services/UserServices';
+import { DeleteUser, GetAllUsers } from '../services/UserServices';
 import TableRow from '../components/TableRow';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function UserManagement(props) {
         title2 = "Lastname"
         title3 = "Role"
         TableRow =  {users.map((user, index) => {
-            return(<TableRow class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={user.firstName} row2={user.lastName} row3={user.role} entity = "User"/>)
+            return(<TableRow class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={user.firstName} row2={user.lastName} row3={user.role} id={user.id} func={DeleteUser} entity = "User"/>)
           })}
         
         />

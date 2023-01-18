@@ -1,6 +1,6 @@
 import AdminTools from '../components/AdminTools'
 import React, { useState, useEffect} from 'react';
-import { GetCompanies } from '../services/CompanyServices';
+import { DeleteCompany, GetCompanies } from '../services/CompanyServices';
 import TableRow from '../components/TableRow';
 import { useNavigate } from 'react-router-dom';
 import './UserManagement.css'
@@ -25,7 +25,7 @@ function CompanyManagement(props) {
         placeholder = "Search for company..."
         title1 = "Name"
         TableRow = {companies.map((company, index) => {
-            return(<TableRow class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={company.name} entity = "Company"/>)
+            return(<TableRow class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={company.name} id={company.id} func={DeleteCompany} entity = "Company"/>)
         })}
         />
         <button onClick={() => navigate("/admin")}> Back to Dashboard </button>
