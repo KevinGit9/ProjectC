@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GetCompanyFromId } from '../services/CompanyServices';
-import { getUserId } from '../services/LocalStorageManager';
+import { getUserId, getUserRole } from '../services/LocalStorageManager';
 import { GetMachineFromCompanyMachine } from '../services/MachineServices';
 import { ClaimTicket, CloseTicket, GetTicketInfo, ReplyToTicket } from '../services/TicketServices';
 import './TicketView.css';
@@ -47,7 +47,7 @@ function TicketView(props) {
         window.location.reload();
     }
 
-    return (props.open) ? (
+    if (getUserRole() === "admin") return (props.open) ? (
         <div className="dark">
             <div className="ticketView">
                 <div className="ticketViewHeader">
@@ -92,6 +92,44 @@ function TicketView(props) {
                 <div className="ticketViewButtons">
                     <button onClick={handleClaim}> Claim Ticket </button>
                     <button onClick={handleClose}> Close Ticket </button>
+                </div>
+            </div>
+        </div>
+    ) : null;
+    else return (props.open) ? (
+        <div className="dark">
+            <div className="ticketView">
+                <div className="ticketViewHeader">
+                    <span className="close" onClick={() => props.setOpen(false)}> &times; </span>
+                </div>
+                <div className="ticketViewPanel">
+                    <div className="ticketPanelTop">
+                        <p> Company: {company.name} <br />
+                            Name: {props.machine} <br />
+                            Machine: {machine.name} <br />
+                        </p>
+                        <p> Date: {ticket.date} </p>
+                    </div>
+                    <div className="ticketPanelMiddle">
+                        <p> Problem: <br />
+                            {ticket.fields[0]} <br />
+                            <br />
+                            Description: <br />
+                            {ticket.fields[1]} <br />
+                            <br />
+                            Additional Information: <br />
+                            {ticket.fields[2]} <br />
+                            <br />
+                        </p>
+                    </div>
+                    <div className="ticketReply">
+                        <p> Reply: <br />
+                            {ticket.reply} <br />
+                        </p>
+                    </div>
+                    <div className="ticketPanelFooter">
+                        <p> Status: {ticketStatus} </p>
+                    </div>
                 </div>
             </div>
         </div>
