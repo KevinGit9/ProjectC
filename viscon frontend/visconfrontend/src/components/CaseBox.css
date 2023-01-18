@@ -1,8 +1,9 @@
-.title-box{
+.title-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .h-vertical-menu {
     display: flex;
     justify-content: space-between;
@@ -43,7 +44,7 @@
     margin: 0px 20px;
 }
 
-.vertical-menu a{
+.vertical-menu a {
     background-color: #eee;
     color: black;
     display: block;
@@ -51,12 +52,19 @@
     text-decoration: none;
 
 }
+
 .vertical-menu a:hover {
     background-color: #ccc;
 }
 
-.title-box a.active{
+.title-box a.active {
     text-decoration: none;
     background-color: #2A6F97;
     color: white;
+}
+
+@media (max-width: 1200px) {
+    .title-box {
+        width: fit-content; 
+    }
 }
