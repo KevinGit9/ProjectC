@@ -87,3 +87,9 @@
 .show {
   display: block;
 }
+
+@media (max-width: 1200px) {
+  .orderedBoxes {
+      width: 100%;
+  }
+}

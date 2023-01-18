@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 50%;
 }
-  
+
 .accordion {
   display: flex;
   align-items: center;
@@ -19,9 +19,9 @@
   font-size: 15px;
   transition: 0.4s;
 }
-  
+
 .accordion:hover {
-  background-color: #ccc; 
+  background-color: #ccc;
 }
 
 .accordion:after {
@@ -53,4 +53,10 @@
   box-sizing: border-box;
   border: gainsboro 5px solid;
   padding-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .accordionContainer {
+    width: 100%;
+  }
 }

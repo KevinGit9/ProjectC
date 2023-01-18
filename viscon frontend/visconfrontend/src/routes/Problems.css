@@ -22,3 +22,9 @@
 .navButtons button:hover {
   background-color: #ccc;
 }
+
+@media (max-width: 1200px) {
+  .navButtons {
+    padding: 5% 0%;
+  }
+}

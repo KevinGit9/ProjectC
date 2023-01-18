@@ -69,3 +69,9 @@
 .ticketViewButtons button:hover {
     background-color: #ccc;
 }
+
+@media (max-width: 1200px) {
+    .ticketView {
+        width: 100%;
+    }
+}

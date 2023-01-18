@@ -1,10 +1,7 @@
 .submissionform {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    align-content: center;
 }
 
 .form {
@@ -47,7 +44,7 @@
 .noPermission button {
     background-color: #2A6F97;
     width: 30%;
-    height: 3rem;
+    height: 3%;
     border: none;
     color: #fff;
     border-radius: 2rem;

@@ -71,3 +71,11 @@
 .back-button:hover {
   background-color: #0076ce;
 }
+
+@media (max-width: 1200px) {
+  .login-layout {
+    margin-top: 50%;
+    margin-left: 0%;
+    max-width: 100%;
+  }
+}
