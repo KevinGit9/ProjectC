@@ -75,8 +75,8 @@ function Submitform() {
 
     function NoPermission() {
         return (
-            <div>
-                <header> No Permission </header>
+            <div className="noPermission">
+                <h1> No Permission </h1>
                 <p> Please contact a higher up in the company about the problem. </p>
                 <button onClick={() => navigate("/usermenu")}> Go Back to Menu. </button>
             </div>

@@ -24,19 +24,19 @@ function Admin() {
                 <Tiles 
                 svg = "icons/groups_black_24dp.svg" 
                 header = "Users" 
-                desc = "View and manage all your users"
+                desc = "View and manage all users"
                 click = {() => navigate("/usermanagement")}
                 buttontext = "View all users"/>
                 <Tiles 
                 svg = "icons/precision_manufacturing_black_24dp.svg" 
                 header = "Machines" 
-                desc = "View and manage all your machines"
+                desc = "View and manage all machines"
                 click = {() => navigate("/machinemanagement")}
                 buttontext = "View all machines"/>
                 <Tiles 
                 svg = "icons/engineering_black_24dp.svg" 
                 header = "Company" 
-                desc = "View and manage your company"
+                desc = "View and manage all companies"
                 click = {() => navigate("/companymanagement")}
                 buttontext = "View company info"/>
 

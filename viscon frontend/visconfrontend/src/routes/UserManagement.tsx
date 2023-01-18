@@ -32,7 +32,7 @@ function UserManagement(props) {
           })}
         
         />
-       <button onClick={() => navigate("/admin")}> Back </button>
+       <button onClick={() => navigate("/admin")}> Back to Dashboard </button>
     </div>
     );
 }

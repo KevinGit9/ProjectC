@@ -19,6 +19,8 @@ function NavigationBar() {
             <div className="navigationBarPanelButtons">
                 <a href="/home"> My Dashboard </a>
                 <a href="/usermanagement"> Manage Users </a>
+                <a href="/machinemanagement"> Manage Machines </a>
+                <a href="/companymanagement"> Manage Companies </a>
                 <a href="/registration"> Register User </a>
                 <a href="/usermenu"> User Menu </a>
             </div>

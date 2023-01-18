@@ -31,7 +31,7 @@ function MachineManagement(props) {
             return(<TableRowMachines class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={machine.companyId} row2={machine.name} row3={machine.id} entity = "Machine"/>)
         })}
         />
-        <button onClick={() => navigate("/admin")}> Back </button>
+        <button onClick={() => navigate("/admin")}> Back to Dashboard </button>
     </div>
     );
 }   

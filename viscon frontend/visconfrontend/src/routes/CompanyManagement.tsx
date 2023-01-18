@@ -28,7 +28,7 @@ function CompanyManagement(props) {
             return(<TableRow class={`rows ${index % 2 === 0 ? "even": "odd"}`} row1={company.name} entity = "Company"/>)
         })}
         />
-        <button onClick={() => navigate("/admin")}> Back </button>
+        <button onClick={() => navigate("/admin")}> Back to Dashboard </button>
     </div>
     );
 }   

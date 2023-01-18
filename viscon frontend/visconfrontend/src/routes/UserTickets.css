@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 2%;
+  font-size: 18px;
 }
 
 .userTickets button {

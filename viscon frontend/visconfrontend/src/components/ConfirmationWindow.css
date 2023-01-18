@@ -23,7 +23,7 @@
 }
 
 .confirmationWindowHeader {
-    background-color: #01152C;
+    background-color: #2A6F97;
     padding-right: 2%;
     padding-bottom: 1%;
     border-radius: 4px;
@@ -52,7 +52,7 @@
 
 /* Close Button */
 .close {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
