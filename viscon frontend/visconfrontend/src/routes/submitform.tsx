@@ -14,7 +14,6 @@ function Submitform() {
     function Submit() {
         //TODO: 
         //Add field in the Ticket Model which stores photos/videos.
-        //Add an optional field in which the User can add their phone number.
         const [field1, setField1] = useState("");
         const [field2, setField2] = useState("");
         const [field3, setField3] = useState("");
@@ -58,7 +57,7 @@ function Submitform() {
                             onChange={(e) => handleChange(e, setField2)}
                             value={field2}
                         />
-                        <p> Please enter any additional information. </p>
+                        <p> Please enter any additional information (e.g. phone number, email address). </p>
                         <input
                             type="text"
                             onChange={(e) => handleChange(e, setField3)}
