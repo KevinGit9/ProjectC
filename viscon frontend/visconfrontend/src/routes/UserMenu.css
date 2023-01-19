@@ -2,8 +2,9 @@
     letter-spacing: 4px;
     background-color: #fff;
 }
+
 /* circle pixels veranderen naar rem */
-.circle { 
+.circle {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,6 +13,7 @@
     background: #2F6690;
     clip-path: circle(37rem at right 60rem);
 }
+
 .masterContainer {
     margin: 3rem;
     position: relative;
@@ -21,6 +23,7 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .textBox {
     position: relative;
     /* margin-top: 16rem; deze zijn uitgeschakeld van wegen responsiveness op de telefoon
@@ -28,13 +31,15 @@
     /* width: 100%; */
     font-weight: 500;
 }
-.motto{
+
+.motto {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: left;
     /* max-height: 10rem; */
 }
+
 .motto h2 {
     font-size: 4em;
     font-weight: 900;
@@ -43,24 +48,28 @@
     font-family: 'Roboto Condensed', sans-serif;
     color: #16425B;
 }
-.motto h2 span{
+
+.motto h2 span {
     color: #111;
     font-size: 2em;
     font-weight: 1300px;
     letter-spacing: 5px;
 }
+
 .motto .exclamationMark {
     position: relative;
     margin-bottom: 10%;
     font-size: 160px;
     color: #2A6F97;
 }
+
 .mainButtonContainer {
     display: flex;
     flex-direction: row;
     align-items: left;
     text-align: center;
 }
+
 .mainButtonContainer button {
     margin: 0 2rem;
     background-color: #2A6F97;
@@ -75,14 +84,17 @@
     outline: none;
     position: relative;
 }
-.mainButtonContainer .btn-1{
-    background-color:#013A63;
+
+.mainButtonContainer .btn-1 {
+    background-color: #013A63;
 }
+
 .mainButtonContainer button:hover {
     color: #fff;
     cursor: pointer;
     transform: scale(1.2);
 }
+
 .mainButtonContainer button:before {
     transition: 0.5s all ease;
     position: absolute;
@@ -95,13 +107,22 @@
     background-color: #01497C;
     border-radius: 2rem;
 }
-.mainButtonContainer button:before{
+
+.mainButtonContainer button:before {
     background-color: #012A4A;
 }
+
 .mainButtonContainer button:hover:before {
     transition: 0.5s all ease;
     left: 0;
     right: 0;
     opacity: 1;
     z-index: -1;
+}
+
+
+@media (max-width: 1200px) {
+    .circle {
+        position: relative;
+    }
 }

@@ -45,13 +45,13 @@ function Submitform() {
                     <h1> Submission Form </h1>
                     <p> All fields with an * are required. </p>
                     <div className="form">
-                        <p> Please describe the behaviour you're expecting. * </p>
+                        <p> Please describe the behaviour you're seeing. *  </p>
                         <input
                             type="text"
                             onChange={(e) => handleChange(e, setField1)}
                             value={field1}
                         />
-                        <p> Please describe the behaviour you're seeing. * </p>
+                        <p> Please describe the behaviour you're expecting. * </p>
                         <input
                             type="text"
                             onChange={(e) => handleChange(e, setField2)}

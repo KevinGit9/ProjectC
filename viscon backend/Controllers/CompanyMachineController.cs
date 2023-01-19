@@ -18,7 +18,7 @@ public class CompanyMachineController : ControllerBase
     [HttpGet, Authorize(Roles = "admin")]
     public ActionResult<List<CompanyMachine>> Get()
     {
-        return _database.CompanyMachines.OrderBy(x => x.CompanyId).ThenBy(x => x.MachineId).ToList();
+        return _database.CompanyMachines.Where(x => (x.Name != "Software Issue") && (x.Name != "No Machine")).OrderBy(x => x.CompanyId).ThenBy(x => x.MachineId).ToList();
     }
 
     //Function that takes an userId, returns a list of Machines of the Company that the User is part of.
